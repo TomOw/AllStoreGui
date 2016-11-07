@@ -11,9 +11,28 @@ app.controller('TestCtrl', ['$scope', '$http', function ($scope, $http) {
             .success(function (response, status) {
                 console.log('z geta' + response.toString());
                 console.log('z geta' + response);
-                $scope.store = response.toString();
-                $scope.raw = response;
+                console.log(response);
+                $scope.store = response;
+                //$scope.raw = data;
             })
+    };
+
+    $scope.store = {
+        id: 0,
+        name: '',
+        rating: 0.0,
+        noOfOrdersMade: 0,
+        noOfRates: 0,
+        storeAddress: {
+            id: 0,
+            country: '',
+            city: '',
+            street: '',
+            number: '',
+            postalCode: ''
+        },
+        items: [],
+        orders: []
     };
 
     $scope.smth = 'gasg';
