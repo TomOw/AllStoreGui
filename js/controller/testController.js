@@ -16,4 +16,6 @@ app.controller('TestCtrl', ['$scope', '$http', function ($scope, $http) {
             })
     };
 
+    $scope.smth = 'gasg';
+
 }]);
