@@ -59,10 +59,25 @@
                     <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
                 </md-input-container>
 
-                <md-input-container>
-                    <label>Store</label>
+                <fieldset>
+                    <legend>Using &lt;md-checkbox&gt; with the 'indeterminate' attribute</legend>
+                    <div>
+                        <div>
+                            <md-checkbox aria-label="Select All"
+                                         ng-checked="isChecked()"
+                                         md-indeterminate="isIndeterminate()"
+                                         ng-click="toggleAll()">
+                                <span ng-if="isChecked()">Un-</span>Select All
+                            </md-checkbox>
+                        </div>
+                        <div ng-repeat="item in items">
+                            <md-checkbox ng-checked="exists(item, selected)" ng-click="toggle(item, selected)">
+                                {{ item }}
+                            </md-checkbox>
+                        </div>
+                    </div>
+                </fieldset>
 
-                </md-input-container>
             </div>
         </md-content>
 
