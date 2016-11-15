@@ -38,10 +38,15 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', function (
 
         $mdDialog.show(confirm).then(function(result) {
             $scope.newCategory = result;
-            $scope.categories.push(result);
             $scope.item.category = result;
+            if($scope.categories == undefined) {
+                $scope.categories = [];
+                $scope.categories.push(result);
+            } else {
+                $scope.categories.push(result);
+            }
         }, function() {
-            $scope.status = 'You didn\'t name your dog.';
+            $scope.status = '';
         });
     };
 
