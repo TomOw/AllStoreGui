@@ -14,7 +14,7 @@
 
     <md-button ng-click="getCategories()">update</md-button>
 
-    <md-button class="md-primary md-raised" ng-click="showPrompt($event)"  >
+    <md-button class="md-primary md-raised" ng-click="showPrompt($event)">
         Prompt Dialog
     </md-button>
 
@@ -28,8 +28,8 @@
                 </md-input-container>
 
                 <md-input-container class="input-add-item">
-                    <label>State</label>
-                    <md-select ng-model="item.category" style="width: 300px">
+                    <label>Category</label>
+                    <md-select ng-model="item.category">
                         <md-option ng-repeat="category in categories" value="{{category}}">
                             {{category}}
                         </md-option>
@@ -39,26 +39,29 @@
                     </md-select>
                 </md-input-container>
 
-                <md-input-container>
-                    <label>category</label>
-                    <input ng-model="user.email" type="text">
+                <md-input-container class="input-add-item">
+                    <label>Price</label>
+                    <input ng-model="item.price" type="number">
+                </md-input-container>
+
+                <md-input-container class="input-add-item">
+                    <label>Photo</label>
+                    <input ng-model="item.photo" type="text">
+                </md-input-container>
+
+                <md-input-container class="input-add-item">
+                    <label>Number Of Products In Stock</label>
+                    <input ng-model="item.noInStock" type="number">
+                </md-input-container>
+
+                <md-input-container class="input-add-item">
+                    <label>Description</label>
+                    <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
                 </md-input-container>
 
                 <md-input-container>
-                    <label>category</label>
-                    <input ng-model="user.email" type="text">
-                </md-input-container>
-                <md-input-container>
-                    <label>category</label>
-                    <input ng-model="user.email" type="text">
-                </md-input-container>
-                <md-input-container>
-                    <label>category</label>
-                    <input ng-model="user.email" type="text">
-                </md-input-container>
-                <md-input-container>
-                    <label>category</label>
-                    <input ng-model="user.email" type="text">
+                    <label>Store</label>
+
                 </md-input-container>
             </div>
         </md-content>
