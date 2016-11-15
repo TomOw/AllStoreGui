@@ -2,7 +2,7 @@
  * Created by Tomasz on 08.11.2016.
  */
 
-app.controller('ItemFormController', ['$scope', '$http', function ($scope, $http) {
+app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', function ($scope, $http, $mdDialog) {
 
     $scope.test = 'testMsg';
 
@@ -15,6 +15,34 @@ app.controller('ItemFormController', ['$scope', '$http', function ($scope, $http
                 $scope.store = response;
                 //$scope.raw = data;
             })
+    };
+
+    $scope.getCategories = function () {
+        $http.get('http://localhost:8080/categories')
+            .success(function (response, status) {
+                $scope.categories = response;
+            })
+    };
+
+    $scope.showPrompt = function(ev) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        var confirm = $mdDialog.prompt()
+            .title('Add new category')
+            .textContent('Type a name of new category')
+            .placeholder('Category')
+            .ariaLabel('Category')
+            .initialValue('New Category')
+            .targetEvent(ev)
+            .ok('Add')
+            .cancel('Cancel');
+
+        $mdDialog.show(confirm).then(function(result) {
+            $scope.newCategory = result;
+            $scope.categories.push(result);
+            $scope.item.category = result;
+        }, function() {
+            $scope.status = 'You didn\'t name your dog.';
+        });
     };
 
     $scope.store = {
