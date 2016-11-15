@@ -24,6 +24,13 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', function (
             })
     };
 
+    $scope.getStoreNames = function () {
+        $http.get('http://localhost:8080/storys')
+            .success(function (response, status) {
+                $scope.storeNames = response;
+            });
+    };
+
     $scope.showPrompt = function(ev) {
         // Appending dialog to document.body to cover sidenav in docs app
         var confirm = $mdDialog.prompt()
@@ -73,7 +80,7 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', function (
 
     //checkboxes
     $scope.items = [1,2,3,4,5];
-    $scope.selected = [1];
+    $scope.selected = [];
     $scope.toggle = function (item, list) {
         var idx = list.indexOf(item);
         if (idx > -1) {
@@ -88,21 +95,9 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', function (
         return list.indexOf(item) > -1;
     };
 
-    $scope.isIndeterminate = function() {
-        return ($scope.selected.length !== 0 &&
-        $scope.selected.length !== $scope.items.length);
-    };
 
     $scope.isChecked = function() {
-        return $scope.selected.length === $scope.items.length;
-    };
-
-    $scope.toggleAll = function() {
-        if ($scope.selected.length === $scope.items.length) {
-            $scope.selected = [];
-        } else if ($scope.selected.length === 0 || $scope.selected.length > 0) {
-            $scope.selected = $scope.items.slice(0);
-        }
+        return $scope.selected.length === $scope.storeNames.length;
     };
 
 

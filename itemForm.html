@@ -12,7 +12,9 @@
 </head>
 <body ng-cloak ng-controller="ItemFormController" class="md-padding" id="popupContainer">
 
-    <md-button ng-click="getCategories()">update</md-button>
+    <md-button ng-click="getCategories()">update Categories</md-button>
+
+    <md-button ng-click="getStoreNames()">update StoreNames</md-button>
 
     <md-button class="md-primary md-raised" ng-click="showPrompt($event)">
         Prompt Dialog
@@ -59,24 +61,14 @@
                     <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
                 </md-input-container>
 
-                <fieldset>
-                    <legend>Using &lt;md-checkbox&gt; with the 'indeterminate' attribute</legend>
-                    <div>
-                        <div>
-                            <md-checkbox aria-label="Select All"
-                                         ng-checked="isChecked()"
-                                         md-indeterminate="isIndeterminate()"
-                                         ng-click="toggleAll()">
-                                <span ng-if="isChecked()">Un-</span>Select All
-                            </md-checkbox>
-                        </div>
-                        <div ng-repeat="item in items">
-                            <md-checkbox ng-checked="exists(item, selected)" ng-click="toggle(item, selected)">
-                                {{ item }}
-                            </md-checkbox>
-                        </div>
+                <p>Choose stores</p>
+                <div>
+                    <div ng-repeat="storeName in storeNames">
+                        <md-checkbox ng-checked="exists(storeName, selected)" ng-click="toggle(storeName, selected)">
+                            {{ storeName }}
+                        </md-checkbox>
                     </div>
-                </fieldset>
+                </div>
 
             </div>
         </md-content>
