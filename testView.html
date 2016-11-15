@@ -6,6 +6,7 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body ng-cloak ng-controller="TestCtrl">
 
@@ -15,102 +16,104 @@
         <md-toolbar style="background-color: #80CBC4">
             <div>
                 <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/768px-Apple_logo_black.svg.png"
-                    style="height: 100px; width: 100px; margin: 15px;">
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/768px-Apple_logo_black.svg.png"
+                        style="height: 100px; width: 100px; margin: 15px;">
                 <h1 class="md-toolbar-tools" style="float: right">Sidenav Left</h1>
             </div>
         </md-toolbar>
 
-        <section layout="row" flex>
+        <div class="container">
+            <section layout="row" flex>
 
 
-            <md-sidenav
-                    class="md-sidenav-left"
-                    md-component-id="left"
-                    md-is-locked-open="$mdMedia('gt-md')"
-                    md-whiteframe="4">
+                <md-sidenav
+                        class="md-sidenav-left"
+                        md-component-id="left"
+                        md-is-locked-open="$mdMedia('gt-md')"
+                        md-whiteframe="4">
 
-                <md-content layout-padding ng-controller="LeftCtrl">
-                    <md-button ng-click="close()" class="md-primary" hide-gt-md>
-                        Close Sidenav Left
-                    </md-button>
-                    <p hide show-gt-md>
-                        This sidenav is locked open on your device. To go back to the default behavior,
-                        narrow your display.
-                    </p>
-                </md-content>
+                    <md-content layout-padding ng-controller="LeftCtrl">
+                        <md-button ng-click="close()" class="md-primary" hide-gt-md>
+                            Close Sidenav Left
+                        </md-button>
+                        <p hide show-gt-md>
+                            This sidenav is locked open on your device. To go back to the default behavior,
+                            narrow your display.
+                        </p>
+                    </md-content>
 
-            </md-sidenav>
+                </md-sidenav>
 
-            <md-content flex layout-padding>
+                <md-content flex layout-padding>
 
-                <md-card md-theme-watch>
-                    <md-card-title>
-                        <md-card-title-text>
-                            <span class="md-headline">{{store.name}}</span>
-                            <span class="md-subhead">{{store.storeAddress.city}}, {{store.storeAddress.street}}, {{store.storeAddress.number}}</span>
-                        </md-card-title-text>
-                        <md-card-title-media>
-                            <div class="md-media-lg card-media">
+                    <md-card md-theme-watch>
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">{{store.name}}</span>
+                                <span class="md-subhead">{{store.storeAddress.city}}, {{store.storeAddress.street}}, {{store.storeAddress.number}}</span>
+                            </md-card-title-text>
+                            <md-card-title-media>
+                                <div class="md-media-lg card-media">
+                                </div>
+                            </md-card-title-media>
+                        </md-card-title>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button ng-click="getStore()">Action 1</md-button>
+                            <md-button>Action 2</md-button>
+                        </md-card-actions>
+                    </md-card>
+
+                    <md-list flex>
+                        <md-subheader class="md-no-sticky">3 line item (with hover)</md-subheader>
+                        <md-list-item class="md-3-line" ng-repeat="item in store.items">
+                            <div class="md-list-item-text" layout="column">
+                                <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
+                                    <md-card-title>
+                                        <md-card-title-text>
+                                            <span class="md-headline">{{item.name}}</span>
+                                            <span class="md-subhead">{{item.price | currency: "$"}}</span>
+                                        </md-card-title-text>
+                                    </md-card-title>
+                                    <md-card-content layout="row" layout-align="space-between">
+                                        <div class="md-media-xl card-media">
+                                            <img ng-src="{{'http://cdn.macrumors.com/article-new/2015/02/iphone7lineup.jpg'}}?{{$index}}"
+                                                 style="width: auto; height: 200px" alt="{{item.photo}}"/>
+                                        </div>
+                                        <p>{{item.description}}</p>
+
+                                        <md-card-actions layout="column">
+                                            <md-button class="md-icon-button" aria-label="Favorite">
+                                                <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+                                            </md-button>
+                                            <md-button class="md-icon-button" aria-label="Settings">
+                                                <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+                                            </md-button>
+                                            <md-button class="md-icon-button" aria-label="Share">
+                                                <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
+                                            </md-button>
+                                        </md-card-actions>
+                                    </md-card-content>
+                                </md-card>
                             </div>
-                        </md-card-title-media>
-                    </md-card-title>
-                    <md-card-actions layout="row" layout-align="end center">
-                        <md-button ng-click="getStore()">Action 1</md-button>
-                        <md-button>Action 2</md-button>
-                    </md-card-actions>
-                </md-card>
-
-                <md-list flex>
-                    <md-subheader class="md-no-sticky">3 line item (with hover)</md-subheader>
-                    <md-list-item class="md-3-line" ng-repeat="item in store.items">
-                        <div class="md-list-item-text" layout="column">
-                            <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
-                                <md-card-title>
-                                    <md-card-title-text>
-                                        <span class="md-headline">{{item.name}}</span>
-                                        <span class="md-subhead">{{item.price | currency: "$"}}</span>
-                                    </md-card-title-text>
-                                </md-card-title>
-                                <md-card-content layout="row" layout-align="space-between">
-                                    <div class="md-media-xl card-media">
-                                        <img ng-src="{{'http://cdn.macrumors.com/article-new/2015/02/iphone7lineup.jpg'}}?{{$index}}"
-                                             style="width: auto; height: 200px" alt="{{item.photo}}"/>
-                                    </div>
-                                    <p>{{item.description}}</p>
-
-                                    <md-card-actions layout="column">
-                                        <md-button class="md-icon-button" aria-label="Favorite">
-                                            <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
-                                        </md-button>
-                                        <md-button class="md-icon-button" aria-label="Settings">
-                                            <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-                                        </md-button>
-                                        <md-button class="md-icon-button" aria-label="Share">
-                                            <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
-                                        </md-button>
-                                    </md-card-actions>
-                                </md-card-content>
-                            </md-card>
-                        </div>
-                    </md-list-item>
-                </md-list>
+                        </md-list-item>
+                    </md-list>
 
 
-                <div flex></div>
-            </md-content>
-        </section>
+                    <div flex></div>
+                </md-content>
+            </section>
+        </div>
     </div>
 
 
-    <div>{{test}}</div>
+<!--    <div>{{test}}</div>
     <br>
     <input type="text" ng-model="test">
     <br>
     <div>{{store}}</div>
     <br>
     <div>{{raw}}</div>
-    <br>
+    <br>-->
     <md-button ng-click="getStore()">get Store</md-button>
 
     Store.name = {{store.name}}
