@@ -58,7 +58,7 @@
 
                 <md-input-container class="input-add-item">
                     <label>Description</label>
-                    <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                    <textarea ng-model="item.description" md-maxlength="150" rows="5" md-select-on-focus></textarea>
                 </md-input-container>
 
                 <p>Choose stores</p>
@@ -72,6 +72,8 @@
 
             </div>
         </md-content>
+
+        <md-button class="md-primary md-raised" ng-click="serviceTest()">Send <md-icon>send</md-icon></md-button>
 
         <div style="visibility: hidden">
             <div class="md-dialog-container" id="myDialog">
@@ -169,6 +171,7 @@
     <!-- Your application bootstrap  -->
     <script src="js/app.js"></script>
     <script src="js/controller/ItemFormController.js"></script>
+    <script src="js/service/itemService.js"></script>
 
 </body>
 </html>

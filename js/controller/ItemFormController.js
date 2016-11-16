@@ -2,7 +2,7 @@
  * Created by Tomasz on 08.11.2016.
  */
 
-app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', function ($scope, $http, $mdDialog) {
+app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'itemService', function ($scope, $http, $mdDialog, itemService) {
 
     $scope.test = 'testMsg';
 
@@ -75,6 +75,8 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', function (
         orders: []
     };
 
+    $scope.item = {};
+
     $scope.smth = 'gasg';
 
 
@@ -100,5 +102,8 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', function (
         return $scope.selected.length === $scope.storeNames.length;
     };
 
+    $scope.serviceTest = function () {
+        itemService.sendItem($scope.item, 'eigth');
+    }
 
 }]);
