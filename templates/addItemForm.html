@@ -24,7 +24,7 @@
                             {{category}}
                         </md-option>
                         <md-option>
-                            <md-button ng-click="showPrompt($event)">add</md-button>
+                            <md-button ng-click="showPromptNewCategory($event)">add <md-icon>add</md-icon></md-button>
                         </md-option>
                     </md-select>
                 </md-input-container>
@@ -52,7 +52,7 @@
                 <p>Choose stores</p>
                 <div>
                     <div ng-repeat="storeName in storeNames">
-                        <md-checkbox style="margin-left: 25px" ng-checked="exists(storeName, selected)" ng-click="toggle(storeName, selected)">
+                        <md-checkbox style="margin-left: 25px; width: 300px" ng-checked="exists(storeName, selected)" ng-click="toggle(storeName, selected)">
                             {{ storeName }}
                         </md-checkbox>
                     </div>
@@ -61,7 +61,7 @@
             </div>
         </md-content>
 
-        <md-button class="md-primary md-raised" ng-click="serviceTest()">Send
+        <md-button class="md-primary md-raised" ng-click="send()">Send
             <md-icon>send</md-icon>
         </md-button>
 

@@ -16,8 +16,8 @@ app.service('itemService', ['$http', function ($http) {
         }
     };
 
-    this.consoleTest = function () {
-        console.log('z serwisu');
+    this.consoleTest = function (text) {
+        console.log('z serwisu' + text);
     };
 
     this.sendItem = function (item, storeName) {
@@ -26,6 +26,12 @@ app.service('itemService', ['$http', function ($http) {
                 console.log(response);
             })
     };
+
+    this.sendItems = function (item, stores) {
+        for (var i = 0; i < stores.length; i++){
+            this.sendItem(item, stores[i]);
+        }
+    }
 
 
 }]);

@@ -17,12 +17,17 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'itemServi
             })
     };
 
+
+
     $scope.getCategories = function () {
         $http.get('http://localhost:8080/categories')
             .success(function (response, status) {
                 $scope.categories = response;
+                return response;
             })
     };
+
+    $scope.initCategories = $scope.getCategories();
 
     $scope.getStoreNames = function () {
         $http.get('http://localhost:8080/storys')
@@ -31,7 +36,9 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'itemServi
             });
     };
 
-    $scope.showPrompt = function(ev) {
+    $scope.initStores = $scope.getStoreNames();
+
+    $scope.showPromptNewCategory = function(ev) {
         // Appending dialog to document.body to cover sidenav in docs app
         var confirm = $mdDialog.prompt()
             .title('Add new category')
@@ -102,8 +109,8 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'itemServi
         return $scope.selected.length === $scope.storeNames.length;
     };
 
-    $scope.serviceTest = function () {
-        itemService.sendItem($scope.item, 'eigth');
+    $scope.send = function () {
+        itemService.sendItems($scope.item, $scope.selected);
     }
 
 }]);
