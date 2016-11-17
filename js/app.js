@@ -8,6 +8,10 @@ var app = angular.module('BlankApp', ['ngMaterial', 'ngRoute'])
 
 app.config(function ($routeProvider) {
     $routeProvider
+        .when('/addItem', {
+            templateUrl: 'templates/addItemForm.html',
+            controller: 'ItemFormController'
+        })
         .when('/', {
             templateUrl: 'templates/first.html'
         })
@@ -17,4 +21,4 @@ app.config(function ($routeProvider) {
         .otherwise({
             template: '<h1>otherwise template</h1>'
         })
-})
+});

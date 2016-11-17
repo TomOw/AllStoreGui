@@ -1,0 +1,73 @@
+<div class="md-padding" id="popupContainer">
+
+    <md-button ng-click="getCategories()">update Categories</md-button>
+
+    <md-button ng-click="getStoreNames()">update StoreNames</md-button>
+
+    <md-button class="md-primary md-raised" ng-click="showPrompt($event)">
+        Prompt Dialog
+    </md-button>
+
+
+    <div class="container">
+        <md-content class="row">
+            <div>
+                <md-input-container class="input-add-item">
+                    <label>Name</label>
+                    <input ng-model="item.name" type="text">
+                </md-input-container>
+
+                <md-input-container class="input-add-item">
+                    <label>Category</label>
+                    <md-select ng-model="item.category">
+                        <md-option ng-repeat="category in categories" value="{{category}}">
+                            {{category}}
+                        </md-option>
+                        <md-option>
+                            <md-button ng-click="showPrompt($event)">add</md-button>
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="input-add-item">
+                    <label>Price</label>
+                    <input ng-model="item.price" type="number">
+                </md-input-container>
+
+                <md-input-container class="input-add-item">
+                    <label>Photo</label>
+                    <input ng-model="item.photo" type="text">
+                </md-input-container>
+
+                <md-input-container class="input-add-item">
+                    <label>Number Of Products In Stock</label>
+                    <input ng-model="item.noInStock" type="number">
+                </md-input-container>
+
+                <md-input-container class="input-add-item">
+                    <label>Description</label>
+                    <textarea ng-model="item.description" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                </md-input-container>
+
+                <p>Choose stores</p>
+                <div>
+                    <div ng-repeat="storeName in storeNames">
+                        <md-checkbox style="margin-left: 25px" ng-checked="exists(storeName, selected)" ng-click="toggle(storeName, selected)">
+                            {{ storeName }}
+                        </md-checkbox>
+                    </div>
+                </div>
+
+            </div>
+        </md-content>
+
+        <md-button class="md-primary md-raised" ng-click="serviceTest()">Send
+            <md-icon>send</md-icon>
+        </md-button>
+
+        <div style="visibility: hidden">
+            <div class="md-dialog-container" id="myDialog">
+            </div>
+        </div>
+    </div>
+</div>
