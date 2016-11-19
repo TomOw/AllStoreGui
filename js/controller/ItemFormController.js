@@ -7,7 +7,7 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'itemServi
     $scope.test = 'testMsg';
 
     $scope.getStore = function () {
-        $http.get('http://localhost:8080/store/eigth')
+        $http.get('http://localhost:8080/store/store')
             .success(function (response, status) {
                 console.log('z geta' + response.toString());
                 console.log('z geta' + response);
@@ -82,7 +82,22 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'itemServi
         orders: []
     };
 
-    $scope.item = {};
+/*    $scope.item = {
+        id: null,
+        name: null,
+        price: null,
+        category: null,
+        description: null,
+        photo: null,
+        noInStock: null,
+        avgRating: 0,
+        upVotes: 0,
+        downVotes: 0,
+        views: 0,
+        store: null,
+        reviews: [],
+        orders: []
+    };*/
 
     $scope.smth = 'gasg';
 

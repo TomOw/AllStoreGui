@@ -1,17 +1,11 @@
 <div class="md-padding" id="popupContainer">
 
-    <md-button ng-click="getCategories()">update Categories</md-button>
-
-    <md-button ng-click="getStoreNames()">update StoreNames</md-button>
-
-    <md-button class="md-primary md-raised" ng-click="showPrompt($event)">
-        Prompt Dialog
-    </md-button>
+    <h1 class="form-header">Add new product</h1>
 
 
     <div class="container">
         <md-content class="row">
-            <div>
+            <div class="col l9 m10 s12">
                 <md-input-container class="input-add-item">
                     <label>Name</label>
                     <input ng-model="item.name" type="text">

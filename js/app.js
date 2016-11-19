@@ -15,8 +15,9 @@ app.config(function ($routeProvider) {
         .when('/', {
             templateUrl: 'templates/first.html'
         })
-        .when('/second', {
-            templateUrl: 'templates/second.html'
+        .when('/store', {
+            templateUrl: 'templates/itemsInStore.html',
+            controller: 'StoreController'
         })
         .otherwise({
             template: '<h1>otherwise template</h1>'
