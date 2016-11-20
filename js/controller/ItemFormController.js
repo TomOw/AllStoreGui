@@ -2,11 +2,11 @@
  * Created by Tomasz on 08.11.2016.
  */
 
-app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'itemService', function ($scope, $http, $mdDialog, itemService) {
+app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'itemService', 'StoreService', function ($scope, $http, $mdDialog, itemService, StoreService) {
 
     $scope.test = 'testMsg';
 
-    $scope.getStore = function () {
+/*    $scope.getStore = function () {
         $http.get('http://localhost:8080/store/Apple')
             .success(function (response, status) {
                 console.log('z geta' + response.toString());
@@ -15,7 +15,7 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'itemServi
                 $scope.store = response;
                 //$scope.raw = data;
             })
-    };
+    };*/
 
 
 
@@ -27,16 +27,21 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'itemServi
             })
     };
 
-    $scope.initCategories = $scope.getCategories();
+    $scope.getCategories();
 
-    $scope.getStoreNames = function () {
+/*    $scope.getStoreNames = function () {
         $http.get('http://localhost:8080/storys')
             .success(function (response, status) {
                 $scope.storeNames = response;
             });
-    };
+    };*/
 
-    $scope.initStores = $scope.getStoreNames();
+    //$scope.getStoreNames();
+
+    StoreService.getStoreNames().then(function(result){
+        $scope.storeNames = result;
+    });
+
 
     $scope.showPromptNewCategory = function(ev) {
         // Appending dialog to document.body to cover sidenav in docs app
@@ -126,6 +131,6 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'itemServi
 
     $scope.send = function () {
         itemService.sendItems($scope.item, $scope.selected);
-    }
+    };
 
 }]);

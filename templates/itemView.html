@@ -42,8 +42,8 @@
                                  layout-align="center center">
                                 <div>A</div>
                             </div>
-                            <div class="md-list-item-text" layout="row">
-                                <div layout="column" flex="33">
+                            <div class="md-list-item-text" layout="row" layout-xs="column">
+                                <div layout="column" flex-gt-xs="33" flex>
                                     <div style="font-size: 25px">
                                         {{offer.storeName}}
                                     </div>
@@ -51,14 +51,16 @@
                                         {{offer.storeCountry}}, {{offer.storeCity}}
                                     </div>
                                 </div>
-                                <div flex="33" style="font-size: 35px">
+                                <div flex-gt-xs="33" flex style="font-size: 35px">
                                     {{offer.itemPrice | currency}}
                                 </div>
-                                <div flex="33">
+                                <div flex-gt-xs="20" flex>
                                     <md-button class="md-primary md-raised">BUY NOW</md-button>
                                 </div>
+                                <div flex-gt-xs="14" flex style="height: 15px"></div>
 
                             </div>
+                            <md-divider></md-divider>
                         </md-list-item>
                     </md-list>
                 </md-content>
@@ -66,12 +68,8 @@
             <md-tab label="About this product">
                 <md-content class="md-padding">
                     <h1 class="md-display-2">About this product</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus
-                        volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium
-                        ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam
-                        erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor
-                        sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue
-                        ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et.
+                    <p>
+                        {{single.description}}
                     </p>
                 </md-content>
             </md-tab>
@@ -80,3 +78,13 @@
                     <h1 class="md-display-2">Reviews</h1>
                     <p>{{fooMsg}}</p>
                 </md-content>
+            </md-tab>
+            <md-tab label="Add Review">
+                <md-content class="md-padding">
+                    <h1 class="md-display-2">Add review</h1>
+                    <p>{{fooMsg}}</p>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>
