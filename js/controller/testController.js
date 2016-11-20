@@ -7,7 +7,7 @@ app.controller('StoreController', ['$scope', '$http', function ($scope, $http) {
     $scope.test = 'testMsg';
 
     $scope.getStore = function () {
-        $http.get('http://localhost:8080/store/store')
+        $http.get('http://localhost:8080/store/Apple')
             .success(function (response, status) {
                 console.log('z geta' + response.toString());
                 console.log('z geta' + response);
@@ -22,6 +22,10 @@ app.controller('StoreController', ['$scope', '$http', function ($scope, $http) {
             .success(function (response, status) {
 
             })
+    };
+
+    $scope.consoletest2 = function () {
+        console.log('mdinkriple');
     };
 
     $scope.store = {

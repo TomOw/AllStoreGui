@@ -7,7 +7,7 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'itemServi
     $scope.test = 'testMsg';
 
     $scope.getStore = function () {
-        $http.get('http://localhost:8080/store/store')
+        $http.get('http://localhost:8080/store/Apple')
             .success(function (response, status) {
                 console.log('z geta' + response.toString());
                 console.log('z geta' + response);

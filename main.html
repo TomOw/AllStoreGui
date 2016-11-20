@@ -28,29 +28,8 @@
         <div class="container">
             <section layout="row" flex>
 
-                <md-sidenav style="min-height:100vh; width: 25%; margin-top: 10px"
-                            class="md-sidenav-left"
-                            md-component-id="left"
-                            md-is-locked-open="$mdMedia('gt-md')"
-                            md-whiteframe="4">
+                <ng-view></ng-view>
 
-                    <md-content layout-padding ng-controller="LeftCtrl">
-                        <md-button ng-click="close()" class="md-primary" hide-gt-md>
-                            Close Sidenav Left
-                        </md-button>
-                        <p hide show-gt-md>
-                            Feel free to add some products to our database
-                        </p>
-                    </md-content>
-
-                </md-sidenav>
-
-                <md-content flex>
-
-                    <!-- container -->
-                    <ng-view></ng-view>
-
-                </md-content>
             </section>
         </div>
     </div>
