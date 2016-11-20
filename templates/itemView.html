@@ -1,0 +1,56 @@
+<div class="container">
+    <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{item.name}}</span>
+                <span class="md-subhead">{{item.price | currency: "$"}}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content layout="row" layout-align="space-between">
+            <div class="md-media-xl card-media">
+                <img ng-src="{{item.photo}}?{{$index}}"
+                     style="width: 200px; height: auto" alt="{{item.photo}}"/>
+            </div>
+            <p>{{item.description}}</p>
+            <p>views: {{item.views}}</p>
+            <p>id: {{item.id}}</p>
+
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-click="viewUp(item.id)">View Up</md-button>
+            <md-button>Action 2</md-button>
+        </md-card-actions>
+    </md-card>
+
+    <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="one">
+                <md-content class="md-padding">
+                    <h1 class="md-display-2">Tab One</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus
+                        volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium
+                        ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+                </md-content>
+            </md-tab>
+            <md-tab label="two">
+                <md-content class="md-padding">
+                    <h1 class="md-display-2">Tab Two</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus
+                        volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium
+                        ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam
+                        erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor
+                        sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue
+                        ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et.
+                    </p>
+                </md-content>
+            </md-tab>
+            <md-tab label="three">
+                <md-content class="md-padding">
+                    <h1 class="md-display-2">Tab Three</h1>
+                    <p>{{fooMsg}}</p>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+
+</div>

@@ -19,6 +19,10 @@ app.config(function ($routeProvider) {
             templateUrl: 'templates/itemsInStore.html',
             controller: 'StoreController'
         })
+        .when('/item', {
+            templateUrl: 'templates/itemView.html',
+            controller: 'ItemController'
+        })
         .otherwise({
             template: '<h1>otherwise template</h1>'
         })
