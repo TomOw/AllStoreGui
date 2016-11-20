@@ -19,7 +19,7 @@ app.config(function ($routeProvider) {
             templateUrl: 'templates/itemsInStore.html',
             controller: 'StoreController'
         })
-        .when('/item', {
+        .when('/item/:itemId', {
             templateUrl: 'templates/itemView.html',
             controller: 'ItemController'
         })

@@ -2,22 +2,22 @@
     <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">{{item.name}}</span>
-                <span class="md-subhead">{{item.price | currency: "$"}}</span>
+                <span class="md-headline">{{single.name}}</span>
+                <span class="md-subhead">{{single.price | currency: "$"}}</span>
             </md-card-title-text>
         </md-card-title>
         <md-card-content layout="row" layout-align="space-between">
             <div class="md-media-xl card-media">
-                <img ng-src="{{item.photo}}?{{$index}}"
-                     style="width: 200px; height: auto" alt="{{item.photo}}"/>
+                <img ng-src="{{single.photo}}"
+                     style="width: 200px; height: auto"/>
             </div>
-            <p>{{item.description}}</p>
-            <p>views: {{item.views}}</p>
-            <p>id: {{item.id}}</p>
+            <p>{{single.description}}</p>
+            <p>views: {{single.views}}</p>
+            <p>id: {{single.id}}</p>
 
         </md-card-content>
         <md-card-actions layout="row" layout-align="end center">
-            <md-button ng-click="viewUp(item.id)">View Up</md-button>
+            <md-button ng-click="getItemById()">Get</md-button>
             <md-button>Action 2</md-button>
         </md-card-actions>
     </md-card>
@@ -49,8 +49,4 @@
                     <h1 class="md-display-2">Tab Three</h1>
                     <p>{{fooMsg}}</p>
                 </md-content>
-            </md-tab>
-        </md-tabs>
-    </md-content>
-
-</div>
+  >
