@@ -3,38 +3,69 @@
         <md-card-title>
             <md-card-title-text>
                 <span class="md-headline">{{single.name}}</span>
-                <span class="md-subhead">{{single.price | currency: "$"}}</span>
             </md-card-title-text>
         </md-card-title>
-        <md-card-content layout="row" layout-align="space-between">
-            <div class="md-media-xl card-media">
+        <md-card-content layout-gt-xs="row">
+            <div class="md-media-xl card-media" flex="40">
                 <img ng-src="{{single.photo}}"
-                     style="width: 200px; height: auto"/>
+                     style="width: 250px; height: auto"/>
             </div>
-            <p>{{single.description}}</p>
-            <p>views: {{single.views}}</p>
-            <p>id: {{single.id}}</p>
+            <div layout="column" flex="100" flex-gt-sm="60" layout-align="start start">
+                <div style="font-size: 30px; font-weight: 200; margin-top: 0px; margin-bottom: 25px">The best offer in:
+                    {{cheapest.storeName}}
+                </div>
+                <div style="font-size: 30px; font-weight: 400; margin-top: 0px">
+                    {{cheapest.itemPrice | currency}}
+                    <md-button class="md-primary md-raised" ng-click="">BUY NOW</md-button>
+                </div>
+                <div>
+                    Rating: {{single.avgRating}},
+                </div>
+            </div>
 
         </md-card-content>
         <md-card-actions layout="row" layout-align="end center">
             <md-button ng-click="getItemById()">Get</md-button>
-            <md-button>Action 2</md-button>
+            <md-button ng-click="getCheapestOffer()">Offer</md-button>
+            <md-button ng-click="getOffers()">All offers</md-button>
         </md-card-actions>
     </md-card>
 
     <md-content>
         <md-tabs md-dynamic-height md-border-bottom>
-            <md-tab label="one">
+            <md-tab label="Offers">
                 <md-content class="md-padding">
-                    <h1 class="md-display-2">Tab One</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus
-                        volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium
-                        ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+                    <h1 class="md-display-2">Offers</h1>
+                    <md-list flex>
+                        <md-list-item class="md-3-line" ng-repeat="offer in offers">
+                            <div class="md-avatar" style="background-color: #B2DFDB" layout="row"
+                                 layout-align="center center">
+                                <div>A</div>
+                            </div>
+                            <div class="md-list-item-text" layout="row">
+                                <div layout="column" flex="33">
+                                    <div style="font-size: 25px">
+                                        {{offer.storeName}}
+                                    </div>
+                                    <div style="font-size: 15px">
+                                        {{offer.storeCountry}}, {{offer.storeCity}}
+                                    </div>
+                                </div>
+                                <div flex="33" style="font-size: 35px">
+                                    {{offer.itemPrice | currency}}
+                                </div>
+                                <div flex="33">
+                                    <md-button class="md-primary md-raised">BUY NOW</md-button>
+                                </div>
+
+                            </div>
+                        </md-list-item>
+                    </md-list>
                 </md-content>
             </md-tab>
-            <md-tab label="two">
+            <md-tab label="About this product">
                 <md-content class="md-padding">
-                    <h1 class="md-display-2">Tab Two</h1>
+                    <h1 class="md-display-2">About this product</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus
                         volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium
                         ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam
@@ -44,9 +75,8 @@
                     </p>
                 </md-content>
             </md-tab>
-            <md-tab label="three">
+            <md-tab label="Reviews">
                 <md-content class="md-padding">
-                    <h1 class="md-display-2">Tab Three</h1>
+                    <h1 class="md-display-2">Reviews</h1>
                     <p>{{fooMsg}}</p>
                 </md-content>
-  >
