@@ -40,7 +40,7 @@
                         <md-list-item class="md-3-line" ng-repeat="offer in offers">
                             <div class="md-avatar" style="background-color: #B2DFDB" layout="row"
                                  layout-align="center center">
-                                <div>A</div>
+                                <div>{{offer.storeName | capitalizeFirst}}</div>
                             </div>
                             <div class="md-list-item-text" layout="row" layout-xs="column">
                                 <div layout="column" flex-gt-xs="33" flex>

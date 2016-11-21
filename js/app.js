@@ -27,3 +27,11 @@ app.config(function ($routeProvider) {
             template: '<h1>otherwise template</h1>'
         })
 });
+
+app.filter('capitalizeFirst', function () {
+    return function (input) {
+        var char = input.charAt(0);
+        char = char.toUpperCase();
+        return char;
+    }
+});
