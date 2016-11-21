@@ -1,7 +1,9 @@
 /**
  * Created by Tomasz on 16.11.2016.
  */
-app.service('itemService', ['$http', function ($http) {
+app.service('ItemService', ['$http', function ($http) {
+
+    var url = 'http://localhost:8080/';
 
     this.getEmptyItem = function () {
         return {
@@ -31,7 +33,28 @@ app.service('itemService', ['$http', function ($http) {
         for (var i = 0; i < stores.length; i++){
             this.sendItem(item, stores[i]);
         }
-    }
+    };
+
+    this.getCheapestOffer = function (itemName) {
+        return $http.get(url + '/item/cheapest/' + itemName)
+            .then(function success (response, status) {
+                return response.data;
+            })
+    };
+
+    this.getOffers = function (itemName) {
+        return $http.get(url + '/item/offers/' + itemName)
+            .then(function success(response, status) {
+                return response.data;
+            })
+    };
+
+    this.getItemById = function (id) {
+        return $http.get(url + '/item/' + id)
+            .then(function success(response, status) {
+                return response.data;
+            })
+    };
 
 
 }]);

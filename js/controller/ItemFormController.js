@@ -2,7 +2,7 @@
  * Created by Tomasz on 08.11.2016.
  */
 
-app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'itemService', 'StoreService', function ($scope, $http, $mdDialog, itemService, StoreService) {
+app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'ItemService', 'StoreService', function ($scope, $http, $mdDialog, ItemService, StoreService) {
 
     $scope.test = 'testMsg';
 
