@@ -6,44 +6,18 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'ItemServi
 
     $scope.test = 'testMsg';
 
-/*    $scope.getStore = function () {
-        $http.get('http://localhost:8080/store/Apple')
-            .success(function (response, status) {
-                console.log('z geta' + response.toString());
-                console.log('z geta' + response);
-                console.log(response);
-                $scope.store = response;
-                //$scope.raw = data;
-            })
-    };*/
+
+    StoreService.getCategories().then(function (result) {
+        $scope.categories = result;
+    });
 
 
-
-    $scope.getCategories = function () {
-        $http.get('http://localhost:8080/categories')
-            .success(function (response, status) {
-                $scope.categories = response;
-                return response;
-            })
-    };
-
-    $scope.getCategories();
-
-/*    $scope.getStoreNames = function () {
-        $http.get('http://localhost:8080/storys')
-            .success(function (response, status) {
-                $scope.storeNames = response;
-            });
-    };*/
-
-    //$scope.getStoreNames();
-
-    StoreService.getStoreNames().then(function(result){
+    StoreService.getStoreNames().then(function (result) {
         $scope.storeNames = result;
     });
 
 
-    $scope.showPromptNewCategory = function(ev) {
+    $scope.showPromptNewCategory = function (ev) {
         // Appending dialog to document.body to cover sidenav in docs app
         var confirm = $mdDialog.prompt()
             .title('Add new category')
@@ -55,16 +29,16 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'ItemServi
             .ok('Add')
             .cancel('Cancel');
 
-        $mdDialog.show(confirm).then(function(result) {
+        $mdDialog.show(confirm).then(function (result) {
             $scope.newCategory = result;
             $scope.item.category = result;
-            if($scope.categories == undefined) {
+            if ($scope.categories == undefined) {
                 $scope.categories = [];
                 $scope.categories.push(result);
             } else {
                 $scope.categories.push(result);
             }
-        }, function() {
+        }, function () {
             $scope.status = '';
         });
     };
@@ -87,28 +61,11 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'ItemServi
         orders: []
     };
 
-/*    $scope.item = {
-        id: null,
-        name: null,
-        price: null,
-        category: null,
-        description: null,
-        photo: null,
-        noInStock: null,
-        avgRating: 0,
-        upVotes: 0,
-        downVotes: 0,
-        views: 0,
-        store: null,
-        reviews: [],
-        orders: []
-    };*/
-
     $scope.smth = 'gasg';
 
 
     //checkboxes
-    $scope.items = [1,2,3,4,5];
+    $scope.items = [1, 2, 3, 4, 5];
     $scope.selected = [];
     $scope.toggle = function (item, list) {
         var idx = list.indexOf(item);
@@ -125,7 +82,7 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'ItemServi
     };
 
 
-    $scope.isChecked = function() {
+    $scope.isChecked = function () {
         return $scope.selected.length === $scope.storeNames.length;
     };
 

@@ -19,5 +19,12 @@ app.service('StoreService', ['$http', function ($http) {
             })
     };
 
+    this.getCategories = function () {
+        return $http.get('http://localhost:8080/categories')
+            .then(function  success(response, status) {
+                return response.data;
+            })
+    }
+
 
 }]);
