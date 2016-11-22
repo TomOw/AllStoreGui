@@ -24,7 +24,7 @@ app.service('StoreService', ['$http', function ($http) {
             .then(function  success(response, status) {
                 return response.data;
             })
-    }
+    };
 
 
 }]);

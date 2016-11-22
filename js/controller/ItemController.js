@@ -1,7 +1,7 @@
 /**
  * Created by Tomasz on 19.11.2016.
  */
-app.controller('ItemController', ['$scope', '$http', '$routeParams', 'ItemService', function ($scope, $http, $routeParams, ItemService) {
+app.controller('ItemController', ['$scope', '$http', '$routeParams', 'ItemService', 'ReviewService', function ($scope, $http, $routeParams, ItemService, ReviewService) {
 
     var url = 'http://localhost:8080';
 
@@ -20,6 +20,11 @@ app.controller('ItemController', ['$scope', '$http', '$routeParams', 'ItemServic
                     ItemService.getOffers($scope.single.name).then(function (result) {
                         $scope.offers = result;
                     })
+                        .then(function (result) {
+                            ReviewService.getReviews($scope.single.name).then(function (result) {
+                                $scope.reviews = result
+                            })
+                        })
                 })
         });
 
