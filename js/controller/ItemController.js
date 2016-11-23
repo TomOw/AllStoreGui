@@ -26,4 +26,11 @@ app.controller('ItemController', ['$scope', '$http', '$routeParams', 'ItemServic
                 })
         });
 
+    $scope.newReview = {
+        description: '',
+        rating: 0
+    };
+
+    $scope.newReview.rating = 4;
+
 }]);

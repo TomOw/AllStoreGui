@@ -19,7 +19,7 @@
                     <md-button class="md-primary md-raised" ng-click="">BUY NOW</md-button>
                 </div>
                 <div>
-                    Rating: {{single.avgRating}},
+                    Rating: {{single.avgRating}}, {{single.views}}
                 </div>
             </div>
 
@@ -32,7 +32,7 @@
         <md-tabs md-dynamic-height md-border-bottom>
             <md-tab label="Offers">
                 <md-content class="md-padding">
-                    <h1 class="md-display-2">Offers</h1>
+                    <h1 class="md-display-2 form-header">Offers</h1>
                     <md-list flex>
                         <md-list-item class="md-3-line" ng-repeat="offer in offers">
                             <div class="md-avatar" style="background-color: #B2DFDB" layout="row"
@@ -64,7 +64,7 @@
             </md-tab>
             <md-tab label="About this product">
                 <md-content class="md-padding">
-                    <h1 class="md-display-2">About this product</h1>
+                    <h1 class="md-display-2 form-header">About this product</h1>
                     <p>
                         {{single.description}}
                     </p>
@@ -72,20 +72,22 @@
             </md-tab>
             <md-tab label="Reviews">
                 <md-content class="md-padding">
-                    <h1 class="md-display-2">Reviews</h1>
+                    <h1 class="md-display-2 form-header">Reviews</h1>
                     <md-list flex>
                         <md-list-item class="md-3-line" ng-repeat="review in reviews">
                             <div class="md-avatar" style="background-color: #B2DFDB" layout="row"
                                  layout-align="center center">
-                                <div>{{$index}}</div>
+                                <div>{{$index + 1}}</div>
                             </div>
                             <div class="md-list-item-text" layout="row" layout-xs="column">
                                 <div layout="column" flex-gt-xs="33" flex>
                                     <div style="font-size: 25px">
-                                        {{review.description}}
+                                        Rating: {{review.rating}}
+                                        <md-icon style="font-size: 25px; padding-bottom: 5px">star</md-icon>
+
                                     </div>
                                     <div style="font-size: 15px">
-                                        {{review.rating}}
+                                        {{review.description}}
                                     </div>
                                 </div>
                                 <div flex-gt-xs="33" flex style="font-size: 35px">
@@ -103,9 +105,31 @@
                 </md-content>
             </md-tab>
             <md-tab label="Add Review">
-                <md-content class="md-padding">
-                    <h1 class="md-display-2">Add review</h1>
-                    <p>{{fooMsg}}</p>
+                <md-content class="md-padding" layout="column">
+                    <h1 class="md-display-2 form-header">Add review</h1>
+                    <div layout="row" layout-align="center">
+                        <div flex="100" flex-gt-sm="80" flex-gt-md="70">
+                            <md-input-container class="input-add-item">
+                                <label>Description</label>
+                                <textarea ng-model="newReview.description" md-maxlength="500" rows="5"
+                                          md-select-on-focus></textarea>
+                            </md-input-container>
+
+                            <md-input-container class="input-add-item">
+                                <label>Rating</label>
+                                <md-select ng-model="newReview.rating">
+                                    <md-option>1</md-option>
+                                    <md-option>2</md-option>
+                                    <md-option>3</md-option>
+                                    <md-option>4</md-option>
+                                    <md-option>5</md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+
+                    </div>
+
+
                 </md-content>
             </md-tab>
         </md-tabs>
