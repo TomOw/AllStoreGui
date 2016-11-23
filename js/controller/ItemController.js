@@ -3,8 +3,6 @@
  */
 app.controller('ItemController', ['$scope', '$http', '$routeParams', 'ItemService', 'ReviewService', function ($scope, $http, $routeParams, ItemService, ReviewService) {
 
-    var url = 'http://localhost:8080';
-
     $scope.fooMsg = 'sample message to test something';
 
     var itemId = $routeParams.itemId;
