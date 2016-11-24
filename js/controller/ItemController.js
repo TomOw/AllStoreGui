@@ -23,6 +23,7 @@ app.controller('ItemController', ['$scope', '$http', '$routeParams', 'ItemServic
                         .then(function (result) {
                             ReviewService.getReviews($scope.single.name).then(function (result) {
                                 $scope.reviews = result
+                                $scope.single.noOfReviews = $scope.reviews.length;
                             })
                         })
                 })
