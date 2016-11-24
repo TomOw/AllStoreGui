@@ -7,6 +7,8 @@ app.controller('ItemController', ['$scope', '$http', '$routeParams', 'ItemServic
 
     var itemId = $routeParams.itemId;
 
+    console.log(itemId);
+
     ItemService.getItemById(itemId).then(function (result) {
         $scope.single = result;
     })
@@ -31,6 +33,15 @@ app.controller('ItemController', ['$scope', '$http', '$routeParams', 'ItemServic
         rating: 0
     };
 
-    $scope.newReview.rating = 4;
+
+
+    $scope.setValue = function (x) {
+        $scope.newReview.rating = x;
+    };
+
+    $scope.sendReview = function () {
+        ReviewService.sendReview($scope.newReview, itemId);
+        $scope.reviews.push($scope.newReview);
+    }
 
 }]);

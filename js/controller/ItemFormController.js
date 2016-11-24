@@ -87,7 +87,7 @@ app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'ItemServi
     };
 
     $scope.send = function () {
-        itemService.sendItems($scope.item, $scope.selected);
+        ItemService.sendItems($scope.item, $scope.selected);
     };
 
 }]);
