@@ -2,12 +2,14 @@
  * Created by Tomasz on 07.11.2016.
  */
 
-app.controller('StoreController', ['$scope', '$http', function ($scope, $http) {
+app.controller('StoreController', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
 
     $scope.test = 'testMsg';
 
+    var storeName = $routeParams.storeName;
+
     $scope.getStore = function () {
-        $http.get('http://85.255.8.105:8080/store/Apple')
+        $http.get('http://85.255.8.105:8080/store/' + storeName)
             .success(function (response, status) {
                 console.log('z geta' + response.toString());
                 console.log('z geta' + response);

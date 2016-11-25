@@ -15,7 +15,7 @@ app.config(function ($routeProvider) {
         .when('/', {
             templateUrl: 'templates/first.html'
         })
-        .when('/store', {
+        .when('/store/:storeName', {
             templateUrl: 'templates/itemsInStore.html',
             controller: 'StoreController'
         })
