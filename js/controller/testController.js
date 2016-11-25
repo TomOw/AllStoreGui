@@ -7,7 +7,7 @@ app.controller('StoreController', ['$scope', '$http', function ($scope, $http) {
     $scope.test = 'testMsg';
 
     $scope.getStore = function () {
-        $http.get('http://localhost:8080/store/Apple')
+        $http.get('http://85.255.8.105:8080/store/Apple')
             .success(function (response, status) {
                 console.log('z geta' + response.toString());
                 console.log('z geta' + response);
