@@ -1,7 +1,9 @@
 /**
  * Created by Tomasz on 19.11.2016.
  */
-app.controller('ItemController', ['$scope', '$http', '$routeParams', 'ItemService', 'ReviewService', function ($scope, $http, $routeParams, ItemService, ReviewService) {
+app.controller('ItemController', ['$rootScope', '$scope', '$http', '$routeParams', 'ItemService', 'ReviewService', function ($rootScope, $scope, $http, $routeParams, ItemService, ReviewService) {
+
+    $rootScope.pageHasSideNav = false;
 
     $scope.fooMsg = 'sample message to test something';
 

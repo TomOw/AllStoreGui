@@ -2,9 +2,11 @@
  * Created by Tomasz on 08.11.2016.
  */
 
-app.controller('ItemFormController', ['$scope', '$http', '$mdDialog', 'ItemService', 'StoreService', function ($scope, $http, $mdDialog, ItemService, StoreService) {
+app.controller('ItemFormController', ['$rootScope', '$scope', '$http', '$mdDialog', 'ItemService', 'StoreService', function ($rootScope, $scope, $http, $mdDialog, ItemService, StoreService) {
 
     $scope.test = 'testMsg';
+
+    $rootScope.pageHasSideNav = false;
 
 
     StoreService.getCategories().then(function (result) {

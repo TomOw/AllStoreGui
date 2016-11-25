@@ -18,9 +18,10 @@
     <div ng-controller="AppCtrl" layout="column" style="height: auto;" ng-cloak>
 
         <md-toolbar layout="row" style="background-color: #80CBC4">
-            <div hide-gt-md flex>
-                <md-icon ng-click="toggleLeft()" style="margin: 15px; font-size: 30px">menu</md-icon>
+            <div hide-gt-md flex ng-show="pageHasSideNav">
+                <md-icon ng-click="toggleLeft()" style="margin: 15px; font-size: 30px; cursor: pointer;">menu</md-icon>
             </div>
+
             <div>
                 <a ng-href="/#/"><img
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/768px-Apple_logo_black.svg.png"
@@ -32,7 +33,7 @@
         <div>
             <section layout="row" flex>
 
-                <ng-view style="width: 100%"></ng-view>
+                <ng-view style="width: 100%;"></ng-view>
 
             </section>
         </div>

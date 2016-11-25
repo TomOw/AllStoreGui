@@ -2,9 +2,11 @@
  * Created by Tomasz on 07.11.2016.
  */
 
-app.controller('StoreController', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+app.controller('StoreController', ['$rootScope', '$scope', '$http', '$routeParams', function ($rootScope, $scope, $http, $routeParams) {
 
     $scope.test = 'testMsg';
+
+    $rootScope.pageHasSideNav = true;
 
     var storeName = $routeParams.storeName;
 
