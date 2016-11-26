@@ -14,11 +14,17 @@ app.service('ReviewService', ['$http', function ($http) {
             })
     };
 
-    this.sendReview = function (review, id) {
+/*    this.sendReview = function (review, id) {
         $http.post(url + '/review/add/' + id, review)
             .success(function (response, status) {
                 console.log(response);
             });
-    }
+    }*/
+    this.sendReview = function (review, id) {
+        return $http.post(url + '/review/add' + id, review)
+            .then(function success(response, status) {
+                return response.data;
+            });
+    };
 
 }]);

@@ -1,7 +1,7 @@
 /**
  * Created by Tomasz on 19.11.2016.
  */
-app.controller('ItemController', ['$rootScope', '$scope', '$http', '$routeParams', 'ItemService', 'ReviewService', function ($rootScope, $scope, $http, $routeParams, ItemService, ReviewService) {
+app.controller('ItemController', ['$rootScope', '$scope', '$http', '$routeParams', 'ItemService', 'ReviewService' ,'$mdDialog', function ($rootScope, $scope, $http, $routeParams, ItemService, ReviewService, $mdDialog) {
 
     $rootScope.pageHasSideNav = false;
 
@@ -24,7 +24,7 @@ app.controller('ItemController', ['$rootScope', '$scope', '$http', '$routeParams
                     })
                         .then(function (result) {
                             ReviewService.getReviews($scope.single.name).then(function (result) {
-                                $scope.reviews = result
+                                $scope.reviews = result;
                                 $scope.single.noOfReviews = $scope.reviews.length;
                             })
                         })
@@ -45,6 +45,24 @@ app.controller('ItemController', ['$rootScope', '$scope', '$http', '$routeParams
     $scope.sendReview = function () {
         ReviewService.sendReview($scope.newReview, itemId);
         $scope.reviews.push($scope.newReview);
-    }
+    };
+
+    $scope.showConfirm = function(ev) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        var confirm = $mdDialog.confirm()
+            .title('Would you like to add this review')
+            .textContent('Thanks for sharing your opinion.')
+            .ariaLabel('Lucky day')
+            .targetEvent(ev)
+            .ok('Yes')
+            .cancel('No');
+
+        $mdDialog.show(confirm).then(function() {
+            $scope.sendReview();
+        }, function() {
+            console.log('declined adding review');
+        });
+    };
+
 
 }]);
