@@ -1,14 +1,15 @@
 <div class="container">
-    <section layout="row" flex>
+    <section layout="row">
 
         <div layout="column">
-            <md-sidenav flex style="height:100%; min-width: 250px; width: 250px; padding-top: 10px; margin-bottom: 8px; margin-top: 8px"
-                        class="md-sidenav-left"
-                        md-component-id="left"
-                        md-is-locked-open="$mdMedia('gt-md')"
-                        md-whiteframe="4">
+            <md-sidenav
+                    style="height:100%; min-width: 250px; width: 250px; padding-top: 10px; margin-bottom: 8px; margin-top: 16px"
+                    class="md-sidenav-left"
+                    md-component-id="left"
+                    md-is-locked-open="$mdMedia('gt-md')"
+                    md-whiteframe="4">
 
-                <md-content layout-padding ng-controller="LeftCtrl" style="padding: 0">
+                <md-content flex="100" layout-padding ng-controller="LeftCtrl" style="padding: 0">
                     <md-button ng-click="close()" class="md-primary" hide-gt-md>
                         Close Sidenav Left
                     </md-button>
@@ -27,36 +28,38 @@
 
 
         <!-- container -->
-        <div style="width: 100%">
+        <md-content flex="">
+            <div flex="" layout-padding style="width: 100%; height: 100px;">
 
-            <div ng-repeat="item in store.items">
-                <md-card ng-click="consoletest2()"
-                         style="outline: none; border: 0; cursor: pointer; overflow: visible; min-width: 100%"
-                         md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 12"
-                         ng-mouseleave="height = 3">
-                    <md-card-title>
-                        <md-card-title-text>
-                            <span class="md-headline">{{item.name}}</span>
-                            <span class="md-subhead">{{item.price | currency: "$"}}</span>
-                        </md-card-title-text>
-                    </md-card-title>
-                    <md-card-content layout="row" layout-align="space-between">
-                        <div class="md-media-xl card-media">
-                            <img ng-src="{{item.photo}}?{{$index}}"
-                                 style="width: 200px; height: auto" alt="{{item.photo}}"/>
-                        </div>
-                        <p style="margin-left: 25px">{{item.description}}</p>
+                <div ng-repeat="item in store.items">
+                    <md-card ng-click="consoletest2()"
+                             style="outline: none; border: 0; cursor: pointer; overflow: visible; min-width: 100%;"
+                             md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 12"
+                             ng-mouseleave="height = 3">
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">{{item.name}}</span>
+                                <span class="md-subhead">{{item.price | currency: "$"}}</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content layout="row" layout-align="space-between">
+                            <div class="md-media-xl card-media">
+                                <img ng-src="{{item.photo}}?{{$index}}"
+                                     style="width: 200px; height: auto" alt="{{item.photo}}"/>
+                            </div>
+                            <p style="margin-left: 25px">{{item.description}}</p>
 
-                    </md-card-content>
-                    <md-card-actions layout="row" layout-align="end center">
-                        <p style="margin-right: 10px">views: {{item.views}}</p>
-                        <p>id: {{item.id}}</p>
-                        <md-button ng-click="viewUp(item.id)">View Up</md-button>
-                        <md-button>Action 2</md-button>
-                    </md-card-actions>
-                </md-card>
+                        </md-card-content>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <p style="margin-right: 10px">views: {{item.views}}</p>
+                            <p>id: {{item.id}}</p>
+                            <md-button ng-click="viewUp(item.id)">View Up</md-button>
+                            <md-button>Action 2</md-button>
+                        </md-card-actions>
+                    </md-card>
+                </div>
             </div>
-        </div>
+        </md-content>
 
 
         <!--<section layout="row">
