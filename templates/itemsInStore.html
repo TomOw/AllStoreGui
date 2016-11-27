@@ -26,9 +26,9 @@
         <div>
             <section layout="row" flex>
 
-                <md-content flex>
+                <md-content>
 
-                    <md-card md-theme-watch>
+                    <md-card md-theme-watch flex="100">
                         <md-card-title>
                             <md-card-title-text>
                                 <span class="md-headline">{{store.name}}</span>
@@ -51,7 +51,7 @@
                             <a ng-href="/#/item/{{item.id}}">
                                 <div class="md-list-item-text" layout="column" style="overflow: visible">
                                     <md-card ng-click="consoletest2()"
-                                             style="outline: none; border: 0; cursor: pointer; overflow: visible"
+                                             style="outline: none; border: 0; cursor: pointer; overflow: visible; min-width: 100%"
                                              md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 12"
                                              ng-mouseleave="height = 3">
                                         <md-card-title>
