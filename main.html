@@ -17,16 +17,16 @@
 
     <div ng-controller="AppCtrl" layout="column" style="height: auto;" ng-cloak>
 
-        <md-toolbar layout="row" style="background-color: #80CBC4">
-            <div hide-gt-md flex ng-show="pageHasSideNav">
+        <md-toolbar layout="row" style="background-color: #80CBC4; padding: 10px">
+            <div hide-gt-md flex="5" ng-show="pageHasSideNav">
                 <md-icon ng-click="toggleLeft()" style="margin: 15px; font-size: 30px; cursor: pointer;">menu</md-icon>
             </div>
 
-            <div>
-                <a ng-href="/#/"><img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/768px-Apple_logo_black.svg.png"
-                        style="height: 100px; width: 100px; margin: 15px;"></a>
-                <h1 class="md-toolbar-tools" style="float: right">ALLStore</h1>
+            <div flex="85" flex-offset="15" layout="row">
+                <div flex="30"><a ng-href="/#/">
+                    <md-icon style="height: 50px; font-size: 50px; color: black">shopping_cart</md-icon>
+                </a></div>
+                <h1 class="md-toolbar-tools" flex="15">ALLStore</h1>
             </div>
         </md-toolbar>
 
@@ -48,7 +48,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
 
     <!-- Angular Material Library -->
-    <script src="https://cdn.rawgit.com/angular/bower-material/master/angular-material.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.js"></script>
 
     <!-- Your application bootstrap  -->
 
