@@ -17,18 +17,30 @@
 
     <div ng-controller="AppCtrl" layout="column" style="height: auto;" ng-cloak>
 
-        <md-toolbar layout="row" style="background-color: #80CBC4; padding: 10px">
+<!--        <md-toolbar layout="row" style="background-color: #80CBC4; padding: 10px">
             <div hide-gt-md flex="5" ng-show="pageHasSideNav">
                 <md-icon ng-click="toggleLeft()" style="margin: 15px; font-size: 30px; cursor: pointer;">menu</md-icon>
             </div>
 
-            <div flex="85" flex-offset="15" layout="row">
-                <div flex="30"><a ng-href="/#/">
-                    <md-icon style="height: 50px; font-size: 50px; color: black">shopping_cart</md-icon>
+            <div flex="85" flex-offset="10" flex-offset-gt-md="0" layout="row">
+                <div flex="10" layout-align="center center"><a ng-href="/#/">
+                    <img src="http://www.freeiconspng.com/uploads/shopping-cart-icon-30.png" style="width: 100%">
                 </a></div>
-                <h1 class="md-toolbar-tools" flex="15">ALLStore</h1>
+                <h1 flex style="font-size: 100px; font-weight: 100; overflow: hidden">ALLStore</h1>
             </div>
-        </md-toolbar>
+        </md-toolbar>-->
+
+        <div style="background-color: #80CBC4;" layout="row">
+            <div hide-gt-md flex="33" ng-show="pageHasSideNav">
+                <md-icon ng-click="toggleLeft()" style="margin: 15px; cursor: pointer;">menu</md-icon>
+            </div>
+            <md-card md-whiteframe="4" style="height: 75px; padding-left: 50px; padding-right: 50px">
+                <md-input-container class="input-add-item">
+                    <label>Look for product</label>
+                    <input ng-model="testInput" type="text">
+                </md-input-container>
+            </md-card>
+        </div>
 
         <div>
             <section layout="row" flex>

@@ -21,7 +21,7 @@ app.service('ReviewService', ['$http', function ($http) {
             });
     }*/
     this.sendReview = function (review, id) {
-        return $http.post(url + '/review/add' + id, review)
+        return $http.post(url + '/review/add/' + id, review)
             .then(function success(response, status) {
                 return response.data;
             });
