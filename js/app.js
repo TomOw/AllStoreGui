@@ -35,3 +35,9 @@ app.filter('capitalizeFirst', function () {
         return char;
     }
 });
+
+app.filter('firstSentence', function () {
+    return function (input) {
+        return input.split(". ")[0];
+    }
+});

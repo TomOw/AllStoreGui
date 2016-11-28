@@ -11,7 +11,7 @@ app.controller('StoreController', ['$rootScope', '$scope', '$http', '$routeParam
     var storeName = $routeParams.storeName;
 
     $scope.getStore = function () {
-        $http.get('http://localhost:8080/store/' + storeName)
+        $http.get('http://85.255.8.105:8080/store/' + storeName)
             .success(function (response, status) {
                 console.log('z geta' + response.toString());
                 console.log('z geta' + response);
@@ -22,7 +22,7 @@ app.controller('StoreController', ['$rootScope', '$scope', '$http', '$routeParam
     };
 
     $scope.viewUp = function (id) {
-        $http.get('http://localhost:8080/viewsUp/' + id)
+        $http.get('http://85.255.8.105:8080/viewsUp/' + id)
             .success(function (response, status) {
 
             })
