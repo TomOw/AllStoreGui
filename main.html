@@ -57,12 +57,17 @@
         <div style="background-color: #80CBC4;" layout="column" layout-gt-md="row">
             <div flex-gt-md="33" flex="" layout="row">
                 <div hide-gt-md>
-                    <md-icon ng-click="toggleLeft()" style="margin: 15px; cursor: pointer; margin-right: 0; font-size: 45px; color: black; margin-top: 20px; margin-right: 20px">menu</md-icon>
+                    <md-icon ng-click="toggleLeft()"
+                             style="margin: 15px; cursor: pointer; margin-right: 0; font-size: 45px; color: black; margin-top: 20px; margin-right: 20px">
+                        menu
+                    </md-icon>
                 </div>
                 <div style="padding-top: 8px">
-                    <img src="http://www.freeiconspng.com/uploads/shopping-cart-icon-30.png" style="height: 75px; margin-left: 10px">
+                    <img src="http://www.freeiconspng.com/uploads/shopping-cart-icon-30.png"
+                         style="height: 75px; margin-left: 10px">
                 </div>
-                <div class="form-header" style=" display: flex; justify-content: center; align-items: center; padding-left: 25px">
+                <div class="form-header"
+                     style=" display: flex; justify-content: center; align-items: center; padding-left: 25px">
                     AllStore
                 </div>
             </div>
@@ -83,15 +88,7 @@
 
 
         <div>
-            <section layout="row" flex>
-
-                <ng-view style="width: 100%;"></ng-view>
-
-            </section>
-        </div>
-
-        <div style="height: 100px; background-color: #00acc1">
-
+            <ng-view style="width: 100%"></ng-view>
         </div>
 
     </div>

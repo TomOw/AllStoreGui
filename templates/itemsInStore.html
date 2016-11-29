@@ -1,5 +1,5 @@
 <div layout="row" layout-align="center start">
-    <div flex="100" flex-gt-xs="85" flex-gt-md="70">
+    <div flex="100" flex-gt-xs="85" flex-gt-md="70" style="height: 100%;">
         <div layout="row">
 
             <div layout="column">
@@ -29,35 +29,37 @@
 
 
             <!-- container -->
-            <div flex="" style="width: 100%;">
+            <div flex="" style="width: 100%; padding-bottom: 8px">
 
                 <div ng-repeat="item in store.items">
                     <a ng-href="/#/item/{{item.id}}">
-                        <md-card layout-padding ng-click="consoletest2()"
-                                 style="outline: none; border: 0; cursor: pointer; overflow: visible; min-width: 100%; height: 202px"
-                                 md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 12"
-                                 ng-mouseleave="height = 3">
-                            <div layout="row">
-                                <div flex="33" flex-gt-md="25">
-                                    <img ng-src="{{item.photo}}?{{$index}}"
-                                         style="height: 180px; width: auto" alt="{{item.photo}}"/>
-                                </div>
-                                <div flex="66" flex-gt-md="50" layout="column">
-                                    <div flex="25" class="header-sm">{{item.name}}</div>
-                                    <div flex="25">
-                                        <span style="font-size: 20px; font-weight: 200">{{item.avgRating}}</span>
-                                        <md-icon style="margin: auto; font-size: 20px">star</md-icon>
-                                        <span style="font-size: 20px; font-weight: 200">{{item.noOfReviews}} Reviews</span>
+                        <div style="padding-left: 8px; padding-right: 8px; padding-top: 8px">
+                            <md-card ng-click="consoletest2()"
+                                     style="outline: none; border: 0; cursor: pointer; overflow: visible; min-width: 100%; height: 202px; margin: 0"
+                                     md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 12"
+                                     ng-mouseleave="height = 3">
+                                <div layout="row">
+                                    <div flex="33" flex-gt-md="25">
+                                        <img ng-src="{{item.photo}}?{{$index}}"
+                                             style="height: 180px; width: auto" alt="{{item.photo}}"/>
                                     </div>
-                                    <div flex="25">Category: {{item.category}}</div>
-                                    <div flex hide show-gt-md>{{item.description | firstSentence}}</div>
+                                    <div flex="66" flex-gt-md="50" layout="column">
+                                        <div flex="25" class="header-sm">{{item.name}}</div>
+                                        <div flex="25">
+                                            <span style="font-size: 20px; font-weight: 200">{{item.avgRating}}</span>
+                                            <md-icon style="margin: auto; font-size: 20px">star</md-icon>
+                                            <span style="font-size: 20px; font-weight: 200">{{item.noOfReviews}} Reviews</span>
+                                        </div>
+                                        <div flex="25">Category: {{item.category}}</div>
+                                        <div flex hide show-gt-md>{{item.description | firstSentence}}</div>
+                                    </div>
+                                    <div flex="25" layout="column" class="price" style="color: #009688">
+                                        {{item.price | currency}}
+                                        <md-button class="md-primary md-raised">BUY NOW</md-button>
+                                    </div>
                                 </div>
-                                <div flex="25" layout="column" class="price" style="color: #009688">
-                                    {{item.price | currency}}
-                                    <md-button class="md-primary md-raised">BUY NOW</md-button>
-                                </div>
-                            </div>
-                        </md-card>
+                            </md-card>
+                        </div>
                     </a>
                 </div>
             </div>
