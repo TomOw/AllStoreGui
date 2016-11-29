@@ -19,7 +19,7 @@
                     <md-button class="md-primary md-raised" ng-click="">BUY NOW</md-button>
                 </div>
                 <div>
-                    Rating: {{single.avgRating}}, Reviews: {{single.noOfReviews}}
+                    Rating: {{single.avgRating}}, Reviews: {{single.noOfReviews}}.{{data.selected}}
                 </div>
             </div>
 
@@ -29,7 +29,7 @@
     </md-card>
 
     <md-content>
-        <md-tabs md-dynamic-height md-border-bottom>
+        <md-tabs md-dynamic-height md-border-bottom md-selected="tab.selected">
             <md-tab label="Offers">
                 <md-content class="md-padding">
                     <h1 class="md-display-2 form-header">Offers</h1>
@@ -86,7 +86,7 @@
                                         <md-icon style="font-size: 25px; padding-bottom: 5px">star</md-icon>
 
                                     </div>
-                                    <div style="font-size: 15px">
+                                    <div style="font-size: 15px; width: 100%">
                                         {{review.description}}
                                     </div>
                                 </div>

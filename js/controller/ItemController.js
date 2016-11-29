@@ -47,6 +47,7 @@ app.controller('ItemController', ['$rootScope', '$scope', '$http', '$routeParams
             $scope.single.noOfReviews = result.noOfReviews;
         });
         $scope.reviews.push($scope.newReview);
+        $scope.tab.selected = 2;
     };
 
     $scope.showConfirm = function(ev) {
