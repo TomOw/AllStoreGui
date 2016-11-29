@@ -25,7 +25,6 @@ app.controller('ItemController', ['$rootScope', '$scope', '$http', '$routeParams
                         .then(function (result) {
                             ReviewService.getReviews($scope.single.name).then(function (result) {
                                 $scope.reviews = result;
-                                $scope.single.noOfReviews = $scope.reviews.length;
                             })
                         })
                 })
@@ -43,7 +42,10 @@ app.controller('ItemController', ['$rootScope', '$scope', '$http', '$routeParams
     };
 
     $scope.sendReview = function () {
-        ReviewService.sendReview($scope.newReview, itemId);
+        ReviewService.sendReview($scope.newReview, itemId).then(function (result) {
+            $scope.single.avgRating = result.avgRating;
+            $scope.single.noOfReviews = result.noOfReviews;
+        });
         $scope.reviews.push($scope.newReview);
     };
 
