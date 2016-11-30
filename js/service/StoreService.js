@@ -7,8 +7,8 @@ app.service('StoreService', ['$http', function ($http) {
 
     //var url = 'http://localhost:8080';
 
-    this.getStore = function () {
-        return $http.get(url + '/store/Apple')
+    this.getStore = function (name) {
+        return $http.get(url + '/store/' + name)
             .then(function success(response, status) {
                 return response.data;
             })

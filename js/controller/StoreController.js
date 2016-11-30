@@ -2,7 +2,7 @@
  * Created by Tomasz on 07.11.2016.
  */
 
-app.controller('StoreController', ['$rootScope', '$scope', '$http', '$routeParams', function ($rootScope, $scope, $http, $routeParams) {
+app.controller('StoreController', ['$rootScope', '$scope', '$http', '$routeParams', 'StoreService', function ($rootScope, $scope, $http, $routeParams, StoreService) {
 
     $scope.test = 'testMsg';
 
@@ -10,16 +10,10 @@ app.controller('StoreController', ['$rootScope', '$scope', '$http', '$routeParam
 
     var storeName = $routeParams.storeName;
 
-    $scope.getStore = function () {
-        $http.get('http://85.255.8.105:8080/store/' + storeName)
-            .success(function (response, status) {
-                console.log('z geta' + response.toString());
-                console.log('z geta' + response);
-                console.log(response);
-                $scope.store = response;
-                //$scope.raw = data;
-            })
-    };
+
+    StoreService.getStore(storeName).then(function (result) {
+        $scope.store = result;
+    });
 
     $scope.viewUp = function (id) {
         $http.get('http://85.255.8.105:8080/viewsUp/' + id)
