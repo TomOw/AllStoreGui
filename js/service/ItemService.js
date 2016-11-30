@@ -52,14 +52,14 @@ app.service('ItemService', ['$http', function ($http) {
     };
 
     this.getItemById = function (id) {
-        return $http.get(url + '/item/' + id)
+        return $http.get(url + '/item/byId' + id)
             .then(function success(response, status) {
                 return response.data;
             })
     };
 
     this.getItemsByName = function (name) {
-        return $http.get(url + '/item/name/' + name)
+        return $http.get(url + '/item/byName/' + name)
             .then(function success(response, status) {
                 return response.data;
             })
