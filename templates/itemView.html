@@ -16,12 +16,12 @@
                         in:
                         {{cheapest.storeName}}
                     </div>
-                    <div style="font-size: 30px; font-weight: 400; margin-top: 0px">
+                    <div style="font-size: 30px; font-weight: 400; margin-top: 0px; color: #009688">
                         {{cheapest.itemPrice | currency}}
                         <md-button class="md-primary md-raised" ng-click="">BUY NOW</md-button>
                     </div>
                     <div>
-                        Rating: {{single.avgRating}}, Reviews: {{single.noOfReviews}}.{{data.selected}}
+                        Rating: {{single.avgRating}}, Reviews: {{single.noOfReviews}}
                     </div>
                 </div>
 
@@ -50,7 +50,7 @@
                                             {{offer.storeCountry}}, {{offer.storeCity}}
                                         </div>
                                     </div>
-                                    <div flex-gt-xs="33" flex style="font-size: 35px">
+                                    <div flex-gt-xs="33" flex style="font-size: 35px; color: #009688">
                                         {{offer.itemPrice | currency}}
                                     </div>
                                     <div flex-gt-xs="20" flex>
