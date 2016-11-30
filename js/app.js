@@ -13,7 +13,8 @@ app.config(function ($routeProvider) {
             controller: 'ItemFormController'
         })
         .when('/', {
-            templateUrl: 'templates/first.html'
+            templateUrl: 'templates/itemSearch.html',
+            controller: 'ItemSearchController'
         })
         .when('/store/:storeName', {
             templateUrl: 'templates/itemsInStore.html',

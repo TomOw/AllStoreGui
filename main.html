@@ -76,7 +76,7 @@
                 <md-card md-whiteframe="4" style="height: 75px; padding-left: 50px; padding-right: 50px">
                     <md-input-container class="input-add-item">
                         <label>Look for product</label>
-                        <input ng-model="testInput" type="text">
+                        <input ng-model="itemName" ng-change="getItemsByName()" type="text">
                     </md-input-container>
                 </md-card>
             </div>
@@ -117,6 +117,7 @@
 
     <script src="js/controller/sampleController.js"></script>
     <script src="js/controller/ItemController.js"></script>
+    <script src="js/controller/ItemSearchController.js"></script>
 
 </body>
 </html>

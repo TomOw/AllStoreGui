@@ -58,5 +58,12 @@ app.service('ItemService', ['$http', function ($http) {
             })
     };
 
+    this.getItemsByName = function (name) {
+        return $http.get(url + '/item/name/' + name)
+            .then(function success(response, status) {
+                return response.data;
+            })
+    };
+
 
 }]);

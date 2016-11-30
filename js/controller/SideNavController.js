@@ -2,12 +2,26 @@
  * Created by Tomasz on 08.11.2016.
  */
 
-app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, ItemService) {
+
+    $scope.msg = 'working msg';
+
+    $scope.val = 10;
+
+    $scope.getItemsByName = function () {
+        ItemService.getItemsByName($scope.itemName).then(function (result) {
+            $scope.items = result;
+        })
+    };
+
+
     $scope.toggleLeft = buildDelayedToggler('left');
     $scope.toggleRight = buildToggler('right');
     $scope.isOpenRight = function () {
         return $mdSidenav('right').isOpen();
     };
+
+
 
     /**
      * Supplies a function that will continue to operate until the
@@ -63,4 +77,5 @@ app.controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
             });
 
     };
+
 });
