@@ -52,7 +52,7 @@ app.service('ItemService', ['$http', function ($http) {
     };
 
     this.getItemById = function (id) {
-        return $http.get(url + '/item/byId' + id)
+        return $http.get(url + '/item/byId/' + id)
             .then(function success(response, status) {
                 return response.data;
             })
