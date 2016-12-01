@@ -27,6 +27,10 @@ app.config(function ($routeProvider) {
         .when('/container', {
             templateUrl: 'templates/flexContainerExample.html'
         })
+        .when('/category/:categoryName', {
+            templateUrl: 'templates/itemSearch.html',
+            controller: 'ItemCategorySearchController'
+        })
         .otherwise({
             template: '<h1>otherwise template</h1>'
         })

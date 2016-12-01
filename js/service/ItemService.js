@@ -65,5 +65,12 @@ app.service('ItemService', ['$http', function ($http) {
             })
     };
 
+    this.getItemsByCategory = function (categoryName) {
+        return $http.get(url + '/item/byCategory/' + categoryName)
+            .then(function success(response, status) {
+                return response.data;
+            })
+    };
+
 
 }]);
