@@ -19,10 +19,16 @@
                             <md-icon>home</md-icon>
                             Home page
                         </a>
-                        <md-button ng-click="getStore()">get Store</md-button>
-                        <p>
-                            Feel free to add some products to our database
-                        </p>
+                        <a href="/#/addItem" class="md-button md-ink-ripple side-nav-element">
+                            <md-icon>add</md-icon>
+                            Add Product
+                        </a>
+                        <md-divider></md-divider>
+                        <div ng-repeat="category in categories" style="padding: 0;">
+                            <a href="/#/category/{{category}}" class="md-button md-ink-ripple side-nav-element">
+                                {{category}}
+                            </a>
+                        </div>
                     </md-content>
 
                 </md-sidenav>
@@ -34,7 +40,7 @@
                     <a ng-href="/#/item/{{item.id}}">
                         <div style="padding-left: 8px; padding-right: 8px; padding-top: 8px">
                             <md-card ng-click="consoletest2()"
-                                     style="outline: none; border: 0; cursor: pointer; overflow: visible; min-width: 100%; margin: 0"
+                                     style="outline: none; border: 0; cursor: pointer; overflow: visible; min-width: 100%; margin: 0; padding-top: 15px"
                                      md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 12"
                                      ng-mouseleave="height = 3">
                                 <div layout="row">
@@ -43,7 +49,7 @@
 
                                         </div>
                                     </div>
-                                    <div flex="66" flex-gt-md="50" layout="column" style="padding-left: 25px">
+                                    <div flex="66" flex-gt-sm="45" flex-gt-md="35" flex-gt-lg="50" layout="column" style="padding-left: 25px">
                                         <div flex="" class="header-sm">{{item.name}}</div>
                                         <div flex="">
                                             <span style="font-size: 20px; font-weight: 200">{{item.avgRating}}</span>
