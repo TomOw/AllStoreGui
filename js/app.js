@@ -49,3 +49,9 @@ app.filter('firstSentence', function () {
         return input.split(". ")[0];
     }
 });
+
+app.directive('itemCard', function () {
+    return {
+        templateUrl: 'templates/directives/itemCard.html'
+    }
+});
