@@ -1,13 +1,11 @@
 <a ng-href="/#/item/{{item.id}}">
-    <div style="padding-left: 8px; padding-right: 8px; padding-top: 8px">
+    <div class="item-card-container">
         <md-card ng-click="consoletest2()"
-                 style="outline: none; border: 0; cursor: pointer; overflow: visible; min-width: 100%; margin: 0; padding-top: 15px"
                  md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 12"
-                 ng-mouseleave="height = 3">
+                 ng-mouseleave="height = 3" class="md-card-item">
             <div layout="row">
                 <div flex="33" flex-gt-md="25" layout-align="center center" style="padding: 20px;">
-                    <div style="height: 200px; background-size: contain; background-repeat: no-repeat; background-position: center"
-                         ng-style="{'background-image':'url({{item.photo}})'}">
+                    <div ng-style="{'background-image':'url({{item.photo}})'}" class="item-card-image-container">
 
                     </div>
                 </div>
@@ -15,12 +13,12 @@
                      layout-align="space-between" style="padding-left: 25px">
                     <div flex="" class="header-sm">{{item.name}}</div>
                     <div flex="">
-                        <span style="font-size: 20px; font-weight: 200">{{item.avgRating}}</span>
+                        <span class="item-card-text-20">{{item.avgRating}}</span>
                         <md-icon style="margin: auto; font-size: 20px">star</md-icon>
-                        <span style="font-size: 20px; font-weight: 200">{{item.noOfReviews}} Reviews</span>
+                        <span class="item-card-text-20">{{item.noOfReviews}} Reviews</span>
                     </div>
                     <div flex="" hide show-gt-md>Category: {{item.category}}</div>
-                    <div flex="" hide-gt-md class="price" style="color: #009688">
+                    <div flex="" hide-gt-md class="price teal-text">
                         {{item.price | currency}}
                     </div>
                     <div flex="" hide-gt-md>
@@ -28,7 +26,7 @@
                     </div>
                     <div flex hide show-gt-md>{{item.description | firstSentence}}</div>
                 </div>
-                <div flex="" hide show-gt-md class="price" style="color: #009688">
+                <div flex="" hide show-gt-md class="price teal-text">
                     <div layout="column" layout-align="start end" style="padding-right: 30px">
                         {{item.price | currency}}
                         <md-button class="md-primary md-raised" style="margin-right: 0">BUY NOW</md-button>

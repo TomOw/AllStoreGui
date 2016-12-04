@@ -57,8 +57,7 @@
         <div style="background-color: #80CBC4;" layout="column" layout-gt-md="row">
             <div flex-gt-md="33" flex="" layout="row">
                 <div hide-gt-md>
-                    <md-icon ng-click="toggleLeft()"
-                             style="margin: 15px; cursor: pointer; margin-right: 0; font-size: 45px; color: black; margin-top: 20px; margin-right: 20px">
+                    <md-icon ng-click="toggleLeft()" class="hamburger-menu-icon">
                         menu
                     </md-icon>
                 </div>
@@ -75,7 +74,7 @@
             </div>
 
             <div flex-gt-md="33" flex="">
-                <md-card md-whiteframe="4" style="height: 75px; padding-left: 50px; padding-right: 50px">
+                <md-card md-whiteframe="4" class="search-input">
                     <md-input-container class="input-add-item">
                         <label><md-icon>search</md-icon> Look for product</label>
                         <input ng-model="itemName" ng-change="getItemsByName()" type="text">
