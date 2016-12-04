@@ -54,7 +54,7 @@
                     </div>
                 </div>-->
 
-        <div style="background-color: #80CBC4;" layout="column" layout-gt-md="row">
+        <div style="background-color: #80CBC4;" layout="column" layout-gt-sm="row">
             <div flex-gt-md="33" flex="" layout="row">
                 <div hide-gt-md>
                     <md-icon ng-click="toggleLeft()" class="hamburger-menu-icon">
@@ -64,7 +64,7 @@
                 <div style="padding-top: 8px">
                     <a href="/#/">
                         <img src="http://www.freeiconspng.com/uploads/shopping-cart-icon-30.png"
-                                        style="height: 75px; margin-left: 10px">
+                             style="height: 75px; margin-left: 10px">
                     </a>
                 </div>
                 <div class="form-header"
@@ -76,14 +76,20 @@
             <div flex-gt-md="33" flex="">
                 <md-card md-whiteframe="4" class="search-input">
                     <md-input-container class="input-add-item">
-                        <label><md-icon>search</md-icon> Look for product</label>
+                        <label>
+                            <md-icon>search</md-icon>
+                            Look for product</label>
                         <input ng-model="itemName" ng-change="getItemsByName()" type="text">
                     </md-input-container>
                 </md-card>
             </div>
 
-            <div flex="33" hide show-gt-md>
-
+            <div flex="33" hide show-gt-sm layout="row" layout-align="end center">
+                <div style="padding-right: 25px">
+                    <!--<img style="height: 75px; margin-right: 25px" src="http://icons.iconarchive.com/icons/iconsmind/outline/512/Full-Basket-icon.png"/>-->
+                    <md-icon ng-click="showAdvanced($event)" class="iconTopNavMaterial">shopping_basket</md-icon>
+                    <md-icon class="iconTopNavMaterial">person</md-icon>
+                </div>
             </div>
         </div>
 
@@ -113,7 +119,7 @@
     <script src="js/service/StoreService.js"></script>
     <script src="js/service/ReviewService.js"></script>
     <script src="js/controller/StoreController.js"></script>
-    <script src="js/controller/SideNavController.js"></script>
+    <script src="js/controller/AppController.js"></script>
     <script src="js/controller/ItemFormController.js"></script>
 
     <script src="js/controller/sampleController.js"></script>

@@ -2,7 +2,7 @@
  * Created by Tomasz on 08.11.2016.
  */
 
-app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, ItemService) {
+app.controller('AppCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', 'ItemService', function ($scope, $timeout, $mdSidenav, $log, ItemService) {
 
     $scope.msg = 'working msg';
 
@@ -20,7 +20,6 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, ItemServ
     $scope.isOpenRight = function () {
         return $mdSidenav('right').isOpen();
     };
-
 
 
     /**
@@ -66,7 +65,7 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log, ItemServ
                 });
         }
     }
-});
+}]);
 
 app.controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     $scope.close = function () {

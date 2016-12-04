@@ -97,3 +97,16 @@ a:hover, a:visited, a:link, a:active {
     margin-top: 0px;
     color: #009688;
 }
+
+.iconTopNavMaterial {
+    font-size: 75px;
+    height: 75px;
+    width: 75px;
+    vertical-align: middle;
+    color: black;
+}
+
+.iconTopNavMaterial:hover {
+    color: #009688;
+    cursor: pointer;
+}
