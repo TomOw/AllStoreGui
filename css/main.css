@@ -104,6 +104,8 @@ a:hover, a:visited, a:link, a:active {
     width: 75px;
     vertical-align: middle;
     color: black;
+    outline: none;
+    border: 0;
 }
 
 .iconTopNavMaterial:hover {

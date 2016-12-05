@@ -2,7 +2,7 @@
  * Created by Tomasz on 08.11.2016.
  */
 
-app.controller('AppCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', 'ItemService', function ($scope, $timeout, $mdSidenav, $log, ItemService) {
+app.controller('AppCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdDialog', '$log', 'ItemService', function ($scope, $timeout, $mdSidenav, $mdDialog, $log, ItemService) {
 
     $scope.msg = 'working msg';
 
@@ -12,6 +12,10 @@ app.controller('AppCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', 'ItemServ
         ItemService.getItemsByName($scope.itemName).then(function (result) {
             $scope.items = result;
         })
+    };
+
+    $scope.consoleLog = function () {
+        console.log('clicked cart');
     };
 
 
@@ -65,6 +69,41 @@ app.controller('AppCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', 'ItemServ
                 });
         }
     }
+
+    //Dialogs
+    $scope.showAdvanced = function (ev) {
+        $mdDialog.show({
+            controller: CartDialogController,
+            templateUrl: 'templates/cartDialog.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true // Only for -xs, -sm breakpoints.
+        })
+            .then(function (answer) {
+                $scope.status = 'You said the information was "' + answer + '".';
+            }, function () {
+                $scope.status = 'You cancelled the dialog.';
+            });
+    };
+
+    function CartDialogController($scope, $mdDialog) {
+        $scope.hide = function () {
+            $mdDialog.hide();
+        };
+
+        $scope.cancel = function () {
+            $mdDialog.cancel();
+        };
+
+        $scope.answer = function (answer) {
+            $mdDialog.hide(answer);
+        };
+
+        $scope.cart = [];
+    }
+
+
 }]);
 
 app.controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
