@@ -24,6 +24,7 @@
                         {{single.avgRating}} <md-icon style="margin: auto; font-size: 20px">star</md-icon>, {{single.noOfReviews}} Reviews
                     </div>
                 </div>
+                {{cartChild}}
 
             </md-card-content>
             <md-card-actions layout="row" layout-align="end center">
@@ -54,7 +55,7 @@
                                         {{offer.itemPrice | currency}}
                                     </div>
                                     <div flex-gt-xs="20" flex>
-                                        <md-button class="md-primary md-raised">BUY NOW</md-button>
+                                        <md-button ng-click="addItemToCart(single)" class="md-primary md-raised">BUY NOW</md-button>
                                     </div>
                                     <div flex-gt-xs="14" flex style="height: 15px"></div>
 
