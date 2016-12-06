@@ -81,6 +81,7 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
         $mdDialog.show({
             controller: 'AppCtrl',
             scope: $rootScope,
+            preserveScope: true,
             templateUrl: 'templates/cartDialog.html',
             parent: angular.element(document.body),
             targetEvent: ev,
@@ -103,9 +104,10 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
     };
 
 
-    $scope.addItemToCart = function (x) {
+    $scope.addItemToCart = function (item, offer) {
         console.log('called addingItemToCart');
-        $rootScope.cart.items.push(x);
+        item.price = offer.itemPrice;
+        $rootScope.cart.items.push(item);
         console.log($rootScope.cart.items);
         console.log($rootScope);
         console.log($scope);
