@@ -55,3 +55,9 @@ app.directive('itemCard', function () {
         templateUrl: 'templates/directives/itemCard.html'
     }
 });
+
+app.directive('itemCartCard', function () {
+    return {
+        templateUrl: 'templates/directives/itemCartCard.html'
+    };
+});

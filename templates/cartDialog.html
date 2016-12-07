@@ -1,23 +1,35 @@
-<md-dialog aria-label="Mango (Fruit)">
+<md-dialog aria-label="Your cart" flex="80">
+
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Your Cart</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <md-icon>close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
 
     <md-dialog-content>
         <div class="md-dialog-content">
             <div ng-repeat="item in cart.items track by $index">
-                <item-card></item-card>
+                <item-cart-card></item-cart-card>
             </div>
+        </div>
+        <div class="price teal-text" layout="row" layout-align="end center" style="padding-right: 54px">
+            SUM: {{cart.sum | currency}}
         </div>
     </md-dialog-content>
 
-    <md-dialog-actions layout="row">
-        <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
-            More on Wikipedia
+    <md-divider></md-divider>
+
+    <md-dialog-actions layout="row" layout-align="end center" style="padding-right: 10px; padding-top: 25px">
+        <md-button>
+            Continue shopping <md-icon>shopping_cart</md-icon>
         </md-button>
-        <span flex></span>
         <md-button ng-click="answer('not useful')">
-            Not Useful
-        </md-button>
-        <md-button ng-click="answer('useful')">
-            Useful
+            To checkout <md-icon>check</md-icon>
         </md-button>
     </md-dialog-actions>
 

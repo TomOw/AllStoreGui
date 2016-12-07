@@ -1,0 +1,29 @@
+<a ng-href="/#/item/{{item.id}}">
+    <div class="item-card-container">
+        <md-card ng-click="consoletest2()"
+                 md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 12"
+                 ng-mouseleave="height = 3" class="md-card-item" style="padding-top: 0">
+            <div layout="row" layout-align="space-between center">
+                <div flex="33" flex-gt-md="10" layout-align="start center" style="padding: 10px;">
+                    <div style="height: 100px" ng-style="{'background-image':'url({{item.photo}})'}" class="item-card-image-container">
+
+                    </div>
+                </div>
+                <div flex="66" flex-gt-sm="45" flex-gt-md="35" flex-gt-lg="50" layout="column"
+                     layout-align="space-between" style="padding-left: 25px">
+                    <div flex="" class="header-sm">{{item.name}}
+                        <p style="font-size: 12px">In Store: {{item.storeName}}</p>
+                    </div>
+                    <div flex="" hide-gt-md class="cart-price teal-text">
+                        {{item.price | currency}}
+                    </div>
+                </div>
+                <div flex="" hide show-gt-md class="price teal-text">
+                    <div layout="column" layout-align="start end" style="padding-right: 30px">
+                        {{item.price | currency}}
+                    </div>
+                </div>
+            </div>
+        </md-card>
+    </div>
+</a>

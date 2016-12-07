@@ -103,11 +103,27 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
 
     };
 
+    function priceChange(item, offer) {
+        item.price = offer.itemPrice;
+        item.storeName = offer.storeName;
+        return item;
+    }
+
 
     $scope.addItemToCart = function (item, offer) {
+        if ($rootScope.cart.sum == undefined) {
+            $rootScope.cart.sum = 0;
+        }
+        $rootScope.cart.sum += offer.itemPrice;
+        console.log('item before price change');
+        console.log(item);
         console.log('called addingItemToCart');
-        item.price = offer.itemPrice;
-        $rootScope.cart.items.push(item);
+        priceChange(item, offer);
+        console.log('item after price change');
+        console.log(item);
+        var itemToPush = {};
+        angular.copy(item, itemToPush);
+        $rootScope.cart.items.push(itemToPush);
         console.log($rootScope.cart.items);
         console.log($rootScope);
         console.log($scope);

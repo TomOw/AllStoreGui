@@ -22,6 +22,11 @@ body {
     font-weight: 300;
 }
 
+.cart-price {
+    font-size: 45px;
+    font-weight: 300;
+}
+
 a:hover, a:visited, a:link, a:active {
     text-decoration: none;
 }
@@ -60,6 +65,12 @@ a:hover, a:visited, a:link, a:active {
 }
 
 .item-card-image-container {
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.item-card-cart-image-container {
     height: 200px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -111,4 +122,8 @@ a:hover, a:visited, a:link, a:active {
 .iconTopNavMaterial:hover {
     color: #009688;
     cursor: pointer;
+}
+
+.cart-actions {
+    margin-left: 8px;
 }
