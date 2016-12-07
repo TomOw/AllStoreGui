@@ -31,6 +31,10 @@ app.config(function ($routeProvider) {
             templateUrl: 'templates/itemSearch.html',
             controller: 'ItemCategorySearchController'
         })
+        .when('/login', {
+            templateUrl:'templates/login.html',
+            controller: 'LoginController'
+        })
         .otherwise({
             template: '<h1>otherwise template</h1>'
         })

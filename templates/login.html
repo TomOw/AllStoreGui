@@ -1,0 +1,26 @@
+<div layout="column">
+    <div flex="100" layout="row" layout-align="center start" style="padding: 100px 15px 15px;">
+
+        <div flex="100" flex-gt-xs="66" flex-gt-sm="50" flex-gt-md="33" layout="column" style="padding: 10px"
+             md-whiteframe="10">
+            <div class="price teal-text" layout="row" layout-align="center center">Sign in</div>
+            <md-input-container class="input-add-item">
+                <label>
+                    <md-icon>person</md-icon>
+                    Username</label>
+                <input ng-model="user.credentials.login" type="text">
+            </md-input-container>
+
+            <md-input-container class="input-add-item">
+                <label>
+                    <md-icon>lock</md-icon>
+                    Password</label>
+                <input ng-model="user.credentials.password" type="password">
+            </md-input-container>
+            <md-button class="md-primary md-raised">
+                Sign in
+                <md-icon ng-click="sendLogin()">send</md-icon>
+            </md-button>
+        </div>
+    </div>
+</div>
