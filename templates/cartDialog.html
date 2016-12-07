@@ -11,24 +11,24 @@
         </div>
     </md-toolbar>
 
-    <md-dialog-content>
-        <div class="md-dialog-content">
+    <md-dialog-content style="padding: 0">
+        <div class="md-dialog-content" style="padding: 0;">
             <div ng-repeat="item in cart.items track by $index">
                 <item-cart-card></item-cart-card>
             </div>
         </div>
-        <div class="price teal-text" layout="row" layout-align="end center" style="padding-right: 54px">
+        <div class="price teal-text" layout="row" layout-align="end center" style="padding-right: 38px; padding-top: 25px">
             SUM: {{cart.sum | currency}}
         </div>
     </md-dialog-content>
 
     <md-divider></md-divider>
 
-    <md-dialog-actions layout="row" layout-align="end center" style="padding-right: 10px; padding-top: 25px">
-        <md-button>
+    <md-dialog-actions layout="row" layout-align="end center" style="padding-right: 15px; padding-top: 25px; padding-bottom: 15px">
+        <md-button class="md-raised">
             Continue shopping <md-icon>shopping_cart</md-icon>
         </md-button>
-        <md-button ng-click="answer('not useful')">
+        <md-button ng-click="answer('not useful')" class="md-raised">
             To checkout <md-icon>check</md-icon>
         </md-button>
     </md-dialog-actions>
