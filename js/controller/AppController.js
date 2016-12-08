@@ -115,18 +115,10 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
             $rootScope.cart.sum = 0;
         }
         $rootScope.cart.sum += offer.itemPrice;
-        console.log('item before price change');
-        console.log(item);
-        console.log('called addingItemToCart');
         priceChange(item, offer);
-        console.log('item after price change');
-        console.log(item);
         var itemToPush = {};
         angular.copy(item, itemToPush);
         $rootScope.cart.items.push(itemToPush);
-        console.log($rootScope.cart.items);
-        console.log($rootScope);
-        console.log($scope);
     };
 
 
