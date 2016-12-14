@@ -58,6 +58,12 @@ app.filter('firstSentence', function () {
     }
 });
 
+app.filter('postalCode', function () {
+    return function (input) {
+        return input.substring(0, 2) + '-' + input.substring(2, 5);
+    }
+})
+
 app.directive('itemCard', function () {
     return {
         templateUrl: 'templates/directives/itemCard.html'

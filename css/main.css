@@ -132,3 +132,12 @@ a:hover, a:visited, a:link, a:active {
 .cart-actions {
     margin-left: 8px;
 }
+
+.md-card-store {
+    outline: none;
+    border: 0;
+    overflow: visible;
+    min-width: 100%;
+    margin: 0;
+    padding-top: 15px;
+}
