@@ -64,8 +64,8 @@ app.directive('itemCard', function () {
     }
 });
 
-app.directive('itemCartCard', function () {
+app.directive('itemCardShort', function () {
     return {
-        templateUrl: 'templates/directives/itemCartCard.html'
+        templateUrl: 'templates/directives/itemCardShort.html'
     };
 });
