@@ -1,0 +1,88 @@
+<div layout="row" layout-align="center start">
+    <div flex="100" flex-gt-xs="85" flex-gt-md="70">
+
+        <div layout="column">
+            <md-sidenav flex="100"
+                        class="md-sidenav-left"
+                        md-component-id="left"
+                        md-is-locked-open="$mdMedia('gt-md')"
+                        md-whiteframe="4">
+
+                <md-content flex="100" layout-padding ng-controller="LeftCtrl" style="padding: 0">
+                    <md-button ng-click="close()" class="md-primary" hide-gt-md>
+                        Close Sidenav Left
+                    </md-button>
+                    <a href="/#/" class="md-button md-ink-ripple side-nav-element">
+                        <md-icon>home</md-icon>
+                        Home page
+                    </a>
+                    <a href="/#/addItem" class="md-button md-ink-ripple side-nav-element">
+                        <md-icon>add</md-icon>
+                        Add Product
+                    </a>
+                    <a hide-gt-sm href="" class="md-button md-ink-ripple side-nav-element"
+                       ng-click="showAdvanced($event)">
+                        <md-icon>shopping_basket</md-icon>
+                        Cart
+                    </a>
+                    <md-divider></md-divider>
+                    <a href="" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                        <md-icon>list</md-icon>
+                        Items
+                    </a>
+                    <a href="" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                        <md-icon>store_mall_directory</md-icon>
+                        Storehouse
+                    </a>
+                    <a href="" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                        <md-icon>assignment</md-icon>
+                        Orders
+                    </a>
+
+
+                    <div ng-repeat="category in categories" style="padding: 0;">
+                        <a href="/#/category/{{category}}" class="md-button md-ink-ripple side-nav-element">
+                            {{category}}
+                        </a>
+                    </div>
+
+                    {{categoryName}}
+                </md-content>
+
+            </md-sidenav>
+        </div>
+
+        <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{single.name}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content layout-gt-xs="row">
+                <div class="md-media-xl card-media" flex="40">
+                    <img ng-src="{{single.photo}}"
+                         style="width: 250px; height: auto"/>
+                </div>
+                <div layout="column" flex="100" flex-gt-sm="60" layout-align="start start">
+                    <div style="font-size: 30px; font-weight: 200; margin-top: 0; margin-bottom: 25px">The best offer
+                        in:
+                        {{cheapest.storeName}}
+                    </div>
+                    <div class="item-single-price">
+                        {{cheapest.itemPrice | currency}}
+                        <md-button class="md-primary md-raised" ng-click="">BUY NOW</md-button>
+                    </div>
+                    <div>
+                        {{single.avgRating}}
+                        <md-icon style="margin: auto; font-size: 20px">star</md-icon>
+                        , {{single.noOfReviews}} Reviews
+                    </div>
+                </div>
+
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+            </md-card-actions>
+        </md-card>
+
+    </div>
+</div>

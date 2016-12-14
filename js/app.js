@@ -20,6 +20,10 @@ app.config(function ($routeProvider) {
             templateUrl: 'templates/itemsInStore.html',
             controller: 'StoreController'
         })
+        .when('/store/manager/:storeName', {
+            templateUrl: 'templates/storeManager.html',
+            controller: 'StoreManagerController'
+        })
         .when('/item/:itemId', {
             templateUrl: 'templates/itemView.html',
             controller: 'ItemController'
