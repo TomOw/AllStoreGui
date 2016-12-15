@@ -1,16 +1,26 @@
-var app = angular.module('BlankApp', ['ngMaterial', 'ngRoute'])
-    .config(function($mdThemingProvider) {
+var app = angular.module('BlankApp', ['ngMaterial', 'ngRoute', 'ngResource', 'http-auth-interceptor'])
+    .config(function ($mdThemingProvider) {
         $mdThemingProvider.theme('default')
             .primaryPalette('teal')
             .accentPalette('red')
             .warnPalette('red');
     });
 
-app.config(function ($routeProvider) {
+app.constant('USER_ROLES', {
+    all: '*',
+    admin: 'ROLE_ADMIN',
+    user: 'ROLE_USER'
+});
+
+app.config(function ($routeProvider, USER_ROLES) {
     $routeProvider
         .when('/addItem', {
             templateUrl: 'templates/addItemForm.html',
-            controller: 'ItemFormController'
+            controller: 'ItemFormController',
+            access: {
+                loginRequired: true,
+                authorizedRoles: [USER_ROLES.admin]
+            }
         })
         .when('/', {
             templateUrl: 'templates/itemSearch.html',
@@ -36,11 +46,11 @@ app.config(function ($routeProvider) {
             controller: 'ItemCategorySearchController'
         })
         .when('/login', {
-            templateUrl:'templates/login.html',
+            templateUrl: 'templates/login.html',
             controller: 'LoginController'
         })
         .otherwise({
-            template: '<h1>otherwise template</h1>'
+            template: '<h1>otherwise template 404</h1>'
         })
 });
 
@@ -62,7 +72,7 @@ app.filter('postalCode', function () {
     return function (input) {
         return input.substring(0, 2) + '-' + input.substring(2, 5);
     }
-})
+});
 
 app.directive('itemCard', function () {
     return {
@@ -75,3 +85,73 @@ app.directive('itemCardShort', function () {
         templateUrl: 'templates/directives/itemCardShort.html'
     };
 });
+
+
+app.run(function ($rootScope, $location, $http, AuthSharedService, Session,
+                  USER_ROLES, $q, $timeout) {
+// Call when the 403 response is returned by the server
+    $rootScope.$on('event:auth-forbidden', function (rejection) {
+        $rootScope.$evalAsync(function () {
+            $location.path('/error/403').replace();
+        });
+    });
+
+    $rootScope.$on('$routeChangeStart', function (event, next) {
+        if (next.originalPath === "/login" && $rootScope.authenticated) {
+            event.preventDefault();
+        } else if (next.access && next.access.loginRequired && !$rootScope.authenticated) {
+            event.preventDefault();
+            $rootScope.$broadcast("event:auth-loginRequired", {});
+        } else if (next.access && !AuthSharedService.isAuthorized(next.access.authorizedRoles)) {
+            event.preventDefault();
+            $rootScope.$broadcast("event:auth-forbidden", {});
+        }
+    });
+
+    $rootScope.$on('event:auth-loginConfirmed', function (event, data) {
+        $rootScope.loadingAccount = false;
+        var nextLocation = ($rootScope.requestedUrl ? $rootScope.requestedUrl : "/home");
+        var delay = ($location.path() === "/loading" ? 1500 : 0);
+
+        $timeout(function () {
+            Session.create(data);
+            $rootScope.account = Session;
+            $rootScope.authenticated = true;
+            $location.path(nextLocation).replace();
+        }, delay);
+
+    });
+
+    // Call when the 401 response is returned by the server
+    $rootScope.$on('event:auth-loginRequired', function (event, data) {
+        if ($rootScope.loadingAccount && data.status !== 401) {
+            $rootScope.requestedUrl = $location.path()
+            $location.path('/loading');
+        } else {
+            Session.invalidate();
+            $rootScope.authenticated = false;
+            $rootScope.loadingAccount = false;
+            $location.path('/login');
+        }
+    });
+
+    AuthSharedService.getAccount();
+});
+
+app.directive('access', [
+    'AuthSharedService',
+    function (AuthSharedService) {
+        return {
+            restrict: 'A',
+            link: function (scope, element, attrs) {
+                var roles = attrs.access.split(',');
+                if (roles.length > 0) {
+                    if (AuthSharedService.isAuthorized(roles)) {
+                        element.removeClass('hide');
+                    } else {
+                        element.addClass('hide');
+                    }
+                }
+            }
+        };
+    }]);
