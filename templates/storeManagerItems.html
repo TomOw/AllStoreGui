@@ -28,7 +28,7 @@
                             Cart
                         </a>
                         <md-divider></md-divider>
-                        <a href="/#/store/manager/{{store.name}}/items" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                        <a href="" class="md-button md-ink-ripple side-nav-element" ng-click="">
                             <md-icon>list</md-icon>
                             Items
                         </a>
@@ -55,33 +55,8 @@
             </div>
 
             <div flex="" style="width: 100%; padding-bottom: 8px">
-
-                <div class="item-card-container">
-                    <md-card md-whiteframe="3" class="md-card-store" style="padding-top: 0">
-                        <div layout="row" layout-align="space-between center">
-                            <div flex="33" flex-gt-md="15" layout-align="start center" style="padding: 10px;">
-                                <div style="height: 100px; width: 100px; background-color: #B2DFDB; border-radius: 200px; font-size: 50px; font-weight: 200" layout="row"
-                                     layout-align="center center">
-                                    {{store.name | capitalizeFirst}}
-                                </div>
-                            </div>
-                            <div flex="66" flex-gt-sm="45" flex-gt-md="35" flex-gt-lg="50" layout="column"
-                                 layout-align="space-between" style="padding-left: 25px">
-                                <div flex="" class="header-sm">{{store.name}}
-                                    <p style="font-size: 15px"> {{store.country}}, {{store.city}}</p>
-                                    <p style="font-size: 15px">{{store.postalCode | postalCode}}, {{store.street}} street</p>
-                                </div>
-                                <div flex="" hide-gt-md class="cart-price teal-text">
-                                    {{store.items.length}}
-                                </div>
-                            </div>
-                            <div flex="" hide show-gt-md class="price teal-text">
-                                <div layout="column" layout-align="start end" style="padding-right: 30px">
-                                    {{store.items.length}}
-                                </div>
-                            </div>
-                        </div>
-                    </md-card>
+                <div ng-repeat="item in store.items">
+                    <item-card></item-card>
                 </div>
             </div>
 
