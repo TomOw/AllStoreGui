@@ -8,7 +8,7 @@ app.service('StoreService', ['$http', function ($http) {
     //var url = 'http://localhost:8080';
 
     this.getStore = function (name) {
-        return $http.get(url + '/store/' + name)
+        return $http.get(url + '/store/byName/' + name)
             .then(function success(response, status) {
                 return response.data;
             })
@@ -24,7 +24,7 @@ app.service('StoreService', ['$http', function ($http) {
     };
 
     this.getCategories = function () {
-        return $http.get(url + '/categories')
+        return $http.get(url + '/category/all')
             .then(function  success(response, status) {
                 return response.data;
             })

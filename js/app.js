@@ -24,6 +24,10 @@ app.config(function ($routeProvider) {
             templateUrl: 'templates/storeManager.html',
             controller: 'StoreManagerController'
         })
+        .when('/store/manager/:storeName/items', {
+            templateUrl: 'templates/storeManagerItems.html',
+            controller: 'StoreManagerController'
+        })
         .when('/item/:itemId', {
             templateUrl: 'templates/itemView.html',
             controller: 'ItemController'
@@ -46,23 +50,29 @@ app.config(function ($routeProvider) {
 
 app.filter('capitalizeFirst', function () {
     return function (input) {
-        var char = input.charAt(0);
-        char = char.toUpperCase();
-        return char;
+        if(input != undefined) {
+            var char = input.charAt(0);
+            char = char.toUpperCase();
+            return char;
+        }
     }
 });
 
 app.filter('firstSentence', function () {
     return function (input) {
-        return input.split(". ")[0];
+        if(input != undefined) {
+            return input.split(". ")[0];
+        }
     }
 });
 
 app.filter('postalCode', function () {
     return function (input) {
-        return input.substring(0, 2) + '-' + input.substring(2, 5);
+        if(input != undefined) {
+            return input.substring(0, 2) + '-' + input.substring(2, 5);
+        }
     }
-})
+});
 
 app.directive('itemCard', function () {
     return {
