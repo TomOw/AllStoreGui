@@ -1,0 +1,56 @@
+<a ng-href="">
+    <div class="item-card-container">
+        <md-card ng-click="consoletest2()"
+                 md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 12"
+                 ng-mouseleave="height = 3" class="md-card-item">
+            <div layout="row">
+                <div flex="33" flex-gt-md="25" layout-align="center center" style="padding: 20px;">
+                    <div ng-style="{'background-image':'url({{item.photo}})'}" class="item-card-image-container">
+
+                    </div>
+                </div>
+                <div flex="66" flex-gt-sm="45" flex-gt-md="35" flex-gt-lg="50" layout="column"
+                     layout-align="space-between" style="padding-left: 25px">
+                    <div flex="" class="header-sm">{{item.name}}</div>
+                    <div flex="">
+                        <span class="item-card-text-20">{{item.avgRating}}</span>
+                        <md-icon style="margin: auto; font-size: 20px">star</md-icon>
+                        <span class="item-card-text-20">{{item.noOfReviews}} Reviews</span>
+                    </div>
+                    <div flex="" hide show-gt-md>Category: {{item.category}}</div>
+                    <div flex="" hide-gt-md class="price teal-text">
+                        {{item.price | currency}}
+                    </div>
+                    <div flex="" hide-gt-md>
+                        <md-button class="md-primary md-raised">BUY NOW</md-button>
+                    </div>
+                    <div flex hide show-gt-md>{{item.description | firstSentence}}</div>
+                </div>
+                <div flex="" hide show-gt-md class="price teal-text">
+                    <div layout="column" layout-align="start end" style="padding-right: 30px">
+                        <div layout="row" layout-align="center center">
+                            <md-fab-speed-dial md-open="demo.isOpen" md-direction="down"
+                                               class="md-fling">
+                                <md-fab-trigger>
+                                    <md-button aria-label="menu" class="md-fab md-primary">
+                                        <md-icon>menu</md-icon>
+                                    </md-button>
+                                </md-fab-trigger>
+
+                                <md-fab-actions>
+                                    <md-button aria-label="Twitter" class="md-fab md-raised md-mini">
+                                        <md-icon>mode_edit</md-icon>
+                                    </md-button>
+                                    <md-button aria-label="Facebook" class="md-fab md-raised md-mini">
+                                        <md-icon>delete_forever</md-icon>
+                                    </md-button>
+                                </md-fab-actions>
+                            </md-fab-speed-dial>
+                        </div>
+                        {{item.price | currency}}
+                    </div>
+                </div>
+            </div>
+        </md-card>
+    </div>
+</a>

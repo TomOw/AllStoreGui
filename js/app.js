@@ -85,3 +85,9 @@ app.directive('itemCardShort', function () {
         templateUrl: 'templates/directives/itemCardShort.html'
     };
 });
+
+app.directive('itemCardManager', function () {
+    return {
+        templateUrl: 'templates/directives/itemCardManager.html'
+    };
+});
