@@ -40,6 +40,11 @@
                             <md-icon>assignment</md-icon>
                             Orders
                         </a>
+                        <a href="/#/store/manager/{{store.name}}/items/add" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                            <md-icon>add</md-icon>
+                            new product
+                        </a>
+
 
 
                         <div ng-repeat="category in categories" style="padding: 0;">
@@ -77,7 +82,7 @@
                             </div>
                             <div flex="" hide show-gt-md class="price teal-text">
                                 <div layout="column" layout-align="start end" style="padding-right: 30px">
-                                    {{store.items.length}}
+                                    {{store.items.length}} Products
                                 </div>
                             </div>
                         </div>
