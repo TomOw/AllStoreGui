@@ -75,6 +75,7 @@ a:hover, a:visited, a:link, a:active {
     background-repeat: no-repeat;
     background-position: center;
 }
+
 .item-card-cart-image-container {
     height: 200px;
     background-size: contain;
@@ -139,4 +140,14 @@ a:hover, a:visited, a:link, a:active {
     min-width: 100%;
     margin: 0;
     padding-top: 15px;
+}
+
+.storage-green {
+    background-color: #8BC34A;
+}
+.storage-yellow {
+    background-color: #FFC400 !important;
+}
+.storage-red {
+    background-color: #F44336 !important;
 }

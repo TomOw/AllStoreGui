@@ -28,6 +28,10 @@ app.config(function ($routeProvider) {
             templateUrl: 'templates/storeManagerItems.html',
             controller: 'StoreManagerController'
         })
+        .when('/store/manager/:storeName/items/storage', {
+            templateUrl: 'templates/storeManagerStorage.html',
+            controller: 'StoreManagerController'
+        })
         .when('/item/:itemId', {
             templateUrl: 'templates/itemView.html',
             controller: 'ItemController'
@@ -89,5 +93,11 @@ app.directive('itemCardShort', function () {
 app.directive('itemCardManager', function () {
     return {
         templateUrl: 'templates/directives/itemCardManager.html'
+    };
+});
+
+app.directive('itemCardStorageStatus', function () {
+    return {
+        templateUrl: 'templates/directives/itemCardStorageStatus.html'
     };
 });
