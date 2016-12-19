@@ -146,8 +146,8 @@ a:hover, a:visited, a:link, a:active {
     background-color: #8BC34A;
 }
 .storage-yellow {
-    background-color: #FFC400 !important;
+    background-color: #FFC400;
 }
 .storage-red {
-    background-color: #F44336 !important;
+    background-color: #F44336;
 }

@@ -17,11 +17,10 @@
                     <div flex="" hide-gt-md class="cart-price teal-text">
                         {{item.price | currency}}
                     </div>
-                    {{item}}
                 </div>
                 <div flex="" hide show-gt-md class="price teal-text">
                     <div layout="column" layout-align="start end" style="padding-right: 30px">
-                        <div class="storage-green" style="height: 75px; width: 75px; border-radius: 75px"></div>
+                        <div ng-class="{'storage-red': (item.noInStock < 10), 'storage-yellow': (item.noInStock >= 10 && item.noInStock < 30), 'storage-green': (item.noInStock >= 30)}" style="height: 75px; width: 75px; border-radius: 75px"></div>
                     </div>
                 </div>
             </div>
