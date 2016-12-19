@@ -145,9 +145,16 @@ a:hover, a:visited, a:link, a:active {
 .storage-green {
     background-color: #8BC34A;
 }
+
 .storage-yellow {
     background-color: #FFC400;
 }
+
 .storage-red {
     background-color: #F44336;
+}
+
+.no-in-store {
+    font-size: 25px;
+    font-weight: 200;
 }
