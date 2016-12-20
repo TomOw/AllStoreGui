@@ -53,6 +53,10 @@ app.config(function ($routeProvider, USER_ROLES) {
             templateUrl: 'templates/user.html',
             controller: 'UserController'
         })
+        .when('/error/:code', {
+            templateUrl: 'templates/error.html',
+            controller: 'ErrorController'
+        })
         .otherwise({
             template: '<h1>otherwise template 404</h1>'
         })
@@ -114,7 +118,7 @@ app.run(function ($rootScope, $location, $http, AuthSharedService, Session,
 
     $rootScope.$on('event:auth-loginConfirmed', function (event, data) {
         $rootScope.loadingAccount = false;
-        var nextLocation = ($rootScope.requestedUrl ? $rootScope.requestedUrl : "/home");
+        var nextLocation = ($rootScope.requestedUrl ? $rootScope.requestedUrl : "/");
         var delay = ($location.path() === "/loading" ? 1500 : 0);
 
         $timeout(function () {
