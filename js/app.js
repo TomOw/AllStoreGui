@@ -49,6 +49,10 @@ app.config(function ($routeProvider, USER_ROLES) {
             templateUrl: 'templates/login.html',
             controller: 'LoginController'
         })
+        .when('/user', {
+            templateUrl: 'templates/user.html',
+            controller: 'UserController'
+        })
         .otherwise({
             template: '<h1>otherwise template 404</h1>'
         })
@@ -125,7 +129,7 @@ app.run(function ($rootScope, $location, $http, AuthSharedService, Session,
     // Call when the 401 response is returned by the server
     $rootScope.$on('event:auth-loginRequired', function (event, data) {
         if ($rootScope.loadingAccount && data.status !== 401) {
-            $rootScope.requestedUrl = $location.path()
+            $rootScope.requestedUrl = $location.path();
             $location.path('/loading');
         } else {
             Session.invalidate();

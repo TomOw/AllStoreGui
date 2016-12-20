@@ -3,9 +3,9 @@
  */
 app.service('Session', function () {
 
-    var url = 'http://85.255.8.105:8080';
+    //var url = 'http://85.255.8.105:8080';
 
-    //var url = 'http://localhost:8080';
+    var url = 'http://localhost:8080';
 
     this.create = function (data) {
         this.id = data.id;
@@ -31,9 +31,9 @@ app.service('Session', function () {
 
 app.service('AuthSharedService', function ($rootScope, $http, authService, Session) {
 
-    var url = 'http://85.255.8.105:8080';
+    //var url = 'http://85.255.8.105:8080';
 
-    //var url = 'http://localhost:8080';
+    var url = 'http://localhost:8080';
 
     return {
         login: function (userName, password, rememberMe) {
