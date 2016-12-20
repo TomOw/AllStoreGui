@@ -56,7 +56,7 @@ app.service('AuthSharedService', function ($rootScope, $http, authService, Sessi
 
         getAccount: function () {
             $rootScope.loadingAccount = true;
-            $http.get(url + '/test/auth')
+            $http.get(url + '/user/me')
                 .then(function (response) {
                     authService.loginConfirmed(response.data);
                 });
