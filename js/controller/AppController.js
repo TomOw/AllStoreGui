@@ -76,6 +76,22 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
         }
     }
 
+    $scope.showAdvancedWelcome = function (ev) {
+        $mdDialog.show({
+            controller: 'AppCtrl',
+            scope: $rootScope,
+            preserveScope: true,
+            templateUrl: 'templates/welcomeDialog.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true // Only for -xs, -sm breakpoints.
+        })
+    };
+
+
+    $scope.showAdvancedWelcome();
+
     //Dialogs
     $scope.showAdvanced = function (ev) {
         $mdDialog.show({

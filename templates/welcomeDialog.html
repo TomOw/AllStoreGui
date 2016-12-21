@@ -1,0 +1,27 @@
+<md-dialog aria-label="Welcome" flex="80">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Welcome</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <md-icon>close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content style="padding: 0">
+        Welcome
+    </md-dialog-content>
+
+    <md-divider></md-divider>
+
+    <md-dialog-actions layout="row" layout-align="end center" style="padding-right: 15px; padding-top: 25px; padding-bottom: 15px">
+        <md-button class="md-raised">
+            Continue shopping <md-icon>shopping_cart</md-icon>
+        </md-button>
+        <md-button ng-click="answer('not useful')" class="md-raised">
+            To checkout <md-icon>check</md-icon>
+        </md-button>
+    </md-dialog-actions>
+
+</md-dialog>
