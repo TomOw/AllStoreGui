@@ -93,7 +93,8 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
     };
 
 
-    $scope.showAlert();
+    //$scope.showAlert();
+
 
     //Dialogs
     $scope.showAdvanced = function (ev) {
