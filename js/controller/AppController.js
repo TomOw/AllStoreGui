@@ -76,21 +76,24 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
         }
     }
 
-    $scope.showAdvancedWelcome = function (ev) {
-        $mdDialog.show({
-            controller: 'AppCtrl',
-            scope: $rootScope,
-            preserveScope: true,
-            templateUrl: 'templates/welcomeDialog.html',
-            parent: angular.element(document.body),
-            targetEvent: ev,
-            clickOutsideToClose: true,
-            fullscreen: true // Only for -xs, -sm breakpoints.
-        })
+    $scope.showAlert = function(ev) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        // Modal dialogs should fully cover application
+        // to prevent interaction outside of dialog
+        $mdDialog.show(
+            $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title('Welcome')
+                .textContent('This is NOT a real online store. This is my personal portfolio project')
+                .ariaLabel('Alert Dialog Demo')
+                .ok('Got it!')
+                .targetEvent(ev)
+        );
     };
 
 
-    $scope.showAdvancedWelcome();
+    $scope.showAlert();
 
     //Dialogs
     $scope.showAdvanced = function (ev) {
