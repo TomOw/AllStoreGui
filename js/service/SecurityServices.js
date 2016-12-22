@@ -78,6 +78,15 @@ app.service('AuthSharedService', function ($rootScope, $http, authService, Sessi
                 }
             });
             return isAuthorized;
+        },
+
+        checkRole: function (role) {
+            var result = Session.userRoles.indexOf(role);
+            if (result == -1) {
+                return false;
+            } else {
+                return true;
+            }
         }
     };
 });

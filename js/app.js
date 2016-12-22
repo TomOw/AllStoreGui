@@ -152,9 +152,9 @@ app.directive('access', [
         return {
             restrict: 'A',
             link: function (scope, element, attrs) {
-                var roles = attrs.access.split(',');
+                var role = attrs.access;
                 if (roles.length > 0) {
-                    if (AuthSharedService.isAuthorized(roles)) {
+                    if (AuthSharedService.checkRole(role)) {
                         element.removeClass('hide');
                     } else {
                         element.addClass('hide');
