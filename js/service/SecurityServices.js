@@ -8,22 +8,14 @@ app.service('Session', function () {
     //var url = 'http://localhost:8080';
 
     this.create = function (data) {
-        this.id = data.id;
-        this.login = data.login;
-        this.firstName = data.firstName;
-        this.lastName = data.familyName;
-        this.email = data.email;
-        this.userRoles = [];
+        this.login = data.username;
+        this.userRoles = [] = data.authorities;
         angular.forEach(data.authorities, function (value, key) {
-            this.push(value.name);
+            this.push(value.authority);
         }, this.userRoles);
     };
     this.invalidate = function () {
-        this.id = null;
         this.login = null;
-        this.firstName = null;
-        this.lastName = null;
-        this.email = null;
         this.userRoles = null;
     };
     return this;
@@ -52,6 +44,13 @@ app.service('AuthSharedService', function ($rootScope, $http, authService, Sessi
                 $rootScope.authenticationError = true;
                 Session.invalidate();
             });
+        },
+
+        logout: function () {
+            $http.get(url + '/logout')
+                .then(function (response) {
+                    Session.invalidate();
+                })
         },
 
         getAccount: function () {
