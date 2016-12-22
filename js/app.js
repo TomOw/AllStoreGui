@@ -157,13 +157,12 @@ app.directive('access', [
                 console.log('attrs');
                 console.log(attrs.access);
                 console.log('attrs'.access);
-                if (roles.length > 0) {
-                    if (AuthSharedService.checkRole(role)) {
-                        element.removeClass('hide');
-                    } else {
-                        element.addClass('hide');
-                    }
+                if (AuthSharedService.checkRole(role)) {
+                    element.removeClass('hide');
+                } else {
+                    element.addClass('hide');
                 }
             }
+
         };
     }]);
