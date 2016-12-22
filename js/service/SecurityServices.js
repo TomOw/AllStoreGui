@@ -9,7 +9,7 @@ app.service('Session', function () {
 
     this.create = function (data) {
         this.login = data.username;
-        //this.userRoles = [] = data.authorities;
+        this.userRoles = [];
         angular.forEach(data.authorities, function (value, key) {
             this.push(value.authority);
         }, this.userRoles);
