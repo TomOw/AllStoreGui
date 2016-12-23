@@ -24,12 +24,12 @@
                     <div flex="" hide-gt-md>
                         <md-button class="md-primary md-raised">BUY NOW</md-button>
                     </div>
-                    <div flex hide show-gt-md>{{item.description | firstSentence}}</div>
+                    <div access="admin" flex hide show-gt-md>{{item.description | firstSentence}}</div>
                 </div>
                 <div flex="" hide show-gt-md class="price teal-text">
                     <div layout="column" layout-align="start end" style="padding-right: 30px">
                         {{item.price | currency}}
-                        <md-button class="md-primary md-raised" style="margin-right: 0">BUY NOW</md-button>
+                        <md-button access="ROLE_ADMIN" class="md-primary md-raised" style="margin-right: 0">BUY NOW</md-button>
                     </div>
                 </div>
             </div>
