@@ -81,6 +81,7 @@ app.service('AuthSharedService', function ($rootScope, $http, authService, Sessi
         },
 
         checkRole: function (role) {
+            debugger;
             var result = Session.userRoles.indexOf(role);
             if (result == -1) {
                 return false;
