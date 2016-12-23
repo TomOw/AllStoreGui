@@ -9,6 +9,7 @@ app.service('Session', function () {
 
     this.create = function (data) {
         this.login = data.username;
+        $rootScope.user.username = data.username;
         this.userRoles = [];
         angular.forEach(data.authorities, function (value, key) {
             this.push(value.authority);
