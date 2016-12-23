@@ -155,8 +155,8 @@ app.directive('access', [
                 var role = attrs.access;
                 console.log(attrs);
                 console.log('attrs');
+                console.log('role' + role);
                 console.log(attrs.access);
-                console.log('attrs'.access);
                 if (AuthSharedService.checkRole(role)) {
                     element.removeClass('hide');
                 } else {
