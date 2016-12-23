@@ -2,7 +2,7 @@
  * Created by Tomasz on 08.11.2016.
  */
 
-app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$mdDialog', '$log', 'ItemService', 'AuthSharedService', function ($scope, $rootScope, $timeout, $mdSidenav, $mdDialog, $log, ItemService, AuthSharedService) {
+app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$mdDialog', '$log', 'ItemService', function ($scope, $rootScope, $timeout, $mdSidenav, $mdDialog, $log, ItemService) {
 
     $scope.msg = 'working msg';
 
@@ -120,9 +120,6 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
         angular.copy(item, itemToPush);
         $rootScope.cart.items.push(itemToPush);
     };
-
-
-    $scope.logout = AuthSharedService.logout();
 
 
 
