@@ -2,7 +2,7 @@
  * Created by Tomasz on 08.11.2016.
  */
 
-app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$mdDialog', '$log', 'ItemService', function ($scope, $rootScope, $timeout, $mdSidenav, $mdDialog, $log, ItemService) {
+app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$mdDialog', '$log', 'ItemService', 'OrderService', function ($scope, $rootScope, $timeout, $mdSidenav, $mdDialog, $log, ItemService, OrderService) {
 
     $scope.msg = 'working msg';
 
@@ -130,16 +130,24 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
     }
 
 
+
     $scope.addItemToCart = function (item, offer) {
         if ($rootScope.cart.sum == undefined) {
             $rootScope.cart.sum = 0;
         }
         $rootScope.cart.sum += offer.itemPrice;
         priceChange(item, offer);
+        item.store = {};
+        item.store.name = offer.storeName;
         var itemToPush = {};
         angular.copy(item, itemToPush);
         $rootScope.cart.items.push(itemToPush);
     };
+
+    $rootScope.sendCart = function () {
+        console.log('called Send Cart');
+        OrderService.sendCart($rootScope.cart);
+    }
 
 
 
