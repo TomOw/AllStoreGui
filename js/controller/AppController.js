@@ -92,6 +92,22 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
         );
     };
 
+    $scope.showAlertAddToCartFailed = function (ev) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        // Modal dialogs should fully cover application
+        // to prevent interaction outside of dialog
+        $mdDialog.show(
+            $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title('Warning')
+                .textContent('You cannot add to cart items from different stores')
+                .ariaLabel('Alert Dialog Demo')
+                .ok('Got it!')
+                .targetEvent(ev)
+        );
+    };
+
 
     //$scope.showAlert();
 
@@ -156,7 +172,6 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
         if ($rootScope.cart.sum == undefined) {
             $rootScope.cart.sum = 0;
         }
-        $rootScope.cart.sum += offer.itemPrice;
         priceChange(item, offer);
         item.store = {};
         item.store.id = offer.storeId;
@@ -165,8 +180,10 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
             var itemToPush = {};
             angular.copy(item, itemToPush);
             $rootScope.cart.items.push(itemToPush);
+            $rootScope.cart.sum += offer.itemPrice;
         } else {
             console.log('this item does not belong to store');
+            $scope.showAlertAddToCartFailed();
         }
     };
 
