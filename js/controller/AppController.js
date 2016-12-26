@@ -76,7 +76,7 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
         }
     }
 
-    $scope.showAlert = function(ev) {
+    $scope.showAlert = function (ev) {
         // Appending dialog to document.body to cover sidenav in docs app
         // Modal dialogs should fully cover application
         // to prevent interaction outside of dialog
@@ -129,6 +129,27 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
         return item;
     }
 
+    function isItemFromThisStore(items, item) {
+        console.log('called comparing');
+        console.log('item.storeName');
+        console.log(item.storeName);
+        for (var j = 0; j < items.length; j++) {
+            console.log(items[j].storeName + ' ,');
+        }
+
+        if (items.length == 0) {
+            return true;
+        } else {
+            for (var i = 0; i < items.length; i++) {
+                if (item.storeName == items[i].storeName) {
+                    console.log('return true');
+                    return true;
+                }
+            }
+        }
+        console.log('return false');
+        return false;
+    }
 
 
     $scope.addItemToCart = function (item, offer) {
@@ -138,18 +159,21 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
         $rootScope.cart.sum += offer.itemPrice;
         priceChange(item, offer);
         item.store = {};
-        item.store.name = offer.storeName;
-        var itemToPush = {};
-        angular.copy(item, itemToPush);
-        $rootScope.cart.items.push(itemToPush);
+        item.store.id = offer.storeId;
+        item.id = offer.itemId;
+        if (isItemFromThisStore($rootScope.cart.items, item)) {
+            var itemToPush = {};
+            angular.copy(item, itemToPush);
+            $rootScope.cart.items.push(itemToPush);
+        } else {
+            console.log('this item does not belong to store');
+        }
     };
 
     $rootScope.sendCart = function () {
         console.log('called Send Cart');
         OrderService.sendCart($rootScope.cart);
     }
-
-
 
 
 }]);
