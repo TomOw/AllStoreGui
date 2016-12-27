@@ -101,3 +101,9 @@ app.directive('itemCardStorageStatus', function () {
         templateUrl: 'templates/directives/itemCardStorageStatus.html'
     };
 });
+
+app.directive('orderUser', function () {
+    return {
+        templateUrl: 'templates/directives/orderDirective.html'
+    };
+});
