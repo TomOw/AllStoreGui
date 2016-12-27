@@ -1,0 +1,27 @@
+<div class="item-card-container">
+    <md-card class="md-card-item">
+        <div layout="column">
+            <div layout="row" layout-align="space-around center">
+                <div>
+                    {{order.date}}
+                </div>
+                <div>
+                    {{order.price | currency}}
+                </div>
+            </div>
+
+            <div layout="row" layout-align="space-around center">
+                <div>
+                    {{order.storeName}}
+                </div>
+                <div>
+                    {{order.items.length}} items
+                </div>
+            </div>
+
+            <div ng-repeat="item in order.items">
+                <item-card-short></item-card-short>
+            </div>
+        </div>
+    </md-card>
+</div>
