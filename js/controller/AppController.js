@@ -176,6 +176,7 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
         item.store = {};
         item.store.id = offer.storeId;
         item.id = offer.itemId;
+        console.log(item.id);
         if (isItemFromThisStore($rootScope.cart.items, item)) {
             var itemToPush = {};
             angular.copy(item, itemToPush);
