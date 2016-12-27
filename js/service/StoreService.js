@@ -3,9 +3,9 @@
  */
 app.service('StoreService', ['$http', function ($http) {
 
-    var url = 'http://85.255.8.105:8080';
+    //var url = 'http://85.255.8.105:8080';
 
-    //var url = 'http://localhost:8080';
+    var url = 'http://localhost:8080';
 
     this.getStore = function (name) {
         return $http.get(url + '/store/byName/' + name)
@@ -25,10 +25,17 @@ app.service('StoreService', ['$http', function ($http) {
 
     this.getCategories = function () {
         return $http.get(url + '/category/all')
-            .then(function  success(response, status) {
+            .then(function success(response, status) {
                 return response.data;
             })
     };
+
+    this.getOrders = function (name) {
+        return $http.get(url + '/store/orders/' + name)
+            .then(function success(response, status) {
+                return response.data;
+            });
+    }
 
 
 }]);
