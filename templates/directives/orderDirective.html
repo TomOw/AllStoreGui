@@ -3,7 +3,8 @@
         <div layout="column">
             <div layout="row" layout-align="space-around center">
                 <div>
-                    {{order.date}}
+                    ORDER
+                    {{order.date | date}}
                 </div>
                 <div>
                     {{order.price | currency}}

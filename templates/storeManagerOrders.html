@@ -1,0 +1,65 @@
+<div layout="row" layout-align="center start">
+    <div flex="100" flex-gt-xs="85" flex-gt-md="70">
+
+        <div layout="row">
+
+            <div layout="column">
+                <md-sidenav flex="100"
+                            class="md-sidenav-left"
+                            md-component-id="left"
+                            md-is-locked-open="$mdMedia('gt-md')"
+                            md-whiteframe="4">
+
+                    <md-content flex="100" layout-padding ng-controller="LeftCtrl" style="padding: 0">
+                        <md-button ng-click="close()" class="md-primary" hide-gt-md>
+                            Close Sidenav Left
+                        </md-button>
+                        <a href="/#/" class="md-button md-ink-ripple side-nav-element">
+                            <md-icon>home</md-icon>
+                            Home page
+                        </a>
+                        <a href="/#/addItem" class="md-button md-ink-ripple side-nav-element">
+                            <md-icon>add</md-icon>
+                            Add Product
+                        </a>
+                        <a hide-gt-sm href="" class="md-button md-ink-ripple side-nav-element"
+                           ng-click="showAdvanced($event)">
+                            <md-icon>shopping_basket</md-icon>
+                            Cart
+                        </a>
+                        <md-divider></md-divider>
+                        <a href="" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                            <md-icon>list</md-icon>
+                            Items
+                        </a>
+                        <a href="" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                            <md-icon>store_mall_directory</md-icon>
+                            Storehouse
+                        </a>
+                        <a href="" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                            <md-icon>assignment</md-icon>
+                            Orders
+                        </a>
+
+
+                        <div ng-repeat="category in categories" style="padding: 0;">
+                            <a href="/#/category/{{category}}" class="md-button md-ink-ripple side-nav-element">
+                                {{category}}
+                            </a>
+                        </div>
+
+                        {{categoryName}}
+                    </md-content>
+
+                </md-sidenav>
+            </div>
+
+            <div flex="" style="width: 100%; padding-bottom: 8px">
+                <div ng-repeat="order in store.orders">
+                    <order-card></order-card>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -9,7 +9,11 @@ app.controller('StoreManagerController', ['$rootScope', '$scope', '$http', '$rou
 
     StoreService.getStore(storeName).then(function (result) {
         $scope.store = result;
-    });
-
+    })
+        .then(function (result) {
+            StoreService.getOrders(storeName).then(function (result) {
+                $scope.store.orders = result;
+            });
+        });
 
 }]);
