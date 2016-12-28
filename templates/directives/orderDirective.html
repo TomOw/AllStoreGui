@@ -1,8 +1,8 @@
 <div class="item-card-container">
     <md-card class="md-card-item" style="padding-top: 0">
-        <div layout="column">
-            <div style="padding: 25px;">
-                <div layout-gt-xs="row" layout="column" layout-align-gt-xs="space-between center" style="padding-bottom: 10px">
+        <div layout="column" layout-align="space-around">
+            <div style="padding: 25px; padding-top: 10px; padding-bottom: 10px">
+                <div layout-gt-xs="row" layout="column" layout-align-gt-xs="space-between center" style="">
                     <div style="font-size: 30px; font-weight: 300">
                         {{order.date | date : 'dd/MM/yyyy HH:mm:ss'}}
                     </div>
@@ -16,7 +16,7 @@
                         <div style="font-size: 25px; font-weight: 200">
                             Made by: {{order.username}}
                         </div>
-                        <div style="padding-top: 10px">
+                        <div style="">
                             Order no: {{order.id}}
                         </div>
                     </div>
