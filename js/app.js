@@ -51,6 +51,10 @@ app.config(function ($routeProvider) {
             templateUrl:'templates/login.html',
             controller: 'LoginController'
         })
+        .when('/user', {
+            templateUrl: 'templates/user.html',
+            controller: 'UserController'
+        })
         .otherwise({
             template: '<h1>otherwise template</h1>'
         })
