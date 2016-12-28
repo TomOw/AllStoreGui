@@ -85,6 +85,15 @@ a:hover, a:visited, a:link, a:active {
     padding-top: 15px;
 }
 
+.md-card-order {
+    outline: none;
+    border: 0;
+    overflow: visible;
+    min-width: 100%;
+    margin: 0;
+    padding-top: 15px;
+}
+
 .item-card-image-container {
     height: 200px;
     background-size: contain;

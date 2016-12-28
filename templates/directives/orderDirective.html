@@ -1,5 +1,5 @@
 <div class="item-card-container">
-    <md-card class="md-card-item" style="padding-top: 0">
+    <md-card class="md-card-order" style="padding-top: 0">
         <div layout="column" layout-align="space-around">
             <div style="padding: 25px; padding-top: 10px; padding-bottom: 10px">
                 <div layout-gt-xs="row" layout="column" layout-align-gt-xs="space-between center" style="">
@@ -21,7 +21,9 @@
                         </div>
                     </div>
                     <div style="font-size: 25px; font-weight: 200">
-                        {{order.items.length}} items
+                        <ng-pluralize count="order.items.length"
+                                      when="{ 'one': '1 item', 'other': '{} items'}">
+                        </ng-pluralize>
                     </div>
                 </div>
             </div>

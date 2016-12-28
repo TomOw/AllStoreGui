@@ -55,7 +55,7 @@
             </div>
 
             <div flex="" style="width: 100%; padding-bottom: 8px">
-                <div ng-repeat="order in store.orders">
+                <div ng-repeat="order in store.orders | orderBy : 'order.id' : 'reverse'">
                     <order-card></order-card>
                 </div>
             </div>
