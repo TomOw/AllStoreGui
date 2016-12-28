@@ -1,0 +1,24 @@
+<md-divider></md-divider>
+<div class="item-card-container">
+    <div layout="row" layout-align="space-between center">
+        <div flex="33" flex-gt-md="10" layout-align="start center" style="padding: 10px;">
+            <div style="height: 50px" ng-style="{'background-image':'url({{item.photo}})'}"
+                 class="item-order-image-container">
+
+            </div>
+        </div>
+        <div flex="66" flex-gt-sm="45" flex-gt-md="35" flex-gt-lg="50" layout="column"
+             layout-align="space-between" style="padding-left: 25px">
+            <div flex="" class="item-order-name">{{item.name}}
+            </div>
+            <div flex="" hide-gt-md class="order-price-sm teal-text">
+                {{item.price | currency}}
+            </div>
+        </div>
+        <div flex="" hide show-gt-md class="order-price teal-text">
+            <div layout="column" layout-align="start end" style="padding-right: 30px">
+                {{item.price | currency}}
+            </div>
+        </div>
+    </div>
+</div>

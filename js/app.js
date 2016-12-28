@@ -111,3 +111,9 @@ app.directive('orderCard', function () {
         templateUrl: 'templates/directives/orderDirective.html'
     };
 });
+
+app.directive('itemOrder', function () {
+    return {
+        templateUrl: 'templates/directives/itemOrder.html'
+    };
+});

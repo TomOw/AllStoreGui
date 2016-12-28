@@ -17,6 +17,11 @@ body {
     font-weight: 200;
 }
 
+.item-order-name {
+    font-size: 25px;
+    font-weight: 200;
+}
+
 .price {
     font-size: 45px;
     font-weight: 300;
@@ -31,6 +36,17 @@ body {
     font-size: 45px;
     font-weight: 300;
 }
+
+.order-price {
+    font-size: 30px;
+    font-weight: 200;
+}
+
+.order-price-sm {
+    font-size: 35px;
+    font-weight: 200;
+}
+
 
 a:hover, a:visited, a:link, a:active {
     text-decoration: none;
@@ -71,6 +87,13 @@ a:hover, a:visited, a:link, a:active {
 
 .item-card-image-container {
     height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.item-order-image-container {
+    height: 100px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
