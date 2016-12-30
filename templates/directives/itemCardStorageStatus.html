@@ -9,16 +9,12 @@
 
                 </div>
             </div>
-            <div flex="66" flex-gt-sm="45" flex-gt-md="35" flex-gt-lg="50" layout="column"
+            <div flex="33" flex-gt-sm="45" flex-gt-md="35" flex-gt-lg="50" layout="column"
                  layout-align="space-between" style="padding-left: 25px">
-                <div flex="" class="header-sm">{{item.name}}
-                    <p style="font-size: 15px">In Store: {{item.storeName}}</p>
-                </div>
-                <div flex="" hide-gt-md class="cart-price teal-text">
-                    {{item.price | currency}}
+                <div flex="" class="header-sm-storage">{{item.name}}
                 </div>
             </div>
-            <div flex="" hide show-gt-md class="no-in-store">
+            <div flex="" class="no-in-store">
                 <div layout="column" layout-align="start end" style="padding-right: 30px">
                     <div layout="row" layout-align="center center"
                          ng-class="{'storage-red': (item.noInStock < 10), 'storage-yellow': (item.noInStock >= 10 && item.noInStock < 30), 'storage-green': (item.noInStock >= 30)}"

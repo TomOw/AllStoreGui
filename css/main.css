@@ -17,6 +17,11 @@ body {
     font-weight: 200;
 }
 
+.header-sm-storage {
+    font-size: 25px;
+    font-weight: 200;
+}
+
 .item-order-name {
     font-size: 25px;
     font-weight: 200;
@@ -96,6 +101,13 @@ a:hover, a:visited, a:link, a:active {
 
 .item-card-image-container {
     height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.item-card-storage-image-container {
+    height: 150px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
