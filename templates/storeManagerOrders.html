@@ -28,27 +28,26 @@
                             Cart
                         </a>
                         <md-divider></md-divider>
-                        <a href="" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                        <a href="/#/store/manager/{{store.name}}/edit" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                            <md-icon>mode_edit</md-icon>
+                            Edit
+                        </a>
+                        <a href="/#/store/manager/{{store.name}}/items" class="md-button md-ink-ripple side-nav-element" ng-click="">
                             <md-icon>list</md-icon>
                             Items
                         </a>
-                        <a href="" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                        <a href="/#/store/manager/{{store.name}}/items/storage" class="md-button md-ink-ripple side-nav-element" ng-click="">
                             <md-icon>store_mall_directory</md-icon>
                             Storehouse
                         </a>
-                        <a href="" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                        <a href="/#/storage/manager/{{store.name}}/orders" class="md-button md-ink-ripple side-nav-element" ng-click="">
                             <md-icon>assignment</md-icon>
                             Orders
                         </a>
-
-
-                        <div ng-repeat="category in categories" style="padding: 0;">
-                            <a href="/#/category/{{category}}" class="md-button md-ink-ripple side-nav-element">
-                                {{category}}
-                            </a>
-                        </div>
-
-                        {{categoryName}}
+                        <a href="/#/store/manager/{{store.name}}/items/add" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                            <md-icon>add</md-icon>
+                            new product
+                        </a>
                     </md-content>
 
                 </md-sidenav>
