@@ -54,8 +54,10 @@
             </div>
 
             <div flex="" style="width: 100%; padding-bottom: 8px">
-                <div ng-repeat="item in store.items">
+                <div style="font-size: 45px; font-weight: 200; padding-top: 25px; padding-left: 25px">Items storage status</div>
+                <div ng-repeat="item in store.items" style="padding-left: 25px">
                     <item-card-storage-status></item-card-storage-status>
+                    <md-divider></md-divider>
                 </div>
             </div>
 
