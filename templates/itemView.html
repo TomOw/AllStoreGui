@@ -20,7 +20,8 @@
                         <md-icon>add</md-icon>
                         Add Product
                     </a>
-                    <a hide-gt-sm href="" class="md-button md-ink-ripple side-nav-element" ng-click="showAdvanced($event)">
+                    <a hide-gt-sm href="" class="md-button md-ink-ripple side-nav-element"
+                       ng-click="showAdvanced($event)">
                         <md-icon>shopping_basket</md-icon>
                         Cart
                     </a>
@@ -58,7 +59,9 @@
                         <md-button class="md-primary md-raised" ng-click="">BUY NOW</md-button>
                     </div>
                     <div>
-                        {{single.avgRating}} <md-icon style="margin: auto; font-size: 20px">star</md-icon>, {{single.noOfReviews}} Reviews
+                        {{single.avgRating}}
+                        <md-icon style="margin: auto; font-size: 20px">star</md-icon>
+                        , {{single.noOfReviews}} Reviews
                     </div>
                 </div>
 
@@ -90,10 +93,15 @@
                                     <div flex-gt-xs="33" flex style="font-size: 35px; color: #009688">
                                         {{offer.itemPrice | currency}}
                                     </div>
-                                    <div flex-gt-xs="20" flex>
-                                        <md-button ng-click="addItemToCart(single, offer)" class="md-primary md-raised">BUY NOW</md-button>
+                                    <div flex-gt-xs="" flex>
+                                        <md-button ng-disabled="offer.noInStock <= 0"
+                                                   ng-click="addItemToCart(single, offer)" class="md-primary md-raised">
+                                            BUY NOW
+                                        </md-button>
                                     </div>
-                                    <div flex-gt-xs="14" flex style="height: 15px"></div>
+                                    <div flex-gt-xs="" flex style="color: #F44336; min-height: 10px">
+                                        <div style="margin-bottom: 10px" ng-show="offer.noInStock <= 0">This item is currently not available.</div>
+                                    </div>
 
                                 </div>
                                 <md-divider></md-divider>

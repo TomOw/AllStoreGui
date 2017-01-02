@@ -121,3 +121,9 @@ app.directive('itemOrder', function () {
         templateUrl: 'templates/directives/itemOrder.html'
     };
 });
+
+app.directive('offerItem', function () {
+    return {
+        templateUrl: 'templates/directives/offerDirective.html'
+    }
+});
