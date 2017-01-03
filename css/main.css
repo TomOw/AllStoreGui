@@ -187,15 +187,15 @@ a:hover, a:visited, a:link, a:active {
 }
 
 .storage-green {
-    background-color: #8BC34A;
+    background-color: #8BC34A !important;
 }
 
 .storage-yellow {
-    background-color: #FFC400;
+    background-color: #FFC400 !important;
 }
 
 .storage-red {
-    background-color: #F44336;
+    background-color: #F44336 !important;
 }
 
 .no-in-store {
