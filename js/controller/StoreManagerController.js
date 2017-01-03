@@ -38,4 +38,48 @@ app.controller('StoreManagerController', ['$rootScope', '$scope', '$http', '$rou
             $scope.status = '';
         });
     };
+
+    $scope.testMsg = function (item, index) {
+        console.log(index);
+        console.log('clicked edit icon');
+        console.log(item);
+        $scope.editingItem = item;
+        $scope.editingItem.index = index;
+        $scope.editingItem.store = {};
+        $scope.editingItem.store.id = $scope.store.id;
+        $scope.showEditDialog();
+    };
+
+    $scope.showEditDialog = function (ev) {
+        $mdDialog.show({
+            controller: 'StoreManagerController',
+            scope: $scope,
+            preserveScope: true,
+            templateUrl: 'templates/editItemDialog.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true // Only for -xs, -sm breakpoints.
+        })
+    };
+
+    $scope.saveEdited = function (edited) {
+        console.log(edited);
+        $scope.store.items[edited.index] = edited;
+        ItemService.editItem(edited);
+        $scope.hide();
+    };
+
+    $scope.hide = function () {
+        $mdDialog.hide();
+    };
+
+    $scope.cancel = function () {
+        $mdDialog.cancel();
+    };
+
+    $scope.answer = function (answer) {
+        $mdDialog.hide(answer);
+
+    };
 }]);
