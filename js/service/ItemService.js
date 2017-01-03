@@ -3,9 +3,9 @@
  */
 app.service('ItemService', ['$http', function ($http) {
 
-    //var url = 'http://localhost:8080';
+    var url = 'http://localhost:8080';
 
-    var url = 'http://85.255.8.105:8080';
+    //var url = 'http://85.255.8.105:8080';
 
     this.getEmptyItem = function () {
         return {
@@ -29,6 +29,13 @@ app.service('ItemService', ['$http', function ($http) {
             .success(function (response, status) {
                 console.log(response);
             })
+    };
+
+    this.editItem = function (item) {
+        $http.put(url + '/item/edit', item)
+            .then(function success(response, status) {
+                return response.data;
+            });
     };
 
     this.sendItems = function (item, stores) {
