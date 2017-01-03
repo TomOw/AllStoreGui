@@ -16,6 +16,9 @@ app.controller('StoreManagerController', ['$rootScope', '$scope', '$http', '$rou
             });
         });
 
+    StoreService.getCategories().then(function (result) {
+        $scope.categories = result;
+    });
 
     $scope.showPromptChangeAmount = function (ev, item) {
         var confirm = $mdDialog.prompt()
@@ -68,6 +71,37 @@ app.controller('StoreManagerController', ['$rootScope', '$scope', '$http', '$rou
         $scope.store.items[edited.index] = edited;
         ItemService.editItem(edited);
         $scope.hide();
+    };
+
+    $scope.showPromptNewCategory = function (ev) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        var confirm = $mdDialog.prompt()
+            .title('Add new category')
+            .textContent('Type a name of new category')
+            .placeholder('Category')
+            .ariaLabel('Category')
+            .initialValue('New Category')
+            .targetEvent(ev)
+            .ok('Add')
+            .cancel('Cancel');
+
+        $mdDialog.show(confirm).then(function (result) {
+            $scope.newCategory = result;
+            $scope.newItem.category = result;
+            if ($scope.categories == undefined) {
+                $scope.categories = [];
+                $scope.categories.push(result);
+            } else {
+                $scope.categories.push(result);
+            }
+        }, function () {
+            $scope.status = '';
+        });
+    };
+
+    $scope.sendItem = function () {
+        $scope.store.items.push($scope.newItem);
+        ItemService.sendSingleItem($scope.newItem, $scope.store.name);
     };
 
     $scope.hide = function () {

@@ -28,6 +28,10 @@ app.config(function ($routeProvider) {
             templateUrl: 'templates/storeManagerItems.html',
             controller: 'StoreManagerController'
         })
+        .when('/store/manager/:storeName/items/add', {
+            templateUrl: 'templates/addItemStoreManager.html',
+            controller: 'StoreManagerController'
+        })
         .when('/store/manager/:storeName/items/storage', {
             templateUrl: 'templates/storeManagerStorage.html',
             controller: 'StoreManagerController'

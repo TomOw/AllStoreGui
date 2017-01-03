@@ -1,0 +1,128 @@
+<div layout="row" layout-align="center start">
+    <div flex="100" flex-gt-xs="85" flex-gt-md="70">
+
+        <div layout="row">
+
+            <div layout="column">
+                <md-sidenav flex="100"
+                            class="md-sidenav-left"
+                            md-component-id="left"
+                            md-is-locked-open="$mdMedia('gt-md')"
+                            md-whiteframe="4">
+
+                    <md-content flex="100" layout-padding ng-controller="LeftCtrl" style="padding: 0">
+                        <md-button ng-click="close()" class="md-primary" hide-gt-md>
+                            Close Sidenav Left
+                        </md-button>
+                        <a href="/#/" class="md-button md-ink-ripple side-nav-element">
+                            <md-icon>home</md-icon>
+                            Home page
+                        </a>
+                        <a href="/#/addItem" class="md-button md-ink-ripple side-nav-element">
+                            <md-icon>add</md-icon>
+                            Add Product
+                        </a>
+                        <a hide-gt-sm href="" class="md-button md-ink-ripple side-nav-element"
+                           ng-click="showAdvanced($event)">
+                            <md-icon>shopping_basket</md-icon>
+                            Cart
+                        </a>
+                        <md-divider></md-divider>
+                        <a href="/#/store/manager/{{store.name}}/edit" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                            <md-icon>mode_edit</md-icon>
+                            Edit
+                        </a>
+                        <a href="/#/store/manager/{{store.name}}/items" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                            <md-icon>list</md-icon>
+                            Items
+                        </a>
+                        <a href="/#/store/manager/{{store.name}}/items/storage" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                            <md-icon>store_mall_directory</md-icon>
+                            Storage
+                        </a>
+                        <a href="/#/store/manager/{{store.name}}/orders" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                            <md-icon>assignment</md-icon>
+                            Orders
+                        </a>
+                        <a href="/#/store/manager/{{store.name}}/items/add" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                            <md-icon>add</md-icon>
+                            new product
+                        </a>
+                    </md-content>
+
+                </md-sidenav>
+            </div>
+
+            <div flex="" style="width: 100%; padding-bottom: 8px">
+                <div layout="row" layout-align="center start">
+                    <div flex="100" flex-gt-xs="85" flex-gt-sm="66" flex-gt-md="70" style="padding-left: 10px; padding-right: 10px">
+                        <div>
+
+                            <h1 class="form-header">Add new product</h1>
+
+
+                            <md-input-container class="input-add-item">
+                                <label>Name</label>
+                                <input ng-model="newItem.name" type="text">
+                            </md-input-container>
+
+                            <md-input-container class="input-add-item">
+                                <label>Category</label>
+                                <md-select ng-model="newItem.category">
+                                    <md-option ng-repeat="category in categories" value="{{category}}">
+                                        {{category}}
+                                    </md-option>
+                                    <md-option>
+                                        <md-button ng-click="showPromptNewCategory($event)">add
+                                            <md-icon>add</md-icon>
+                                        </md-button>
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+
+                            <md-input-container class="input-add-item">
+                                <label>Price</label>
+                                <input ng-model="newItem.price" type="number">
+                            </md-input-container>
+
+                            <md-input-container class="input-add-item">
+                                <label>Photo</label>
+                                <input ng-model="newItem.photo" type="text">
+                            </md-input-container>
+
+                            <md-input-container class="input-add-item">
+                                <label>Number Of Products In Stock</label>
+                                <input ng-model="newItem.noInStock" type="number">
+                            </md-input-container>
+
+                            <md-input-container class="input-add-item">
+                                <label>Description</label>
+                                <textarea ng-model="newItem.description" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+                            </md-input-container>
+
+
+                        </div>
+                        <md-button class="md-primary md-raised" ng-click="sendItem()">Send
+                            <md-icon>send</md-icon>
+                        </md-button>
+                    </div>
+
+                    <div style="visibility: hidden">
+                        <div class="md-dialog-container" id="myDialog">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
