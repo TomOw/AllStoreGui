@@ -9,7 +9,7 @@
 
                     </div>
                 </div>
-                <div flex="66" flex-gt-sm="45" flex-gt-md="35" flex-gt-lg="50" layout="column"
+                <div flex="50" flex-gt-sm="45" flex-gt-md="35" flex-gt-lg="50" layout="column"
                      layout-align="space-between" style="padding-left: 25px">
                     <div flex="" class="header-sm">{{item.name}}</div>
                     <div flex="">
@@ -21,12 +21,9 @@
                     <div flex="" hide-gt-md class="price teal-text">
                         {{item.price | currency}}
                     </div>
-                    <div flex="" hide-gt-md>
-                        <md-button class="md-primary md-raised">BUY NOW</md-button>
-                    </div>
                     <div flex hide show-gt-md>{{item.description | firstSentence}}</div>
                 </div>
-                <div flex="" hide show-gt-md class="price teal-text">
+                <div flex="" class="price teal-text">
                     <div layout="column" layout-align="start end" style="padding-right: 30px">
                         <div layout="row" layout-align="center center">
                             <md-fab-speed-dial md-open="demo.isOpen" md-direction="down"
@@ -47,7 +44,7 @@
                                 </md-fab-actions>
                             </md-fab-speed-dial>
                         </div>
-                        {{item.price | currency}}
+                        <div hide show-gt-md>{{item.price | currency}}</div>
                     </div>
                 </div>
             </div>
