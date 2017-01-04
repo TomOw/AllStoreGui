@@ -55,8 +55,12 @@ app.config(function ($routeProvider) {
             templateUrl:'templates/login.html',
             controller: 'LoginController'
         })
-        .when('/user', {
+        .when('/user/:username', {
             templateUrl: 'templates/user.html',
+            controller: 'UserController'
+        })
+        .when('/user/:username/orders', {
+            templateUrl: 'templates/userOrders.html',
             controller: 'UserController'
         })
         .otherwise({
@@ -117,6 +121,12 @@ app.directive('itemCardStorageStatus', function () {
 app.directive('orderCard', function () {
     return {
         templateUrl: 'templates/directives/orderDirective.html'
+    };
+});
+
+app.directive('userOrderCard', function () {
+    return {
+        templateUrl: 'templates/directives/userOrderDirective.html'
     };
 });
 

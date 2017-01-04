@@ -48,25 +48,8 @@
 
             <div flex="" style="width: 100%; padding-bottom: 8px">
 
-                <div class="item-card-container">
-                    <md-card md-whiteframe="3" class="md-card-store" style="padding-top: 0">
-                        <div layout="column" layout-gt-xs="row"  layout-align-gt-xs="space-between center">
-                            <div hide show-gt-sm flex="33" layout-align="start center" style="padding: 10px;">
-                                <div style="height: 100px; width: 100px; background-color: #B2DFDB; border-radius: 200px; font-size: 50px; font-weight: 200" layout="row"
-                                     layout-align="center center">
-                                    {{user.username | capitalizeFirst}}
-                                </div>
-                            </div>
-                            <div flex="" flex-gt-sm="33" flex-gt-md="25" flex-gt-lg="20" layout="column"
-                                 layout-align="space-between" style="padding-left: 25px">
-                                <div flex="" class="header-sm">Username: {{user.username}}
-                                </div>
-                            </div>
-                            <div flex="">
-
-                            </div>
-                        </div>
-                    </md-card>
+                <div ng-repeat="order in user.orders | orderBy : 'order.id' : 'reverse'">
+                    <user-order-card></user-order-card>
                 </div>
             </div>
 
