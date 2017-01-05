@@ -2,7 +2,7 @@
  * Created by Tomasz on 08.11.2016.
  */
 
-app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$mdDialog', '$log', 'ItemService', 'OrderService', function ($scope, $rootScope, $timeout, $mdSidenav, $mdDialog, $log, ItemService, OrderService) {
+app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$mdDialog', '$log', '$location', 'ItemService', 'OrderService', function ($scope, $rootScope, $timeout, $mdSidenav, $mdDialog, $log, $location, ItemService, OrderService) {
 
     $scope.msg = 'working msg';
 
@@ -15,6 +15,7 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
     }
 
     $scope.getItemsByName = function () {
+        $location.path('/');
         ItemService.getItemsByName($scope.itemName).then(function (result) {
             $scope.items = result;
         })
