@@ -1,4 +1,4 @@
-<div class="item-card-container">
+<div class="item-storage-container">
     <div layout="row" layout-align="space-between center">
         <div flex="33" flex-gt-md="10" layout-align="start center" style="padding: 10px;">
             <div style="height: 100px" ng-style="{'background-image':'url({{item.photo}})'}"
@@ -21,7 +21,7 @@
                 <div>
                     <md-icon style="color: #F44336" class="iconTopNavMaterial" ng-show="(item.noInStock == 0)">warning</md-icon>
                     <md-button ng-click="showPromptChangeAmount($event, item)" class="md-fab"
-                               ng-class="{'storage-red': (item.noInStock < 10), 'storage-yellow': (item.noInStock >= 10 && item.noInStock < 30), 'storage-green': (item.noInStock >= 30)}">
+                               ng-class="{'storage-red': (item.noInStock < 10), 'storage-yellow': (item.noInStock >= 10 && item.noInStock < 20), 'storage-green': (item.noInStock >= 20)}">
                         {{item.noInStock}}
                     </md-button>
                 </div>
