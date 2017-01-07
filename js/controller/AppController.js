@@ -93,6 +93,7 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
         );
     };
 
+    //now unused
     $scope.showAlertAddToCartFailed = function (ev) {
         // Appending dialog to document.body to cover sidenav in docs app
         // Modal dialogs should fully cover application
@@ -107,6 +108,24 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
                 .ok('Got it!')
                 .targetEvent(ev)
         );
+    };
+
+    $scope.showAlertAddToCartFailedConfirm = function(ev) {
+        var storename = $rootScope.cart.items[0].storeName;
+        // Appending dialog to document.body to cover sidenav in docs app
+        var confirm = $mdDialog.confirm()
+            .title('Warning')
+            .textContent('You have already added item from ' + storename + '. You cannot add to cart items from different stores.')
+            .ariaLabel('Lucky day')
+            .targetEvent(ev)
+            .ok('OK')
+            .cancel('Show items from ' + storename);
+
+        $mdDialog.show(confirm).then(function() {
+            $scope.status = 'You decided to get rid of your debt.';
+        }, function() {
+            $location.path('/store/' + storename);
+        });
     };
 
 
@@ -185,7 +204,7 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
             $rootScope.cart.sum += offer.itemPrice;
         } else {
             console.log('this item does not belong to store');
-            $scope.showAlertAddToCartFailed();
+            $scope.showAlertAddToCartFailedConfirm();
         }
     };
 
