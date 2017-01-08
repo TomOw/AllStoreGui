@@ -56,7 +56,7 @@
                     </div>
                     <div class="item-single-price">
                         {{cheapest.itemPrice | currency}}
-                        <md-button class="md-primary md-raised" ng-click="">BUY NOW</md-button>
+                        <md-button class="md-primary md-raised" ng-click="addItemToCart(single, cheapest)">BUY NOW</md-button>
                     </div>
                     <div>
                         {{single.avgRating}}
