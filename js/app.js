@@ -9,6 +9,7 @@ var app = angular.module('BlankApp', ['ngMaterial', 'ngRoute', 'ngResource', 'ht
 app.constant('USER_ROLES', {
     all: '*',
     admin: 'ROLE_ADMIN',
+    manager: 'ROLE_MANAGER',
     user: 'ROLE_USER'
 });
 
@@ -32,23 +33,43 @@ app.config(function ($routeProvider, USER_ROLES) {
         })
         .when('/store/manager/:storeName', {
             templateUrl: 'templates/storeManager.html',
-            controller: 'StoreManagerController'
+            controller: 'StoreManagerController',
+            access: {
+                loginRequired: true,
+                authorizedRoles: [USER_ROLES.manager]
+            }
         })
         .when('/store/manager/:storeName/items', {
             templateUrl: 'templates/storeManagerItems.html',
-            controller: 'StoreManagerController'
+            controller: 'StoreManagerController',
+            access: {
+                loginRequired: true,
+                authorizedRoles: [USER_ROLES.manager]
+            }
         })
         .when('/store/manager/:storeName/items/add', {
             templateUrl: 'templates/addItemStoreManager.html',
-            controller: 'StoreManagerController'
+            controller: 'StoreManagerController',
+            access: {
+                loginRequired: true,
+                authorizedRoles: [USER_ROLES.manager]
+            }
         })
         .when('/store/manager/:storeName/items/storage', {
             templateUrl: 'templates/storeManagerStorage.html',
-            controller: 'StoreManagerController'
+            controller: 'StoreManagerController',
+            access: {
+                loginRequired: true,
+                authorizedRoles: [USER_ROLES.manager]
+            }
         })
         .when('/store/manager/:storeName/orders', {
             templateUrl: 'templates/storeManagerOrders.html',
-            controller: 'StoreManagerController'
+            controller: 'StoreManagerController',
+            access: {
+                loginRequired: true,
+                authorizedRoles: [USER_ROLES.manager]
+            }
         })
         .when('/item/:itemId', {
             templateUrl: 'templates/itemView.html',
@@ -67,11 +88,19 @@ app.config(function ($routeProvider, USER_ROLES) {
         })
         .when('/user/:username', {
             templateUrl: 'templates/user.html',
-            controller: 'UserController'
+            controller: 'UserController',
+            access: {
+                loginRequired: true,
+                authorizedRoles: [USER_ROLES.user]
+            }
         })
         .when('/user/:username/orders', {
             templateUrl: 'templates/userOrders.html',
-            controller: 'UserController'
+            controller: 'UserController',
+            access: {
+                loginRequired: true,
+                authorizedRoles: [USER_ROLES.user]
+            }
         })
         .when('/user', {
             templateUrl: 'templates/user.html',
