@@ -2,7 +2,7 @@
  * Created by Tomasz on 08.11.2016.
  */
 
-app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$mdDialog', '$log', '$location', 'ItemService', 'OrderService', function ($scope, $rootScope, $timeout, $mdSidenav, $mdDialog, $log, $location, ItemService, OrderService) {
+app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$mdDialog', '$log', '$location', 'ItemService', 'OrderService', function ($scope, $rootScope, $timeout, $mdSidenav, $mdDialog, $log, $location, ItemService, OrderService, AuthSharedService) {
 
     $scope.msg = 'working msg';
 
@@ -212,6 +212,10 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
         console.log('called Send Cart');
         OrderService.sendCart($rootScope.cart);
     }
+    $scope.logout = function () {
+        AuthSharedService.logout();
+    };
+
 
 
 }]);

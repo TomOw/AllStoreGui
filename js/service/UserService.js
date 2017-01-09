@@ -13,5 +13,11 @@ app.service('UserService', ['$http', function ($http) {
                 return response.data;
             })
     };
+    this.getLoggedInUser = function () {
+        return $http.get(url + '/user/me')
+            .then(function success(response, status) {
+                return response.data;
+            });
+    }
 
 }]);

@@ -69,7 +69,7 @@
                 </div>
                 <div class="form-header"
                      style=" display: flex; justify-content: center; align-items: center; padding-left: 25px">
-                    AllStore
+                    AllStore{{account}}
                 </div>
             </div>
 
@@ -87,8 +87,9 @@
             <div flex="33" hide show-gt-sm layout="row" layout-align="end center">
                 <div style="padding-right: 25px">
                     <!--<img style="height: 75px; margin-right: 25px" src="http://icons.iconarchive.com/icons/iconsmind/outline/512/Full-Basket-icon.png"/>-->
+                    <div>Logged as: {{account.login}}</div>
                     <md-icon ng-click="showAdvanced($event)" class="iconTopNavMaterial">shopping_basket</md-icon>
-                    <md-icon class="iconTopNavMaterial">person</md-icon>
+                    <md-icon class="iconTopNavMaterial" ng-click="logout()">person</md-icon>
                 </div>
             </div>
         </div>
@@ -112,6 +113,9 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-sanitize.min.js"></script>
+    <script src="js/lib/angular-http-auth.js"></script>
 
     <!-- Angular Material Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.js"></script>
@@ -125,12 +129,16 @@
     <script src="js/service/ReviewService.js"></script>
     <script src="js/service/OrderService.js"></script>
     <script src="js/service/UserService.js"></script>
+    <script src="js/service/SecurityServices.js"></script>
+    <script src="js/service/UserService.js"></script>
     <script src="js/controller/StoreController.js"></script>
     <script src="js/controller/AppController.js"></script>
     <script src="js/controller/ItemFormController.js"></script>
     <script src="js/controller/LoginController.js"></script>
     <script src="js/controller/StoreManagerController.js"></script>
     <script src="js/controller/UserController.js"></script>
+    <script src="js/controller/UserController.js"></script>
+    <script src="js/controller/ErrorController.js"></script>
 
     <script src="js/controller/sampleController.js"></script>
     <script src="js/controller/ItemController.js"></script>
