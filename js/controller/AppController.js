@@ -2,7 +2,7 @@
  * Created by Tomasz on 08.11.2016.
  */
 
-app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$mdDialog', '$log', '$location', 'ItemService', 'OrderService', function ($scope, $rootScope, $timeout, $mdSidenav, $mdDialog, $log, $location, ItemService, OrderService, AuthSharedService) {
+app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$mdDialog', '$log', '$location', 'ItemService', 'OrderService', 'AuthSharedService', function ($scope, $rootScope, $timeout, $mdSidenav, $mdDialog, $log, $location, ItemService, OrderService, AuthSharedService) {
 
     $scope.msg = 'working msg';
 
