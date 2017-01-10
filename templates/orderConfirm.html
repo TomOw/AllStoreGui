@@ -1,0 +1,17 @@
+<div layout="row" layout-align="center start">
+    <div flex="100" flex-gt-xs="85" flex-gt-md="70">
+        <div layout="column">
+            <div class="header-sm">
+                Confirm order
+            </div>
+
+            <div ng-repeat="item in cart.items track by $index">
+                <item-card-short></item-card-short>
+            </div>
+
+            <div class="price teal-text" layout="row" layout-align="end center" style="padding-right: 38px; padding-top: 25px">
+                SUM: {{cart.sum | currency}}
+            </div>
+        </div>
+    </div>
+</div>
