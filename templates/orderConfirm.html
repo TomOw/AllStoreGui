@@ -2,11 +2,12 @@
     <div flex="100" flex-gt-xs="85" flex-gt-md="70">
         <div layout="column">
             <div class="header-sm">
-                Confirm order
+                Confirm Your order in {{cart.items[0].storeName}} store
             </div>
 
             <div ng-repeat="item in cart.items track by $index">
-                <item-card-short></item-card-short>
+                <item-list-element></item-list-element>
+                <md-divider></md-divider>
             </div>
 
             <div class="price teal-text" layout="row" layout-align="end center" style="padding-right: 38px; padding-top: 25px">

@@ -145,3 +145,9 @@ app.directive('offerItem', function () {
         templateUrl: 'templates/directives/offerDirective.html'
     }
 });
+
+app.directive('itemListElement', function () {
+    return {
+        templateUrl: 'templates/directives/itemListElement.html'
+    }
+});
