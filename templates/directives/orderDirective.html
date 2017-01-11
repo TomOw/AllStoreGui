@@ -28,7 +28,7 @@
                 </div>
             </div>
 
-            <div ng-repeat="item in order.items">
+            <div ng-repeat="item in order.items track by $index">
                 <item-order></item-order>
             </div>
         </div>

@@ -211,8 +211,17 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
     $rootScope.sendCart = function () {
         console.log('called Send Cart');
         OrderService.sendCart($rootScope.cart);
-    }
+    };
 
+    $rootScope.redirectToOrderConfirm = function () {
+        $location.path('/order/confirm');
+    };
+
+    $rootScope.clearCart = function () {
+        $rootScope.cart = {
+            items: []
+        };
+    };
 
 }]);
 

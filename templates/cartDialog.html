@@ -17,20 +17,26 @@
                 <item-card-short></item-card-short>
             </div>
         </div>
-        <div class="price teal-text" layout="row" layout-align="end center" style="padding-right: 38px; padding-top: 25px">
+        <div class="price teal-text" layout="row" layout-align="end center"
+             style="padding-right: 38px; padding-top: 25px">
             SUM: {{cart.sum | currency}}
         </div>
     </md-dialog-content>
 
     <md-divider></md-divider>
 
-    <md-dialog-actions layout="row" layout-align="end center" style="padding-right: 15px; padding-top: 25px; padding-bottom: 15px">
+    <md-dialog-actions layout="row" layout-align="end center"
+                       style="padding-right: 15px; padding-top: 25px; padding-bottom: 15px">
         <md-button class="md-raised">
-            Continue shopping <md-icon>shopping_cart</md-icon>
+            Continue shopping
+            <md-icon>shopping_cart</md-icon>
         </md-button>
-        <md-button ng-click="sendCart()" class="md-raised">
-            To checkout <md-icon>check</md-icon>
-        </md-button>
+        <a ng-href="/#/order/confirm">
+            <md-button class="md-raised">
+                To checkout
+                <md-icon>check</md-icon>
+            </md-button>
+        </a>
     </md-dialog-actions>
 
 </md-dialog>
