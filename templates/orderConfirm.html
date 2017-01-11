@@ -1,0 +1,36 @@
+<div layout="row" layout-align="center start">
+    <div flex="100" flex-gt-xs="85" flex-gt-md="70">
+        <div layout="column">
+            <div class="teal-text" style="padding-top: 10px; font-size: 40px; font-weight: 200">
+                Confirm Your order in {{cart.items[0].storeName}} store
+            </div>
+
+            <div ng-repeat="item in cart.items track by $index">
+                <item-list-element></item-list-element>
+                <md-divider></md-divider>
+            </div>
+
+            <div class="price teal-text" layout="row" layout-align="end center"
+                 style="padding-right: 38px; padding-top: 25px">
+                SUM: {{cart.sum | currency}}
+            </div>
+
+            <div style="padding-top: 25px" layout="row" layout-align="end center">
+                <a ng-href="/#/">
+                    <md-button ng-click="clearCart()" class="md-primary md-raised">clear cart
+                        <md-icon>clear</md-icon>
+                    </md-button>
+                </a>
+                <a ng-href="/#/">
+                    <md-button class="md-primary md-raised">
+                        Continue shopping
+                        <md-icon>shopping_cart</md-icon>
+                    </md-button>
+                </a>
+                <md-button ng-click="sendCart()" class="md-primary md-raised">proceed
+                    <md-icon>check</md-icon>
+                </md-button>
+            </div>
+        </div>
+    </div>
+</div>

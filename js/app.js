@@ -110,6 +110,10 @@ app.config(function ($routeProvider, USER_ROLES) {
             templateUrl: 'templates/error.html',
             controller: 'ErrorController'
         })
+        .when('/order/confirm', {
+            templateUrl: 'templates/orderConfirm.html',
+            controller: 'AppCtrl'
+        })
         .otherwise({
             template: '<h1>otherwise template 404</h1>'
         })
@@ -261,3 +265,9 @@ app.directive('access', [
 
         };
     }]);
+
+app.directive('itemListElement', function () {
+    return {
+        templateUrl: 'templates/directives/itemListElement.html'
+    }
+});
