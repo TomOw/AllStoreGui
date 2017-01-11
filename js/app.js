@@ -112,7 +112,11 @@ app.config(function ($routeProvider, USER_ROLES) {
         })
         .when('/order/confirm', {
             templateUrl: 'templates/orderConfirm.html',
-            controller: 'AppCtrl'
+            controller: 'AppCtrl',
+            access: {
+                loginRequired: true,
+                authorizedRoles: [USER_ROLES.all]
+            }
         })
         .otherwise({
             template: '<h1>otherwise template 404</h1>'
