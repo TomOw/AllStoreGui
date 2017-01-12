@@ -67,6 +67,9 @@ app.config(function ($routeProvider) {
             templateUrl: 'templates/orderConfirm.html',
             controller: 'AppCtrl'
         })
+        .when('/info', {
+            templateUrl: 'templates/info.html'
+        })
         .otherwise({
             template: '<h1>otherwise template</h1>'
         })
