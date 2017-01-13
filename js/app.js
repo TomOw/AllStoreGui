@@ -44,6 +44,10 @@ app.config(function ($routeProvider) {
             templateUrl: 'templates/itemView.html',
             controller: 'ItemController'
         })
+        .when('/item/singleOffer/:itemId', {
+            templateUrl: 'templates/itemSingleOffer.html',
+            controller: 'ItemController'
+        })
         .when('/container', {
             templateUrl: 'templates/flexContainerExample.html'
         })
