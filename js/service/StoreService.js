@@ -3,9 +3,9 @@
  */
 app.service('StoreService', ['$http', function ($http) {
 
-    var url = 'http://85.255.8.105:8080';
+    //var url = 'http://85.255.8.105:8080';
 
-    //var url = 'http://localhost:8080';
+    var url = 'http://localhost:8080';
 
     this.getStore = function (name) {
         return $http.get(url + '/store/byName/' + name)
@@ -35,7 +35,14 @@ app.service('StoreService', ['$http', function ($http) {
             .then(function success(response, status) {
                 return response.data;
             });
-    }
+    };
+
+    this.editStore = function (editedStore) {
+        return $http.put(url + '/store/edit', editedStore)
+            .then(function success(response, status) {
+                return response.data;
+            });
+    };
 
 
 }]);
