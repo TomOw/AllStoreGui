@@ -208,6 +208,11 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
         }
     };
 
+    $scope.deleteFromCart = function (index) {
+        $scope.cart.sum -= $scope.cart.items[index].price;
+        $scope.cart.items.splice(index, 1);
+    };
+
     $rootScope.sendCart = function () {
         console.log('called Send Cart');
         OrderService.sendCart($rootScope.cart);
