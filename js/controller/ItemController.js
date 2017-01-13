@@ -11,6 +11,8 @@ app.controller('ItemController', ['$rootScope', '$scope', '$http', '$routeParams
 
     console.log(itemId);
 
+    document.getElementById('searchInput').blur();
+
     ItemService.getItemById(itemId).then(function (result) {
         $scope.single = result;
     })
