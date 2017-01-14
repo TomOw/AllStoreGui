@@ -188,7 +188,23 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
     }
 
 
-    $scope.addItemToCart = function (item, offer) {
+    $scope.addItemToCart = function (item) {
+        if ($rootScope.cart.sum == undefined) {
+            $rootScope.cart.sum = 0;
+        }
+
+        if (isItemFromThisStore($rootScope.cart.items, item)) {
+            var itemToPush = {};
+            angular.copy(item, itemToPush);
+            $rootScope.cart.items.push(itemToPush);
+            $rootScope.cart.sum += item.price;
+        } else {
+            console.log('this item does not belong to store');
+            $scope.showAlertAddToCartFailedConfirm();
+        }
+    };
+
+    $scope.addOfferToCart = function (item, offer) {
         if ($rootScope.cart.sum == undefined) {
             $rootScope.cart.sum = 0;
         }

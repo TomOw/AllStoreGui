@@ -57,7 +57,7 @@
                     </div>
                     <div class="item-single-price">
                         {{cheapest.itemPrice | currency}}
-                        <md-button class="md-primary md-raised" ng-click="addItemToCart(single, cheapest)">BUY NOW</md-button>
+                        <md-button class="md-primary md-raised" ng-click="addOfferToCart(single, cheapest)">BUY NOW</md-button>
                     </div>
                     <div>
                         {{single.avgRating}}
@@ -96,7 +96,7 @@
                                     </div>
                                     <div flex-gt-xs="" flex>
                                         <md-button ng-disabled="offer.noInStock <= 0"
-                                                   ng-click="addItemToCart(single, offer)" class="md-primary md-raised">
+                                                   ng-click="addOfferToCart(single, offer)" class="md-primary md-raised">
                                             BUY NOW
                                         </md-button>
                                     </div>
