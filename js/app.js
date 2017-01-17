@@ -111,6 +111,12 @@ app.directive('itemCard', function () {
     }
 });
 
+app.directive('itemCardSingleOffer', function () {
+    return {
+        templateUrl: 'templates/directives/itemCard.html'
+    }
+});
+
 app.directive('itemCardShort', function () {
     return {
         templateUrl: 'templates/directives/itemCardShort.html'
