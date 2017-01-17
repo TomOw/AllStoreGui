@@ -107,13 +107,13 @@ app.filter('postalCode', function () {
 
 app.directive('itemCard', function () {
     return {
-        templateUrl: 'templates/directives/itemCardSingleStore.html'
+        templateUrl: 'templates/directives/itemCard.html'
     }
 });
 
 app.directive('itemCardSingleOffer', function () {
     return {
-        templateUrl: 'templates/directives/itemCard.html'
+        templateUrl: 'templates/directives/itemCardSingleStore.html'
     }
 });
 
