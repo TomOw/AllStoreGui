@@ -2,7 +2,7 @@
  * Created by Tomasz on 08.11.2016.
  */
 
-app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$mdDialog', '$mdToast', '$log', '$location', 'ItemService', 'OrderService', function ($scope, $rootScope, $timeout, $mdSidenav, $mdDialog, $mdToast, $log, $location, ItemService, OrderService) {
+app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$mdDialog', '$mdToast', '$log', '$location', '$document', 'ItemService', 'OrderService', function ($scope, $rootScope, $timeout, $mdSidenav, $mdDialog, $mdToast, $log, $location, $document, ItemService, OrderService) {
 
     $scope.msg = 'working msg';
 
@@ -246,8 +246,8 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
     };
 
     var last = {
-        bottom: true,
-        top: false,
+        bottom: false,
+        top: true,
         left: false,
         right: true
     };
@@ -283,6 +283,7 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
                 .textContent('You have added the item to cart')
                 .position(pinTo)
                 .hideDelay(3000)
+                .parent($document[0].querySelector('#toastContainer'))
         );
     };
 

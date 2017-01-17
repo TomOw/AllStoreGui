@@ -94,12 +94,18 @@
         </div>
 
 
-        <div ng-init="showAlert($event)">
+        <div ng-init="showAlert($event)" >
             <ng-view style="width: 100%"></ng-view>
         </div>
 
         <div style="visibility: hidden">
             <div class="md-dialog-container" id="mainDialog">
+            </div>
+        </div>
+
+        <div>
+            <div id="toastContainer" style="width: 300px; height: 65px; position: fixed; right: 0; bottom: 0;">
+
             </div>
         </div>
 
