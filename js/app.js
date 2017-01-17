@@ -107,7 +107,7 @@ app.filter('postalCode', function () {
 
 app.directive('itemCard', function () {
     return {
-        templateUrl: 'templates/directives/itemCard.html'
+        templateUrl: 'templates/directives/itemCardSingleStore.html'
     }
 });
 
