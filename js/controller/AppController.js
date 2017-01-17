@@ -122,9 +122,25 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
             .cancel('Show items from ' + storename);
 
         $mdDialog.show(confirm).then(function () {
-            $scope.status = 'You decided to get rid of your debt.';
         }, function () {
             $location.path('/store/' + storename);
+        });
+    };
+
+    $scope.showAddedToCartInfo = function (ev) {
+        var confirm = $mdDialog.confirm()
+            .clickOutsideToClose(true)
+            .title('Item added')
+            .textContent('You have added item to cart')
+            .ariaLabel('Lucky day')
+            .targetEvent(ev)
+            .ok('OK')
+            .cancel('View your cart ');
+
+        $mdDialog.show(confirm).then(function () {
+        }, function () {
+            $scope.hide();
+            $scope.showAdvanced();
         });
     };
 
@@ -218,7 +234,7 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
             angular.copy(item, itemToPush);
             $rootScope.cart.items.push(itemToPush);
             $rootScope.cart.sum += offer.itemPrice;
-            $scope.showSimpleToast();
+            $scope.showAddedToCartInfo();
         } else {
             console.log('this item does not belong to store');
             $scope.showAlertAddToCartFailedConfirm();
