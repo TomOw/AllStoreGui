@@ -110,8 +110,8 @@ app.config(function ($routeProvider, USER_ROLES) {
             templateUrl: 'templates/user.html',
             controller: 'UserController'
         })
-        .when('/error/:code', {
-            templateUrl: 'templates/error.html',
+        .when('/error/403', {
+            templateUrl: 'templates/error403.html',
             controller: 'ErrorController'
         })
         .when('/order/confirm', {
