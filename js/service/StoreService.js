@@ -35,7 +35,14 @@ app.service('StoreService', ['$http', function ($http) {
             .then(function success(response, status) {
                 return response.data;
             });
-    }
+    };
+
+    this.editStore = function (editedStore) {
+        return $http.put(url + '/store/edit', editedStore)
+            .then(function success(response, status) {
+                return response.data;
+            });
+    };
 
 
 }]);

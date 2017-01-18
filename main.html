@@ -56,7 +56,7 @@
 
         <div style="background-color: #80CBC4;" layout="column" layout-gt-sm="row">
             <div flex-gt-md="33" flex="" layout="row">
-                <div hide-gt-md>
+                <div hide-gt-sm>
                     <md-icon ng-click="toggleLeft()" class="hamburger-menu-icon">
                         menu
                     </md-icon>
@@ -79,7 +79,7 @@
                         <label>
                             <md-icon>search</md-icon>
                             Look for product</label>
-                        <input ng-model="itemName" ng-change="getItemsByName()" type="text">
+                        <input id="searchInput" ng-model="itemName" ng-change="getItemsByName()" type="text">
                     </md-input-container>
                 </md-card>
             </div>
@@ -95,7 +95,7 @@
         </div>
 
 
-        <div ng-init="showAlert($event)">
+        <div ng-init="showAlert($event)" >
             <ng-view style="width: 100%"></ng-view>
         </div>
 

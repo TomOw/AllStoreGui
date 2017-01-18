@@ -1,29 +1,39 @@
-<a ng-href="/#/item/{{item.id}}">
-    <div class="item-card-container">
-        <md-card ng-click="consoletest2()"
-                 md-whiteframe="{{height}}" ng-init="height = 3" ng-mouseenter="height = 12"
-                 ng-mouseleave="height = 3" class="md-card-item" style="padding-top: 0">
-            <div layout="row" layout-align="space-between center">
-                <div flex="33" flex-gt-md="10" layout-align="start center" style="padding: 10px;">
-                    <div style="height: 100px" ng-style="{'background-image':'url({{item.photo}})'}" class="item-card-image-container">
+<div class="item-card-container">
+    <div layout="row" layout-align="space-between center">
+        <div flex="33" flex-gt-md="10" layout-align="start center" style="padding: 10px;">
+            <a ng-href="/#/item/{{item.id}}">
+                <div style="height: 100px" ng-style="{'background-image':'url({{item.photo}})'}"
+                     class="item-card-image-container">
 
-                    </div>
                 </div>
-                <div flex="66" flex-gt-sm="45" flex-gt-md="35" flex-gt-lg="50" layout="column"
-                     layout-align="space-between" style="padding-left: 25px">
-                    <div flex="" class="header-sm">{{item.name}}
-                        <p style="font-size: 15px">In Store: {{item.storeName}}</p>
-                    </div>
-                    <div flex="" hide-gt-md class="cart-price teal-text">
-                        {{item.price | currency}}
-                    </div>
-                </div>
-                <div flex="" hide show-gt-md class="price teal-text">
-                    <div layout="column" layout-align="start end" style="padding-right: 30px">
-                        {{item.price | currency}}
-                    </div>
+            </a>
+        </div>
+        <div flex="50" flex-gt-sm="40" flex-gt-md="35" flex-gt-lg="50" layout="column"
+             layout-align="space-between" style="padding-left: 25px">
+            <div flex="" class="header-sm">{{item.name}}
+                <p style="font-size: 15px">In Store: {{item.storeName}}</p>
+            </div>
+            <div flex="" hide-gt-sm class="cart-price teal-text" style="font-size: 30px">
+                {{item.price | currency}}
+            </div>
+        </div>
+        <div flex="" hide-gt-sm layout="row" layout-align="end center">
+            <div>
+                <md-button ng-click="deleteFromCart($index)" class="md-fab md-mini button-red">
+                    <md-icon>close</md-icon>
+                </md-button>
+            </div>
+        </div>
+        <div flex="" hide show-gt-sm class="price teal-text">
+            <div layout="row" layout-align="end center" style="padding-right: 30px">
+                {{item.price | currency}}
+                <div style="padding-left: 10px">
+                    <md-button ng-click="deleteFromCart($index)" class="md-fab md-mini button-red">
+                        <md-icon>close</md-icon>
+                    </md-button>
                 </div>
             </div>
-        </md-card>
+        </div>
     </div>
-</a>
+</div>
+<md-divider></md-divider>

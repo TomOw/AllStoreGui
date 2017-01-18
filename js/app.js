@@ -75,6 +75,10 @@ app.config(function ($routeProvider, USER_ROLES) {
             templateUrl: 'templates/itemView.html',
             controller: 'ItemController'
         })
+        .when('/item/singleOffer/:itemId', {
+            templateUrl: 'templates/itemSingleOffer.html',
+            controller: 'ItemController'
+        })
         .when('/container', {
             templateUrl: 'templates/flexContainerExample.html'
         })
@@ -118,6 +122,9 @@ app.config(function ($routeProvider, USER_ROLES) {
                 authorizedRoles: [USER_ROLES.all]
             }
         })
+        .when('/info', {
+            templateUrl: 'templates/info.html'
+        })
         .otherwise({
             template: '<h1>otherwise template 404</h1>'
         })
@@ -152,6 +159,12 @@ app.filter('postalCode', function () {
 app.directive('itemCard', function () {
     return {
         templateUrl: 'templates/directives/itemCard.html'
+    }
+});
+
+app.directive('itemCardSingleOffer', function () {
+    return {
+        templateUrl: 'templates/directives/itemCardSingleStore.html'
     }
 });
 

@@ -1,7 +1,7 @@
 /**
  * Created by Tomasz on 13.12.2016.
  */
-app.controller('StoreManagerController', ['$rootScope', '$scope', '$http', '$routeParams', '$mdDialog', 'StoreService', 'ItemService', function ($rootScope, $scope, $http, $routeParams, $mdDialog, StoreService, ItemService) {
+app.controller('StoreManagerController', ['$rootScope', '$scope', '$http', '$routeParams', '$location', '$mdDialog', 'StoreService', 'ItemService', function ($rootScope, $scope, $http, $routeParams, $location, $mdDialog, StoreService, ItemService) {
 
     $rootScope.pageHasSideNav = true;
 
@@ -53,6 +53,25 @@ app.controller('StoreManagerController', ['$rootScope', '$scope', '$http', '$rou
         $scope.showEditDialog();
     };
 
+    $scope.hrefAndClick = function () {
+        $location.path('/#/store/manager/{{store.name}}');
+        console.log('clicked and hrefed');
+    };
+
+    $scope.showEditStoreDetailsDialog = function (ev) {
+        $mdDialog.show({
+            controller: 'StoreManagerController',
+            scope: $scope,
+            preserveScope: true,
+            templateUrl: 'templates/editStoreDetails.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true // Only for -xs, -sm breakpoints.
+        })
+    };
+
+
     $scope.showEditDialog = function (ev) {
         $mdDialog.show({
             controller: 'StoreManagerController',
@@ -64,6 +83,15 @@ app.controller('StoreManagerController', ['$rootScope', '$scope', '$http', '$rou
             clickOutsideToClose: true,
             fullscreen: true // Only for -xs, -sm breakpoints.
         })
+    };
+
+    $scope.saveEditedStore = function () {
+        console.log($scope.store);
+        StoreService.editStore($scope.store).then(function (result) {
+            console.log('from promise');
+            $location.path('/store/manager/' + $scope.store.name);
+            $scope.hide();
+        });
     };
 
     $scope.saveEdited = function (edited) {

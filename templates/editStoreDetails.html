@@ -1,0 +1,55 @@
+<md-dialog aria-label="Edit item" flex="80">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Edit store details</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <md-icon>close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content style="padding: 0">
+
+        <div layout="row" layout-align="center start">
+            <div flex="100" flex-gt-xs="85" flex-gt-md="70">
+                <div class="md-dialog-content" style="padding: 10px;">
+                    <md-input-container class="input-add-item">
+                        <label>Name</label>
+                        <input ng-model="store.name" type="text">
+                    </md-input-container>
+
+                    <md-input-container class="input-add-item">
+                        <label>Country</label>
+                        <input ng-model="store.country" type="text">
+                    </md-input-container>
+
+                    <md-input-container class="input-add-item">
+                        <label>City</label>
+                        <input ng-model="store.city" type="text">
+                    </md-input-container>
+
+                    <md-input-container class="input-add-item">
+                        <label>City</label>
+                        <input ng-model="store.postalCode" type="text">
+                    </md-input-container>
+                </div>
+            </div>
+        </div>
+    </md-dialog-content>
+
+    <md-divider></md-divider>
+
+    <md-dialog-actions layout="row" layout-align="end center"
+                       style="padding-right: 15px; padding-top: 25px; padding-bottom: 15px">
+        <md-button ng-click="cancel()" class="md-raised">
+            Cancel
+            <md-icon>close</md-icon>
+        </md-button>
+        <md-button ng-click="saveEditedStore()" class="md-raised">
+            Save
+            <md-icon>save</md-icon>
+        </md-button>
+    </md-dialog-actions>
+
+</md-dialog>

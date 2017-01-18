@@ -110,7 +110,7 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
         );
     };
 
-    $scope.showAlertAddToCartFailedConfirm = function(ev) {
+    $scope.showAlertAddToCartFailedConfirm = function (ev) {
         var storename = $rootScope.cart.items[0].storeName;
         // Appending dialog to document.body to cover sidenav in docs app
         var confirm = $mdDialog.confirm()
@@ -121,10 +121,26 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
             .ok('OK')
             .cancel('Show items from ' + storename);
 
-        $mdDialog.show(confirm).then(function() {
-            $scope.status = 'You decided to get rid of your debt.';
-        }, function() {
+        $mdDialog.show(confirm).then(function () {
+        }, function () {
             $location.path('/store/' + storename);
+        });
+    };
+
+    $scope.showAddedToCartInfo = function (ev) {
+        var confirm = $mdDialog.confirm()
+            .clickOutsideToClose(true)
+            .title('Item added')
+            .textContent('You have added item to cart')
+            .ariaLabel('Lucky day')
+            .targetEvent(ev)
+            .ok('OK')
+            .cancel('View your cart ');
+
+        $mdDialog.show(confirm).then(function () {
+        }, function () {
+            $scope.hide();
+            $scope.showAdvanced();
         });
     };
 
@@ -188,7 +204,23 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
     }
 
 
-    $scope.addItemToCart = function (item, offer) {
+    $scope.addItemToCart = function (item) {
+        if ($rootScope.cart.sum == undefined) {
+            $rootScope.cart.sum = 0;
+        }
+
+        if (isItemFromThisStore($rootScope.cart.items, item)) {
+            var itemToPush = {};
+            angular.copy(item, itemToPush);
+            $rootScope.cart.items.push(itemToPush);
+            $rootScope.cart.sum += item.price;
+        } else {
+            console.log('this item does not belong to store');
+            $scope.showAlertAddToCartFailedConfirm();
+        }
+    };
+
+    $scope.addOfferToCart = function (item, offer) {
         if ($rootScope.cart.sum == undefined) {
             $rootScope.cart.sum = 0;
         }
@@ -202,10 +234,16 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
             angular.copy(item, itemToPush);
             $rootScope.cart.items.push(itemToPush);
             $rootScope.cart.sum += offer.itemPrice;
+            $scope.showAddedToCartInfo();
         } else {
             console.log('this item does not belong to store');
             $scope.showAlertAddToCartFailedConfirm();
         }
+    };
+
+    $scope.deleteFromCart = function (index) {
+        $scope.cart.sum -= $scope.cart.items[index].price;
+        $scope.cart.items.splice(index, 1);
     };
 
     $rootScope.sendCart = function () {
@@ -226,6 +264,48 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
         $rootScope.cart = {
             items: []
         };
+    };
+
+    var last = {
+        bottom: false,
+        top: true,
+        left: false,
+        right: true
+    };
+
+    $scope.toastPosition = angular.extend({}, last);
+
+    $scope.getToastPosition = function () {
+        sanitizePosition();
+
+        return Object.keys($scope.toastPosition)
+            .filter(function (pos) {
+                return $scope.toastPosition[pos];
+            })
+            .join(' ');
+    };
+
+    function sanitizePosition() {
+        var current = $scope.toastPosition;
+
+        if (current.bottom && last.top) current.top = false;
+        if (current.top && last.bottom) current.bottom = false;
+        if (current.right && last.left) current.left = false;
+        if (current.left && last.right) current.right = false;
+
+        last = angular.extend({}, current);
+    }
+
+    $scope.showSimpleToast = function () {
+        var pinTo = $scope.getToastPosition();
+
+        $mdToast.show(
+            $mdToast.simple()
+                .textContent('You have added the item to cart')
+                .position(pinTo)
+                .hideDelay(3000)
+                .parent($document[0].querySelector('#toastContainer'))
+        );
     };
 
 }]);

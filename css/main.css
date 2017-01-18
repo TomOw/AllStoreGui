@@ -202,6 +202,10 @@ a:hover, a:visited, a:link, a:active {
     background-color: #F44336 !important;
 }
 
+.button-red {
+    background-color: #F44336 !important;
+}
+
 .storage-red-light {
     background-color: rgba(244, 67, 54, 0.51) !important;
 }
