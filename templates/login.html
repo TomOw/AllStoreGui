@@ -9,15 +9,20 @@
                     <label>
                         <md-icon>person</md-icon>
                         Username</label>
-                    <input id="login" ng-model="username" type="text" required="required">
+                    <input id="login" ng-model="username" type="text" class="form-control"
+                           required="required" placeholder="login">
                 </md-input-container>
 
                 <md-input-container class="input-add-item">
                     <label>
                         <md-icon>lock</md-icon>
                         Password</label>
-                    <input id="password" ng-model="password" type="password" required="required">
+                    <input id="password" ng-model="password" type="password" class="form-control"
+                           required="required" placeholder="password">
                 </md-input-container>
+                <md-checkbox ng-model="rememberMe" aria-label="remember">
+                    Remember me
+                </md-checkbox>
                 <span ng-show="authenticationError">Please check your credentials and try again.</span>
                 <div layout="row" layout-align="end center">
                     <md-button class="md-primary md-raised">
