@@ -9,18 +9,16 @@
                     <label>
                         <md-icon>person</md-icon>
                         Username</label>
-                    <input id="login" ng-model="username" type="text">
+                    <input id="login" ng-model="username" type="text" required="required">
                 </md-input-container>
 
                 <md-input-container class="input-add-item">
                     <label>
                         <md-icon>lock</md-icon>
                         Password</label>
-                    <input ng-model="user.credentials.password" type="password">
+                    <input id="password" ng-model="password" type="password" required="required">
                 </md-input-container>
-                <span ng-show="authenticationError" class="help-block">
-            Please check your credentials and try again.
-        </span>
+                <span ng-show="authenticationError">Please check your credentials and try again.</span>
                 <div layout="row" layout-align="end center">
                     <md-button class="md-primary md-raised">
                         Sign in
