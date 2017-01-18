@@ -1,46 +1,32 @@
 <div layout="column">
     <div flex="100" layout="row" layout-align="center start" style="padding: 100px 15px 15px;">
 
-        <div flex="100" flex-gt-xs="66" flex-gt-sm="50" flex-gt-md="33" layout="column" style="padding: 10px"
+        <div flex="100" flex-gt-xs="66" flex-gt-sm="50" flex-gt-md="33" layout="column" style="padding: 25px 25px 0;"
              md-whiteframe="10">
             <div class="price teal-text" layout="row" layout-align="center center">Sign in</div>
-            <!--            <form>
-                            <md-input-container class="input-add-item">
-                                <label>
-                                    <md-icon>person</md-icon>
-                                    Username</label>
-                                <input id="login" ng-model="username" type="text">
-                            </md-input-container>
-
-                            <md-input-container class="input-add-item">
-                                <label>
-                                    <md-icon>lock</md-icon>
-                                    Password</label>
-                                <input ng-model="user.credentials.password" type="password">
-                            </md-input-container>
-                            <md-button class="md-primary md-raised">
-                                Sign in
-                                <md-icon ng-click="sendLogin()">send</md-icon>
-                            </md-button>
-                        </form>-->
             <form>
-                <div class="form-group"
-                     ng-class="{'has-error is-focused' : authenticationError}">
-                    <input id="login" ng-model="username" type="text" class="form-control"
-                           required="required" placeholder="login"/>
-                    <span ng-show="authenticationError" class="help-block">
+                <md-input-container class="input-add-item">
+                    <label>
+                        <md-icon>person</md-icon>
+                        Username</label>
+                    <input id="login" ng-model="username" type="text">
+                </md-input-container>
+
+                <md-input-container class="input-add-item">
+                    <label>
+                        <md-icon>lock</md-icon>
+                        Password</label>
+                    <input ng-model="user.credentials.password" type="password">
+                </md-input-container>
+                <span ng-show="authenticationError" class="help-block">
             Please check your credentials and try again.
         </span>
+                <div layout="row" layout-align="end center">
+                    <md-button class="md-primary md-raised">
+                        Sign in
+                        <md-icon ng-click="login()">send</md-icon>
+                    </md-button>
                 </div>
-
-                <div class="form-group">
-                    <input id="password" ng-model="password" type="password" class="form-control"
-                           required="required" placeholder="password"/>
-                </div>
-
-                <input type="checkbox" ng-model="rememberMe"/><span> Remember me</span>
-
-                <button ng-click="login()">Login</button>
             </form>
         </div>
     </div>
