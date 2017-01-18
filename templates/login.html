@@ -32,9 +32,9 @@
                 </div>
             </form>-->
 
-            <form>
+<!--            <form>
                 <div>
-                    <md-input-container>
+                    <md-input-container class="input-add-item">
                         <input id="login" ng-model="username" type="text" class="form-control"
                                                required="required" placeholder="login"/>
                     </md-input-container>
@@ -44,15 +44,39 @@
                 </div>
 
                 <div>
-                    <md-input-container>
+                    <md-input-container class="input-add-item">
                         <input id="password" ng-model="password" type="password" class="form-control"
                                required="required" placeholder="password"/>
                     </md-input-container>
                 </div>
 
-                <input type="checkbox" ng-model="rememberMe"/><span> Remember me</span>
+                <md-button class="md-primary md-raised" ng-click="login()">Login</md-button>
+            </form>-->
 
-                <md-button ng-click="login()">Login</md-button>
+
+            <form>
+                <md-input-container class="input-add-item">
+                    <label>
+                        <md-icon>person</md-icon>
+                        Username</label>
+                    <input id="login" ng-model="username" type="text">
+                </md-input-container>
+
+                <md-input-container class="input-add-item">
+                    <label>
+                        <md-icon>lock</md-icon>
+                        Password</label>
+                    <input ng-model="user.credentials.password" type="password">
+                </md-input-container>
+                <span ng-show="authenticationError" class="help-block">
+            Please check your credentials and try again.
+        </span>
+                <div layout="row" layout-align="end center">
+                    <md-button ng-click="login()" class="md-primary md-raised">
+                        Sign in
+                        <md-icon>send</md-icon>
+                    </md-button>
+                </div>
             </form>
 
 
