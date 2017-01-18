@@ -259,7 +259,7 @@ app.run(function ($rootScope, $location, $http, AuthSharedService, Session,
         }
     });
 
-    AuthSharedService.getAccount();
+    //AuthSharedService.getAccount();
 });
 
 app.directive('access', [
