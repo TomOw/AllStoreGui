@@ -77,7 +77,7 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
         }
     }
 
-    $scope.showAlert = function (ev) {
+    $scope.showWelcomeAlert = function (ev) {
         // Appending dialog to document.body to cover sidenav in docs app
         // Modal dialogs should fully cover application
         // to prevent interaction outside of dialog
@@ -140,16 +140,16 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
         $mdDialog.show(confirm).then(function () {
         }, function () {
             $scope.hide();
-            $scope.showAdvanced();
+            $scope.showCart();
         });
     };
 
 
-    //$scope.showAlert();
+    //$scope.showWelcomeAlert();
 
 
     //Dialogs
-    $scope.showAdvanced = function (ev) {
+    $scope.showCart = function (ev) {
         $mdDialog.show({
             controller: 'AppCtrl',
             scope: $rootScope,
