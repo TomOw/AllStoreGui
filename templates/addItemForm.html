@@ -45,7 +45,7 @@
 
                 <p>Choose stores</p>
                 <div>
-                    <div ng-repeat="storeName in storeNames">
+                    <div ng-repeat="storeName in storeNames track by $index">
                         <md-checkbox style="margin-left: 25px; width: 300px" ng-checked="exists(storeName, selected)" ng-click="toggle(storeName, selected)">
                             {{ storeName }}
                         </md-checkbox>
