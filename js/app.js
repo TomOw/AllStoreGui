@@ -92,7 +92,7 @@ app.filter('capitalizeFirst', function () {
 app.filter('firstSentence', function () {
     return function (input) {
         if(input != undefined) {
-            return input.split(". ")[0];
+            return input.split(".")[0];
         }
     }
 });
