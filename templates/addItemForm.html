@@ -40,12 +40,12 @@
 
                 <md-input-container class="input-add-item">
                     <label>Description</label>
-                    <textarea ng-model="item.description" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+                    <textarea ng-model="item.description" md-maxlength="10000" rows="5" md-select-on-focus></textarea>
                 </md-input-container>
 
                 <p>Choose stores</p>
                 <div>
-                    <div ng-repeat="storeName in storeNames">
+                    <div ng-repeat="storeName in storeNames track by $index">
                         <md-checkbox style="margin-left: 25px; width: 300px" ng-checked="exists(storeName, selected)" ng-click="toggle(storeName, selected)">
                             {{ storeName }}
                         </md-checkbox>
