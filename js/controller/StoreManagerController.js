@@ -7,7 +7,7 @@ app.controller('StoreManagerController', ['$rootScope', '$scope', '$http', '$rou
 
     var storeName = $routeParams.storeName;
 
-    StoreService.getStore(storeName).then(function (result) {
+    StoreService.getStoreByOwner().then(function (result) {
         $scope.store = result;
     })
         .then(function (result) {

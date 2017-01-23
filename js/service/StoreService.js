@@ -14,6 +14,13 @@ app.service('StoreService', ['$http', function ($http) {
             })
     };
 
+    this.getStoreByOwner = function () {
+        return $http.get(url + '/store/owner')
+            .then(function success(response, status) {
+                return response.data;
+            })
+    };
+
     this.getStoreNames = function () {
         console.log('getStoreNames called');
         return $http.get(url + '/store/allNames')
