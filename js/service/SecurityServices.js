@@ -29,6 +29,11 @@ app.service('AuthSharedService', function ($rootScope, $http, authService, Sessi
 
     return {
         login: function (userName, password, rememberMe) {
+            var data = {
+                username: userName,
+                password: password
+            };
+
             var config = {
                 params: {
                     username: userName,
@@ -37,7 +42,7 @@ app.service('AuthSharedService', function ($rootScope, $http, authService, Sessi
                 },
                 ignoreAuthModule: 'ignoreAuthModule'
             };
-            $http.post(url + '/authenticate', '', config)
+            $http.post(url + '/authenticate', data, config)
                 .success(function (data, status, headers, config) {
                     authService.loginConfirmed(data);
                 }).error(function (data, status, headers, config) {
