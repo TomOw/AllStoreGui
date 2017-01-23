@@ -93,6 +93,22 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
         );
     };
 
+    $scope.showOrderConfirmation = function (ev) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        // Modal dialogs should fully cover application
+        // to prevent interaction outside of dialog
+        $mdDialog.show(
+            $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title('Order Placed')
+                .textContent('Your order has been placed. Thank you')
+                .ariaLabel('Alert Dialog Demo')
+                .ok('OK')
+                .targetEvent(ev)
+        );
+    };
+
     //now unused
     $scope.showAlertAddToCartFailed = function (ev) {
         // Appending dialog to document.body to cover sidenav in docs app
@@ -249,6 +265,11 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
     $rootScope.sendCart = function () {
         console.log('called Send Cart');
         OrderService.sendCart($rootScope.cart);
+        $scope.showOrderConfirmation();
+        $rootScope.cart = {
+            items: []
+        };
+        $location.path('/')
     };
 
     $rootScope.redirectToOrderConfirm = function () {
