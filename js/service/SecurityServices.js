@@ -86,7 +86,7 @@ app.service('AuthSharedService', function ($rootScope, $http, authService, Sessi
         },
 
         checkRole: function (role) {
-            if (Session.userRoles == undefined) {
+            if (Session.userRoles == undefined || Session.userRoles == null) {
                 return false;
             } else {
                 var result = Session.userRoles.indexOf(role);
