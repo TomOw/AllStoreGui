@@ -263,8 +263,8 @@ app.run(function ($rootScope, $location, $http, AuthSharedService, Session,
 });
 
 app.directive('access', [
-    'AuthSharedService',
-    function (AuthSharedService) {
+    'AuthSharedService', 'Session',
+    function (AuthSharedService, Session) {
         return {
             restrict: 'A',
             link: function (scope, element, attrs) {
@@ -273,13 +273,17 @@ app.directive('access', [
                 console.log('attrs');
                 console.log('role' + role);
                 console.log(attrs.access);
-                if (AuthSharedService.checkRole(role)) {
-                    element.removeClass('hide');
-                } else {
+                console.log(Session);
+                if (Session.login.length === 0){
                     element.addClass('hide');
+                } else {
+                    if (AuthSharedService.checkRole(role)) {
+                        element.removeClass('hide');
+                    } else {
+                        element.addClass('hide');
+                    }
                 }
             }
-
         };
     }]);
 
