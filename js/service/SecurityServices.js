@@ -15,8 +15,8 @@ app.service('Session', function () {
         }, this.userRoles);
     };
     this.invalidate = function () {
-        this.login = null;
-        this.userRoles = null;
+        this.login = undefined;
+        this.userRoles = undefined;
     };
     return this;
 });
