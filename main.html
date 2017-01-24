@@ -90,7 +90,7 @@
                     <div>Logged as: {{account.login}}</div>
                     <md-icon ng-click="showCart($event)" class="iconTopNavMaterial">shopping_basket</md-icon>
                     <a ng-href="/#/user/user"><md-icon class="iconTopNavMaterial">person</md-icon></a>
-                    <md-icon ng-show="account.login !=''" ng-click="logout()" class="iconTopNavMaterial">power_settings_new</md-icon>
+                    <md-icon access="ROLE_USER" ng-click="logout()" class="iconTopNavMaterial">power_settings_new</md-icon>
                 </div>
             </div>
         </div>
