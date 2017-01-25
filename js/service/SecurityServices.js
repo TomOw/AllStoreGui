@@ -55,6 +55,7 @@ app.service('AuthSharedService', function ($rootScope, $http, authService, Sessi
             $http.get(url + '/logout')
                 .then(function (response) {
                     Session.invalidate();
+                    $rootScope.authenticated = false;
                 })
         },
 
