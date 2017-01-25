@@ -132,7 +132,7 @@ app.config(function ($routeProvider, USER_ROLES) {
 
 app.filter('capitalizeFirst', function () {
     return function (input) {
-        if(input != undefined) {
+        if (input != undefined) {
             var char = input.charAt(0);
             char = char.toUpperCase();
             return char;
@@ -142,7 +142,7 @@ app.filter('capitalizeFirst', function () {
 
 app.filter('firstSentence', function () {
     return function (input) {
-        if(input != undefined) {
+        if (input != undefined) {
             return input.split(". ")[0];
         }
     }
@@ -150,7 +150,7 @@ app.filter('firstSentence', function () {
 
 app.filter('postalCode', function () {
     return function (input) {
-        if(input != undefined) {
+        if (input != undefined) {
             return input.substring(0, 2) + '-' + input.substring(2, 5);
         }
     }
@@ -274,14 +274,10 @@ app.directive('access', [
                 console.log('role' + role);
                 console.log(attrs.access);
                 console.log(Session);
-                if (Session.login.length === 0){
-                    element.addClass('hide');
+                if (AuthSharedService.checkRole(role)) {
+                    element.removeClass('hide');
                 } else {
-                    if (AuthSharedService.checkRole(role)) {
-                        element.removeClass('hide');
-                    } else {
-                        element.addClass('hide');
-                    }
+                    element.addClass('hide');
                 }
             }
         };

@@ -87,16 +87,13 @@ app.service('AuthSharedService', function ($rootScope, $http, authService, Sessi
         },
 
         checkRole: function (role) {
-            if (Session.userRoles === undefined || Session.userRoles === null) {
+            var result = Session.userRoles.indexOf(role);
+            if (result == -1) {
                 return false;
             } else {
-                var result = Session.userRoles.indexOf(role);
-                if (result == -1) {
-                    return false;
-                } else {
-                    return true;
-                }
+                return true;
             }
+
         }
     };
 });
