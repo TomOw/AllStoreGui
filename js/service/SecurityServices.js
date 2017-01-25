@@ -15,13 +15,13 @@ app.service('Session', function () {
         }, this.userRoles);
     };
     this.invalidate = function () {
-        this.login = undefined;
-        this.userRoles = undefined;
+        this.login = null;
+        this.userRoles = null;
     };
     return this;
 });
 
-app.service('AuthSharedService', function ($rootScope, $http, authService, Session) {
+app.service('AuthSharedService', function ($rootScope, $http, $route, authService, Session) {
 
     var url = 'http://85.255.8.105:8080';
 
@@ -56,6 +56,7 @@ app.service('AuthSharedService', function ($rootScope, $http, authService, Sessi
                 .then(function (response) {
                     Session.invalidate();
                     $rootScope.authenticated = false;
+                    $route.reload();
                 })
         },
 
