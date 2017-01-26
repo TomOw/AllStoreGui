@@ -135,7 +135,7 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
             .ariaLabel('Lucky day')
             .targetEvent(ev)
             .ok('OK')
-            .cancel(storename + 'store page');
+            .cancel(storename + ' store page');
 
         $mdDialog.show(confirm).then(function () {
         }, function () {
