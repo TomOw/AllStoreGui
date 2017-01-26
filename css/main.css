@@ -227,3 +227,20 @@ a:hover, a:visited, a:link, a:active {
     outline: none;
     border: 0;
 }
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding-left: 1em;
+    text-indent: -.7em;
+}
+
+li::before {
+    padding-right: 10px;
+    content: "\002022";
+    color: #009688; /* or whatever color you prefer */
+}

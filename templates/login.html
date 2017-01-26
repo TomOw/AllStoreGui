@@ -3,7 +3,11 @@
 
         <div flex="100" flex-gt-xs="66" flex-gt-sm="50" flex-gt-md="33" layout="column" style="padding: 25px 25px 0;"
              md-whiteframe="10">
-            <div class="price teal-text" layout="row" layout-align="center center">Sign in</div>
+            <div class="price teal-text" layout="row" layout-align="center center">
+                Sign in
+                <md-button ng-click="infoDialog($event)" class="md-fab md-mini md-primary">
+                    <md-icon>info</md-icon>
+                </md-button></div>
             <!--<form>
                 <md-input-container class="input-add-item">
                     <label>
@@ -69,9 +73,10 @@
                     <input ng-model="password" type="password">
                 </md-input-container>
                 <span ng-show="authenticationError" class="help-block">
-            Please check your credentials and try again.
+            Wrong credentials. For more information click <md-icon>info</md-icon>
         </span>
                 <div layout="row" layout-align="end center">
+
                     <input type="submit" style="position: absolute; left: -9999px">
                         <md-button ng-click="login()" class="md-primary md-raised">
                             Sign in
