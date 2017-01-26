@@ -87,16 +87,21 @@
             <div flex="33" hide show-gt-sm layout="row" layout-align="end center">
                 <div style="padding-right: 25px">
                     <!--<img style="height: 75px; margin-right: 25px" src="http://icons.iconarchive.com/icons/iconsmind/outline/512/Full-Basket-icon.png"/>-->
-                    <div ng-show="authenticated">Logged as: {{account.login}}</div>
+                    <div layout="row" layout-align="end center">
+                        <div ng-show="authenticated">Logged as: {{account.login}}</div>
+                    </div>
                     <md-icon ng-click="showCart($event)" class="iconTopNavMaterial">shopping_basket</md-icon>
-                    <a ng-href="/#/user/user"><md-icon class="iconTopNavMaterial">person</md-icon></a>
-                    <md-icon ng-show="authenticated" ng-click="logout()" class="iconTopNavMaterial">power_settings_new</md-icon>
+                    <a ng-href="/#/user/user">
+                        <md-icon class="iconTopNavMaterial">person</md-icon>
+                    </a>
+                    <md-icon ng-show="authenticated" ng-click="logout()" class="iconTopNavMaterial">power_settings_new
+                    </md-icon>
                 </div>
             </div>
         </div>
 
 
-        <div ng-init="showWelcomeAlert($event)" >
+        <div ng-init="showWelcomeAlert($event)">
             <ng-view style="width: 100%"></ng-view>
         </div>
 
