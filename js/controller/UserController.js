@@ -13,7 +13,7 @@ app.controller('UserController', ['$rootScope', '$scope', '$routeParams', 'Order
 
     $scope.user.orders = {};
 
-    UserService.getUser(username).then(function (result) {
+    UserService.getLoggedInUser().then(function (result) {
         $scope.user = result;
     });
 
