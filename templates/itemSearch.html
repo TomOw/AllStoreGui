@@ -11,9 +11,6 @@
                             md-whiteframe="4">
 
                     <md-content flex="100" layout-padding ng-controller="LeftCtrl" style="padding: 0">
-                        <md-button ng-click="close()" class="md-primary" hide-gt-sm>
-                            Close Sidenav Left
-                        </md-button>
                         <a href="/#/info" class="md-button md-ink-ripple side-nav-element">
                             <md-icon>info_outline</md-icon>
                             About
@@ -21,6 +18,10 @@
                         <a href="/#/" class="md-button md-ink-ripple side-nav-element">
                             <md-icon>home</md-icon>
                             Home page
+                        </a>
+                        <a access="ROLE_USER" hide-gt-sm href="" class="md-button md-ink-ripple side-nav-element" ng-click="logout()">
+                            <md-icon>power_settings_new</md-icon>
+                            Logout
                         </a>
                         <a access="ROLE_MANAGER" href="/#/store/manager/Apple" class="md-button md-ink-ripple side-nav-element">
                             <md-icon>store_mall_directory</md-icon>
@@ -33,10 +34,6 @@
                         <a hide-gt-sm href="" class="md-button md-ink-ripple side-nav-element" ng-click="showCart($event)">
                             <md-icon>shopping_basket</md-icon>
                             Cart
-                        </a>
-                        <a access="ROLE_USER" hide-gt-sm href="" class="md-button md-ink-ripple side-nav-element" ng-click="logout()">
-                            <md-icon>power_settings_new</md-icon>
-                            Logout
                         </a>
                         <a hide-gt-sm ng-href="/#/user/user" class="md-button md-ink-ripple side-nav-element" ng-click="">
                             <md-icon ng-click="">person</md-icon>

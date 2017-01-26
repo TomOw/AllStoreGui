@@ -135,7 +135,7 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
             .ariaLabel('Lucky day')
             .targetEvent(ev)
             .ok('OK')
-            .cancel('Show items from ' + storename);
+            .cancel(storename + 'store page');
 
         $mdDialog.show(confirm).then(function () {
         }, function () {
@@ -230,6 +230,7 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
             angular.copy(item, itemToPush);
             $rootScope.cart.items.push(itemToPush);
             $rootScope.cart.sum += item.price;
+            $scope.showAddedToCartInfo();
         } else {
             console.log('this item does not belong to store');
             $scope.showAlertAddToCartFailedConfirm();

@@ -16,7 +16,11 @@
                         <md-icon>home</md-icon>
                         Home page
                     </a>
-                    <a href="/#/addItem" class="md-button md-ink-ripple side-nav-element">
+                    <a access="ROLE_USER" hide-gt-sm href="" class="md-button md-ink-ripple side-nav-element" ng-click="logout()">
+                        <md-icon>power_settings_new</md-icon>
+                        Logout
+                    </a>
+                    <a access="ROLE_ADMIN" href="/#/addItem" class="md-button md-ink-ripple side-nav-element">
                         <md-icon>add</md-icon>
                         Add Product
                     </a>
@@ -24,6 +28,10 @@
                        ng-click="showCart($event)">
                         <md-icon>shopping_basket</md-icon>
                         Cart
+                    </a>
+                    <a hide-gt-sm ng-href="/#/user/user" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                        <md-icon ng-click="">person</md-icon>
+                        Your Profile
                     </a>
                     <md-divider style="padding: 0; margin: 0"></md-divider>
                     <p style="margin: 0; padding-left: 10px; font-weight: 500; font-size: 14px; text-transform: uppercase;">Categories: </p>

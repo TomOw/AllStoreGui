@@ -17,6 +17,18 @@
                             <md-icon>home</md-icon>
                             Home page
                         </a>
+                        <a access="ROLE_USER" hide-gt-sm href="" class="md-button md-ink-ripple side-nav-element" ng-click="logout()">
+                            <md-icon>power_settings_new</md-icon>
+                            Logout
+                        </a>
+                        <a hide-gt-sm href="" class="md-button md-ink-ripple side-nav-element" ng-click="showCart($event)">
+                            <md-icon>shopping_basket</md-icon>
+                            Cart
+                        </a>
+                        <a hide-gt-sm ng-href="/#/user/user" class="md-button md-ink-ripple side-nav-element" ng-click="">
+                            <md-icon ng-click="">person</md-icon>
+                            Your Profile
+                        </a>
 
                     </md-content>
 
