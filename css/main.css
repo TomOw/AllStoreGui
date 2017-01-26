@@ -140,6 +140,10 @@ a:hover, a:visited, a:link, a:active {
     color: #009688;
 }
 
+.red-text {
+    color: #F44336;
+}
+
 .search-input {
     height: 75px;
     padding-left: 50px;
@@ -213,4 +217,13 @@ a:hover, a:visited, a:link, a:active {
 .no-in-store {
     font-size: 35px;
     font-weight: 200;
+}
+
+.large-icon {
+    font-size: 60px;
+    height: 60px;
+    width: 60px;
+    vertical-align: middle;
+    outline: none;
+    border: 0;
 }

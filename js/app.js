@@ -126,7 +126,7 @@ app.config(function ($routeProvider, USER_ROLES) {
             templateUrl: 'templates/info.html'
         })
         .otherwise({
-            template: '<h1>otherwise template 404</h1>'
+            templateUrl: 'templates//error404.html'
         })
 });
 
