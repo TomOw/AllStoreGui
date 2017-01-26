@@ -21,4 +21,11 @@ app.service('OrderService', ['$http', function ($http) {
             })
     };
 
+    this.getOrdersByLoggedUser = function () {
+        return $http.get(url + '/order/get/loggedUser')
+            .then(function success(response, status) {
+                return response.data;
+            });
+    }
+
 }]);

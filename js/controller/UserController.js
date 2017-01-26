@@ -17,7 +17,7 @@ app.controller('UserController', ['$rootScope', '$scope', '$routeParams', 'Order
         $scope.user = result;
     });
 
-    OrderService.getOrdersByUsername(username).then(function (result) {
+    OrderService.getOrdersByLoggedUser().then(function (result) {
         $scope.user.orders = result;
     });
 
