@@ -86,5 +86,14 @@ app.service('ItemService', ['$http', function ($http) {
             })
     };
 
+    this.getRandomItems = function (count) {
+        return $http.get(url + '/item/random', {
+            params: {count: count}
+        })
+            .then(function success(response, status) {
+                return response.data;
+            });
+    };
+
 
 }]);
