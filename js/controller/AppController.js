@@ -16,8 +16,10 @@ app.controller('AppCtrl', ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$m
 
     $scope.getItemsByName = function () {
         $location.path('/');
+        //$scope.items = [];
         ItemService.getItemsByName($scope.itemName).then(function (result) {
-            $scope.items = result;
+            console.log(result);
+            $rootScope.items = result;
         })
     };
 

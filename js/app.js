@@ -269,11 +269,6 @@ app.directive('access', [
             restrict: 'A',
             link: function (scope, element, attrs) {
                 var role = attrs.access;
-                console.log(attrs);
-                console.log('attrs');
-                console.log('role' + role);
-                console.log(attrs.access);
-                console.log(Session);
                 if (AuthSharedService.checkRole(role)) {
                     element.removeClass('hide');
                 } else {

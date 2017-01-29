@@ -16,8 +16,11 @@ app.controller('ItemSearchController', ['$rootScope', '$scope', 'ItemService', '
         $scope.categories = result;
     });
 
-    ItemService.getRandomItems(5).then(function (result) {
-        $scope.items = result;
-    });
+    $scope.getRandomItems = function () {
+        console.log('called getting random');
+        ItemService.getRandomItems(5).then(function (result) {
+            $rootScope.items = result;
+        });
+    }
 
 }]);
