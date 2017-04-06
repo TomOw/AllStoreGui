@@ -1,6 +1,4 @@
-/**
- * Created by Tomasz on 07.11.2016.
- */
+
 
 app.controller('StoreController', ['$rootScope', '$scope', '$http', '$routeParams', 'StoreService', function ($rootScope, $scope, $http, $routeParams, StoreService) {
 

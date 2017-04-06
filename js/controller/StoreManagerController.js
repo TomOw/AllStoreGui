@@ -1,6 +1,4 @@
-/**
- * Created by Tomasz on 13.12.2016.
- */
+
 app.controller('StoreManagerController', ['$rootScope', '$scope', '$http', '$routeParams', '$location', '$mdDialog', 'StoreService', 'ItemService', function ($rootScope, $scope, $http, $routeParams, $location, $mdDialog, StoreService, ItemService) {
 
     $rootScope.pageHasSideNav = true;

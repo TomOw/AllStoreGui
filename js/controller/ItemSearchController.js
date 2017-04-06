@@ -1,6 +1,4 @@
-/**
- * Created by Tomasz on 30.11.2016.
- */
+
 app.controller('ItemSearchController', ['$rootScope', '$scope', 'ItemService', 'StoreService', '$mdDialog', function ($rootScope, $scope, ItemService, StoreService, $mdDialog) {
 
     $scope.works = 'it works so much';

@@ -1,6 +1,3 @@
-/**
- * Created by Tomasz on 08.11.2016.
- */
 
 app.controller('ItemFormController', ['$rootScope', '$scope', '$http', '$mdDialog', 'ItemService', 'StoreService', function ($rootScope, $scope, $http, $mdDialog, ItemService, StoreService) {
 

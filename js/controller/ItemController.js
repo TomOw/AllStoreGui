@@ -1,6 +1,4 @@
-/**
- * Created by Tomasz on 19.11.2016.
- */
+
 app.controller('ItemController', ['$rootScope', '$scope', '$http', '$routeParams', 'ItemService', 'ReviewService' ,'$mdDialog', function ($rootScope, $scope, $http, $routeParams, ItemService, ReviewService, $mdDialog) {
 
     $rootScope.pageHasSideNav = false;

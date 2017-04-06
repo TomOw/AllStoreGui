@@ -1,6 +1,4 @@
-/**
- * Created by Tomasz on 02.12.2016.
- */
+
 app.controller('ItemCategorySearchController', ['$rootScope', '$scope', '$routeParams', 'ItemService', 'StoreService', function ($rootScope, $scope, $routeParams, ItemService, StoreService) {
 
     $rootScope.pageHasSideNav = true;

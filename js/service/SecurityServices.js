@@ -1,6 +1,4 @@
-/**
- * Created by Tomasz on 15.12.2016.
- */
+
 app.service('Session', function () {
 
     var url = 'http://85.255.8.105:8080';

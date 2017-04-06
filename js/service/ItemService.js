@@ -1,6 +1,4 @@
-/**
- * Created by Tomasz on 16.11.2016.
- */
+
 app.service('ItemService', ['$http', function ($http) {
 
     //var url = 'http://localhost:8080';

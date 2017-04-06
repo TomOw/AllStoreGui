@@ -1,6 +1,4 @@
-/**
- * Created by Tomasz on 29.12.2016.
- */
+
 app.controller('UserController', ['$rootScope', '$scope', '$routeParams', 'OrderService', 'UserService', function ($rootScope, $scope, $routeParams, OrderService, UserService) {
 
     var username = $routeParams.username;

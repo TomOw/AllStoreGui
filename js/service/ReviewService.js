@@ -1,6 +1,4 @@
-/**
- * Created by Tomasz on 22.11.2016.
- */
+
 app.service('ReviewService', ['$http', function ($http) {
 
     //var url = 'http://localhost:8080';
